@@ -4,6 +4,7 @@ public class slicesplice {
     public static void main(String[] args) {
         spliceAndSlice(new int[] {1, 2, 3}, new int[] {4, 5}, 1);
         //frankenSplice([1, 2, 3], [4, 5], 1)
+        //frankenSplice([1, 2, 3], [4, 5, 6], 1);
     }
 
     public static void spliceAndSlice(int[] arr1, int[] arr2, int n) {
