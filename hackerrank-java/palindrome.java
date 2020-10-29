@@ -11,6 +11,8 @@ public class Solution {
        System.out.println( A.equals( new StringBuilder(A).reverse().toString()) 
         ? "Yes" : "No" );
     }
+    //hi
+    //hello
 }
 
 
