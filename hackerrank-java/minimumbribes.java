@@ -11,20 +11,18 @@ public class Solution {
     // Complete the minimumBribes function below.
     static void minimumBribes(int[] q) {
         int swaps = 0;
-        for(int i=0; i< q.length; i++){
-            if((q[i] - (i+1)) > 2){
-                System.out.println("Too chaotic");
-                return; 
-            } 
-            for (int j = i+1; j < q.length; j++) {
-                if(q[i] > q[j]) {
-                    swaps++;
-                    }
+        for(int i=q.length-1;i>=0;i--){
+            int ch_pos = q[i]-(i+1);
+            if(ch_pos>2) { System.out.println("Too chaotic");
+            return; }
+            else{
+                int st = Math.max(0,q[i]-2);
+                for(int j=st;j<i;j++){
+                    if(q[j]>q[i]) swaps++;
                 }
-            
+            }
         }
-        System.out.println(swaps);
-
+        System.out.println(ans);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
