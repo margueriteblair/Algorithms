@@ -13,12 +13,6 @@ public class Solution {
         String[] actualDate = actualReturn.split(" ");
         String[] expectedDate = expectedReturn.split(" ");
 
-        for (String date : actualDate) {
-            Integer.parseInt(date);
-        }
-        for (String date : expectedDate) {
-            Integer.parseInt(date);
-        }
 
         if (Integer.parseInt(actualDate[2]) - Integer.parseInt(expectedDate[2]) == 0) {
             if (Integer.parseInt(actualDate[1]) - Integer.parseInt(expectedDate[1]) == 0) {
