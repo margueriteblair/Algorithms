@@ -10,8 +10,6 @@ public class Solution {
 
     // Complete the alternatingCharacters function below.
     static int alternatingCharacters(String s) {
-        int aCount = 0;
-        int bCount = 0;
         int deleteCount = 0;
         String[] strArr = s.split("");
         for (int i = 0; i < strArr.length - 1; i++) {
