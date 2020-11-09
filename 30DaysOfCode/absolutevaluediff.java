@@ -13,8 +13,9 @@ public class Solution {
         Arrays.sort(arr);
         int absDifference = Math.abs(arr[1]-arr[0]);
         for (int count = 0; count < arr.length-1; count++) {
-            if (Math.abs(arr[count+1]-arr[count]) < absDifference) {
-                absDifference = Math.abs(arr[count+1]-arr[count]);
+            int currDiff = Math.abs(arr[count+1]-arr[count]);
+            if (currDiff < absDifference) {
+                absDifference = currDiff;
             } 
         }
         return absDifference;
