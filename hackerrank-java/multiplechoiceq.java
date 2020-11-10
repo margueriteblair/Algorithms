@@ -10,3 +10,13 @@ try {
 } catch (NumberFormatException e) {
     System.out.println("Bad number");
 }
+
+//what will the following code print out?
+//ans: 8 7 because it's octal notation, just like hex or binary
+//the leading 0 indicates that it's octal
+int i = 010;
+int j = 07;
+System.out.println(i);
+System.out.println(j);
+
+
