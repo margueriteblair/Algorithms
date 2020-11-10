@@ -1,6 +1,6 @@
 
 //what will this code block return?
-//ans: 9.0, mixed type arithmetic does not need to be casted, it is automatically converted to a double 
+//ans: 9.0, mixed type arithmetic does not need to be casted explicitly, it is automatically converted to a double  
 try {
     Float f1 = new Float("3.0");
     int a = f1.intValue();
