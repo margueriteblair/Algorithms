@@ -16,13 +16,13 @@ public class Solution {
         //now we set up a while loop, that'll run while it's still iterating through the array
         int i = 0;
         while (i < x.length) {
-            int iCopy = i;
-            while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
-                i++;
-            }
-            iCopy = i;
-            while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
-                i++;
+            
+            for (int j = 0; j < 2; j++) {
+                int iCopy = i;
+                while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
+                    i++;
+                }
+                iCopy = i;
             }
             transmitterCount++;
             i++;
