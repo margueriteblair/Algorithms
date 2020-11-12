@@ -12,20 +12,22 @@ public class Solution {
     static int hackerlandRadioTransmitters(int[] x, int k) {
         int transmitterCount = 0;
         Arrays.sort(x);
+        //first we sort the array
+        //now we set up a while loop, that'll run while it's still iterating through the array
         int i = 0;
         while (i < x.length) {
+            int iCopy = i;
+            while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
+                i++;
+            }
+            iCopy = i;
+            while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
+                i++;
+            }
             transmitterCount++;
-            int leftStartingPoint = i;
-            while ((i + 1 < x.length) && (x[i+1] - x[leftStartingPoint] <= k)) {
-                i++;
-            }
-            int middlePoint = i;
-            while ((i + 1 < x.length) && (x[i+1] - x[middlePoint] <= k)) {
-                i++;
-            }
             i++;
         }
-       return transmitterCount;
+        return transmitterCount;
 
 
 
