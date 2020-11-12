@@ -19,4 +19,10 @@ int j = 07;
 System.out.println(i);
 System.out.println(j);
 
+//which of the following data structures can erase from its beginning or its end in O(1) time?
+//a-vector b-deque c-stack d-segment tree
+//answer: stack
+
+
+
 
