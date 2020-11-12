@@ -15,14 +15,13 @@ public class Solution {
         //first we sort the array
         //now we set up a while loop, that'll run while it's still iterating through the array
         int i = 0;
-        while (i < x.length) {
-            
+        while (i < x.length) {            
             for (int j = 0; j < 2; j++) {
-                int iCopy = i;
-                while ((i + 1 < x.length) && (x[i+1] - x[iCopy] <= k)) {
+                int point = i;
+                while ((i + 1 < x.length) && (x[i+1] - x[point] <= k)) {
                     i++;
                 }
-                iCopy = i;
+                point = i;
             }
             transmitterCount++;
             i++;
@@ -64,3 +63,4 @@ public class Solution {
         scanner.close();
     }
 }
+
