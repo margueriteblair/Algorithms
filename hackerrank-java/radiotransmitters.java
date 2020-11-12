@@ -12,8 +12,7 @@ public class Solution {
     static int hackerlandRadioTransmitters(int[] x, int k) {
         int transmitterCount = 0;
         Arrays.sort(x);
-        //first we sort the array
-        //now we set up a while loop, that'll run while it's still iterating through the array
+
         int i = 0;
         while (i < x.length) {            
             for (int j = 0; j < 2; j++) {
@@ -21,14 +20,11 @@ public class Solution {
                 while ((i + 1 < x.length) && (x[i+1] - x[point] <= k)) {
                     i++;
                 }
-                point = i;
             }
             transmitterCount++;
             i++;
         }
         return transmitterCount;
-
-
 
     }
 
@@ -63,4 +59,5 @@ public class Solution {
         scanner.close();
     }
 }
+
 
