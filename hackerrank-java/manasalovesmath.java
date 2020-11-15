@@ -11,10 +11,9 @@ public class Solution {
     static String solve(String n) {
         generatePermutation(n, 0, n.length());
         System.out.println(permList);
-        for (String num : permList) {
-            if (Integer.parseInt(num) % 8 == 0) {
-                return "YES";
-            }
+        if (permList.size() > 0) {
+            permList.clear();
+            return "YES";
         }
         return "NO";
 }
@@ -29,7 +28,7 @@ public class Solution {
     
     public static void generatePermutation(String str, int start, int end) {  
         //Prints the permutations  
-        if (start == end-1) {
+        if (start == end-1 && Integer.parseInt(str) % 8 == 0) {
             permList.add(str); 
         } else {  
             for (int i = start; i < end; i++) {  
@@ -65,3 +64,4 @@ public class Solution {
         scanner.close();
     }
 }
+
