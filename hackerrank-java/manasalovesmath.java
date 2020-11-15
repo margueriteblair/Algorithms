@@ -5,10 +5,18 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Solution {
+    static List<String> permList = new ArrayList<>();
 
     // Complete the solve function below.
     static String solve(String n) {
-        return generatePermutation(n, 0, n.length());
+        generatePermutation(n, 0, n.length());
+        System.out.println(permList);
+        for (String num : permList) {
+            if (Integer.parseInt(num) % 8 == 0) {
+                return "YES";
+            }
+        }
+        return "NO";
 }
     public static String swapString(String a, int i, int j) {  
         char[] b =a.toCharArray();  
@@ -19,18 +27,17 @@ public class Solution {
         return String.valueOf(b);  
     } 
     
-    public static String generatePermutation(String str, int start, int end) {  
+    public static void generatePermutation(String str, int start, int end) {  
         //Prints the permutations  
         if (start == end-1) {
-            System.out.println(str);
-            return str;   
+            permList.add(str); 
         } else {  
             for (int i = start; i < end; i++) {  
                 str = swapString(str,start,i);  
                 generatePermutation(str,start+1,end);  
                 str = swapString(str,start,i);  
             } 
-            return "hello world"; 
+ 
         }  
     }  
 
