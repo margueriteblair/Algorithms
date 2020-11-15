@@ -3,6 +3,7 @@ import java.math.*;
 import java.text.*;
 import java.util.*;
 import java.util.regex.*;
+import java.math.BigInteger; 
     
 
 
@@ -11,7 +12,10 @@ public class manasalovesmaths2 {
 
     public static void main(String[] args) {
         System.out.println(solve("78")); //this is correct
-        System.out.println(solve("344447401973121441077768855432158702762861375430"));
+        var A = new BigInteger("344447401973121441077768855432158702762861375430");
+        System.out.println(A.remainder(new BigInteger("8")));
+        // A.remainder(8);
+        // System.out.println(solve("344447401973121441077768855432158702762861375430"));
         // System.out.println(solve("684235100752110815577359844276924659182357568871521286361018621208416841520627779"));
 
     }
