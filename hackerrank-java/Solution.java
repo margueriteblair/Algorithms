@@ -10,6 +10,8 @@ public class Solution {
         left[0] = 1;
         left[n-1] = 1;
         right[n-1] = 1;
+        ArrayList<Integer> leftList = new ArrayList<>(Collections.nCopies(arr.length,1));
+        ArrayList<Integer> rightRight = new ArrayList<>(Collections.nCopies(arr.length,1));
         
         for (int i = 1; i < n; i++) {
             if (arr[i] > arr[i-1]) {
@@ -30,8 +32,8 @@ public class Solution {
         for (int i = 0; i < arr.length; i++) {
             total += Math.max(left[i], right[i]);
         }
-        // System.out.println(Arrays.toString(left));
-        // System.out.println(Arrays.toString(right));
+        System.out.println(leftList);
+        System.out.println(rightRight);
         return total;
     }
 
