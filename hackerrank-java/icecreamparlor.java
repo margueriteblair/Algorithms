@@ -49,3 +49,18 @@ public class Solution {
         scanner.close();
     }
 }
+
+static void solve(int[] arr, int money) {
+    // Complete this function
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for(int i = 0; i < arr.length; i++){
+       int target = money-arr[i];
+        if(arr[i] < money){
+            if(map.containsKey(target))
+                System.out.println(map.get(target) + " " + (i+1));
+                break;
+            else
+                map.put(arr[i], i+1);
+        }
+    }
+}
