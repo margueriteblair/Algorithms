@@ -30,17 +30,22 @@ public class Solution {
         for (int i = 0; i < arr.length; i++) {
             total += Math.max(left[i], right[i]);
         }
-        System.out.println(total);
+        // System.out.println(Arrays.toString(left));
+        // System.out.println(Arrays.toString(right));
         return total;
     }
 
     public static void main(String[] args) {
-        int[] arg = new int[100000];
-        for (int i = 1; i <= 100000; i++) {
+        int[] arg = new int[1000000];
+        int otherSum = 0;
+        for (int i = 1; i <= 1000000; i++) {
             arg[i-1] = i;
+            otherSum += i;
         }
-
-        System.out.println(candies(100000, arg));
+        System.out.println(otherSum);
+        System.out.println(candies(1000000, arg));
     }
 }
 //5000050000
+//1784293664
+//705082704
