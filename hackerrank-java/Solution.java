@@ -1,51 +1,45 @@
 import java.util.*;
 
 public class Solution {
-
-    static long candies(int n, int[] arr) {
-        int total = 0;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        right[0] = 1;
-        left[0] = 1;
-        left[n-1] = 1;
-        right[n-1] = 1;
-        ArrayList<Integer> leftList = new ArrayList<>(Collections.nCopies(arr.length,1));
-        ArrayList<Integer> rightRight = new ArrayList<>(Collections.nCopies(arr.length,1));
-        
-        for (int i = 1; i < n; i++) {
-            if (arr[i] > arr[i-1]) {
-                left[i] = left[i-1] + 1;
+    static String isValid(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
             } else {
-                left[i] = 1;
+                map.put(s.charAt(i), 1);
             }
+        }    
+        Map<Integer, Integer> counts = new HashMap<>();
+        for (Integer num : map.values()) {
+            int value = counts.get(num) == null ? 0 : counts.get(num);
+            counts.put(num, value+1);
         }
-        
-        for (int i = n-2; i >= 0; i--) {
-            if (arr[i] > arr[i+1]) {
-                right[i] = right[i+1] + 1;
-            } else {
-                right[i] = 1;
+        if (counts.size() == 1) {
+            return "YES";
+        } else if (counts.size() > 2) {
+            return "NO";
+        } else if (counts.size() == 2) {
+            Iterator<Integer> it = counts.keySet().iterator();
+            ArrayList<Integer> twoVals = new ArrayList<>();
+            for (Integer num : counts.values()) {
+                twoVals.add(num);
             }
-        }                
-        
-        for (int i = 0; i < arr.length; i++) {
-            total += Math.max(left[i], right[i]);
+            Collections.sort(twoVals);
+            System.out.println(twoVals);
+            if (twoVals.get(0) != 1) {
+                return "NO";
+            } else if (twoVals.get(0) == 1 && twoVals.get(1) == 2) {
+                return "NO";
+            }              
         }
-        System.out.println(leftList);
-        System.out.println(rightRight);
-        return total;
+        return "YES";
     }
 
     public static void main(String[] args) {
-        int[] arg = new int[1000000];
-        int otherSum = 0;
-        for (int i = 1; i <= 1000000; i++) {
-            arg[i-1] = i;
-            otherSum += i;
-        }
-        System.out.println(otherSum);
-        System.out.println(candies(1000000, arg));
+        
+        System.out.println(isValid("aaaabbcc"));
+        System.out.println(isValid("aaaaabc"));
     }
 }
 //5000050000
