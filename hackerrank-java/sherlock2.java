@@ -53,3 +53,34 @@ static String isValid(String s) {
         scanner.close();
     }
 }
+
+static String isValid(String s) {
+
+    Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
+            } else {
+                map.put(s.charAt(i), 1);
+            }
+        }
+        ArrayList<Integer> lettersCount = new ArrayList<>();
+        for (int count : map.values()) {
+            lettersCount.add(count);
+        }
+        Collections.sort(lettersCount);
+        
+        System.out.println(lettersCount);  
+        int minRepeat = lettersCount.get(0);
+        int maxRepeat = lettersCount.get(lettersCount.size()-1);
+        if (minRepeat == maxRepeat) {
+            return "YES";
+        } else {
+            if ((maxRepeat-minRepeat == 1) && (maxRepeat > lettersCount.get(lettersCount.size()-2))) {
+                return "YES";
+            } else if ((minRepeat == 1) && (lettersCount.get(1) == maxRepeat)) {
+                return "YES";
+            }
+        }
+        return "NO";
+}
