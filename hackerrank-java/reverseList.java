@@ -2,7 +2,7 @@ import java.util.*;
 
 public class reverseList {
     public static void main(String[] args) {
-        reverse(List.of(15, 22, 11, 9, 4));
+        System.out.println(reverse(List.of(15, 22, 11, 9, 4)));
     }
 
     public static List<Integer> reverse(List<Integer> arr) {
@@ -13,9 +13,9 @@ public class reverseList {
             intArr[i] = intArr[intArr.length-1-i];
             intArr[intArr.length-1-i] = temp;
         }
-        System.out.println(Arrays.toString(intArr));
+        // System.out.println(Arrays.toString(intArr));
 
-        return List.of(1, 2, 4);
+        return Arrays.asList(intArr);
         
     }
 }
