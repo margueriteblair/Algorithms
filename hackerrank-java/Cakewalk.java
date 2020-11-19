@@ -12,6 +12,24 @@ public class Cakewalk {
         }
     }
 
+    public static int run(Integer[] calorie) {
+        heapPermutation(calorie, calorie.length, calorie.length);
+        //loop through the subarrays and figure out which has the minimum
+        
+        List<Integer> nums = new ArrayList<>();
+        for (int j = 0; j < permList.size(); j++) {
+            int minMiles = 0;
+            for (int i = 0; i < permList.get(j).length; i++) {
+            System.out.println(Arrays.toString(permList.get(j)));
+            minMiles += permList.get(j)[i] * Math.pow(2, i);
+            }
+            nums.add(minMiles);
+        }
+        Collections.sort(nums);
+        // System.out.println(permList);
+        return nums.get(0);
+    }
+
     static void heapPermutation(Integer[] arr, Integer size, Integer n) {
         if (size == 1) {
             Integer[] copy = new Integer[arr.length];
