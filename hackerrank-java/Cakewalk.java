@@ -51,3 +51,15 @@ public class Cakewalk {
         }
     }
 }
+
+//second cakewalk algo that relies on a simple array sort and then a sum lol
+static long marcsCakewalk(Integer[] calorie) {
+    Arrays.sort(calorie);
+    System.out.println(Arrays.toString(calorie));
+    int minMiles = 0;
+    for (int i = calorie.length -1; i >= 0; i--) {
+        System.out.println(calorie[i] + " " + (calorie.length-1-i));
+        minMiles += calorie[i]*Math.pow(2, (calorie.length-1-i));
+    }
+    return minMiles;
+}
