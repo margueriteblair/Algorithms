@@ -1,0 +1,35 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Cakewalk {
+    private static List<Integer[]> permList = new ArrayList<>();
+
+    public static void main(String[] args) {
+        heapPermutation(new Integer[] {1, 3, 2}, 3, 3);
+        for (Integer[] array : permList) {
+            System.out.println(Arrays.toString(array));
+        }
+    }
+
+    static void heapPermutation(Integer[] arr, Integer size, Integer n) {
+        if (size == 1) {
+            Integer[] copy = new Integer[arr.length];
+            copy = arr.clone();
+            permList.add(copy);
+            // System.out.println(Arrays.toString(arr));
+        }
+        for (int i = 0; i < size; i++) {
+            heapPermutation(arr, size-1, n);
+            if (size % 2 == 0) {
+            int temp = arr[0];
+            arr[0] = arr[size-1];
+            arr[size-1] = temp;
+        } else {
+            int temp = arr[i];
+            arr[i] = arr[size-1];
+            arr[size-1] = temp;
+        }
+        }
+    }
+}
