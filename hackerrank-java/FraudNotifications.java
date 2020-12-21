@@ -20,8 +20,8 @@ public class FraudNotifications {
 
         return notifications;
     }
-
-    static int activityNotifications(int[] expenditure, int d) {;
+//SECOND METHOD!!!!
+    static int activityNotifications2(int[] expenditure, int d) {;
 
         int notificationCount = 0;
 
