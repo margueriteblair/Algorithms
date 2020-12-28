@@ -68,3 +68,31 @@ static String isValid(String s) {
     }
 }
 
+
+public class Solution {
+
+    // Complete the isValid function below.
+    static String isValid(String s) {
+        HashMap<Character, Integer> countMap = new HashMap<>();
+        if (s.length() == 1) return "YES";
+        for (int i = 0; i < s.length(); i++) {
+            if (!countMap.containsKey(s.charAt(i))) {
+                countMap.put(s.charAt(i), 1);
+            } else {
+                countMap.put(s.charAt(i), countMap.get(s.charAt(i))+1);
+            }
+        }
+        List<Integer> countArr = new ArrayList<>();
+        for (Integer i : countMap.values()) {
+            countArr.add(i);
+        }
+        Collections.sort(countArr);
+        if (countArr.get(0).equals(1) && countArr.get(1).equals(countArr.get(countArr.size()-1))) {
+            return "YES";
+        } else if (countArr.get(0).equals(countArr.get(countArr.size()-1))) {
+            return "YES";
+        } else if (countArr.get(0) == countArr.get(countArr.size()-2) && countArr.get(countArr.size()-1) == countArr.get(0)+1) {
+            return "YES";
+        }
+        return "NO";
+    }
