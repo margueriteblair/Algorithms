@@ -2,8 +2,6 @@ public class CyclicalArray {
     public static void main(String[] args) {
         
     }
-
-    class Solution {
         public int[] solution(int[] A, int K) {
             // write your code in Java SE 8
             int[] B = new int[A.length];
@@ -16,5 +14,12 @@ public class CyclicalArray {
             }
             // System.out.println(B);
             return B;
+    }
+    public int[] solution2(int[] A, int K) {
+        int[] B = new int[A.length];
+        for (int i = 0; i < A.length; i++) {
+            B[(i+K)%A.length] = A[i];
         }
-    }}
+        return B;
+    }
+}
