@@ -4,6 +4,7 @@ public class PermMissingElem {
     public static void main(String[] args) {
         missing(new int[] {2, 4, 1, 3, 6});
         missing2(new int[] {2, 4, 1, 3, 6});
+        missing(new int[] {2,3, 1,5});
     }
     public static int missing(int[] A) {
         Arrays.sort(A);
