@@ -9,4 +9,13 @@ public class FrogJump {
             return ((Y- X) / D) + 1;
         }
     }
+
+    public static int solution2(int X, int Y, int D) {
+        int count = 0;
+        while (X < Y) {
+            X += D;
+            count++;
+        }
+        return count;
+    }
 }
