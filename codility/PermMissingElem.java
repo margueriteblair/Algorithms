@@ -8,6 +8,8 @@ public class PermMissingElem {
     }
     public static int missing(int[] A) {
         Arrays.sort(A);
+        if (A[0] != 1) return 1;
+        if (A[A.length-1] != A.length+1) return A.length+1;
         if (A.length == 0) return 0;
         int missing = 0;
         for (int i = 0; i < A.length; i++) {
