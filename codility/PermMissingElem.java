@@ -31,4 +31,17 @@ public class PermMissingElem {
         return missingNum;
     }
 
+    public int solution3(int[] A) {
+        int seqSum = 0;
+        for (int i = 1; i <= A.length+1; i++) {
+            seqSum += i;
+        }
+        int arrSum = 0;
+        for (int num : A) {
+            arrSum += num;
+        }
+        int diff = seqSum - arrSum;
+        return diff;
+    }
+
 }
