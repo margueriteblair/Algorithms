@@ -1,6 +1,6 @@
 public class Brackets {
     public static void main(String[] args) {
-        
+        solution("{}[]()");
     }
 
     public static int solution(String S) {
