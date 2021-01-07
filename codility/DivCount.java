@@ -1,6 +1,6 @@
 public class DivCount {
     public static void main(String[] args) {
-        
+        solution2(7, 11, 2);
     }
 
     public static int solution(int A, int B, int K) {
