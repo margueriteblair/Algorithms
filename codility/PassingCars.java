@@ -1,25 +1,19 @@
 public class PassingCars {
     public static void main(String[] args) {
-        
+        solution(new int[] {0, 1, 0, 1, 1});
     }
 
-    public int solution(int[] A) {
+
+    public static int solution(int[] A) {
         int passingCount = 0;
-        int zeroCount = 0;
-        int[] sumsArr = new int[A.length];
-        int sum = 0;
-        for (int i = 0; i < sumsArr.length; i++) {
-            sum += A[i];
-            sumsArr[i] = sum;
+        int[] sumsArr = new int[A.length+1];
+        for (int i = A.length-1; i >= 0; i--) {
+            sumsArr[i] = A[i] + sumsArr[i+1];
         }
         for (int i = 0; i < A.length; i++) {
-            if (A[i] == 0) {
-                zeroCount++;
-            }
+            if (A[i] == 0) passingCount+=sumsArr[i];
         }
-        for (int i = A.length-zeroCount; i < A.length; i++) {
-            passingCount += sumsArr[i];
-        }
-        return passingCount;
+
+        return passingCount > 1000000000 ? -1 : passingCount;
     }
 }
