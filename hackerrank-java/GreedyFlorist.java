@@ -10,10 +10,25 @@ public class GreedyFlorist {
             }
         }
         return minCost;
+    }
+
+    static int getMinimumCost2(int k, int[] c) {
+        Arrays.sort(c);
+        int minCost = 0;
+        int increment = 1;
+        for (int i = c.length-1; i >= 0; i--) {
+            minCost += (c[i] * increment);
+            if ((c.length-i)%k == 0) {
+                System.out.print(increment);
+                increment++;
+            }
+            
+        }
+        return minCost;
 
     }
 
     public static void main(String[] args) {
-        getMinimumCost(); //params
+        getMinimumCost(3, new int[] {1,2,3,4,5}); //params
     }
 }
