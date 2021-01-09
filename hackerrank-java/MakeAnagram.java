@@ -35,6 +35,30 @@ public class MakeAnagram {
         return total;
     }
 
+    static int makeAnagram2(String a, String b) {
+        Map<Character, Integer> count = new HashMap<>();
+        for( char ch: a.toCharArray() ) {
+            if (count.containsKey(ch)) {
+                count.put(ch, count.get(ch)+1);
+            } else {
+                count.put(ch, 1);
+            }
+        }
+        
+        for( char ch: b.toCharArray() ) {
+            if (count.containsKey(ch)) {
+                count.put(ch, count.get(ch)-1);
+            } else {
+                count.put(ch, -1);
+            }
+        }
+        int total = 0;
+        for(int v: count.values()) {
+            total += Math.abs(v);
+        }
+        return total;
+    }
+
 }
 
 
