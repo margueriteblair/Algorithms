@@ -4,18 +4,12 @@ public class SherlockAnagram2 {
     }
 
     static int sherlockAndAnagrams(String s) {
-        char[] charArr = s.toCharArray();
+        // char[] charArr = s.toCharArray();
         int pairsCount = 0;
         List<String> subStringList = new ArrayList<>();
-        for (int len = 1; len <= charArr.length; len++) {
-            for (int i = 0; i <= charArr.length-len; i++) {
-                int j = i + len - 1;
-                String currString = "";
-                for (int k = i; k <= j; k++) {
-                    currString += String.valueOf(charArr[k]);
-                }
-                subStringList.add(currString);
-
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i+1; j <= s.length(); j++) {
+                subStringList.add(s.substring(i, j));
             }
         }
         
@@ -27,8 +21,6 @@ public class SherlockAnagram2 {
             }
         }
         return pairsCount;
-        
-        
         }
         
         static boolean isMatching(String s1, String s2) {
