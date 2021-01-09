@@ -1,0 +1,23 @@
+public class TwoStrings {
+    public static void main(String[] args) {
+        
+    }
+
+    static String twoStrings(String s1, String s2) {
+        HashMap<Character, Integer> s1Map = new HashMap<>();
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1Map.containsKey(s1.charAt(i))) {
+                s1Map.put(s1.charAt(i), s1Map.get(s1.charAt(i))+1);
+            } else {
+                s1Map.put(s1.charAt(i), 1);
+            }
+        }
+        for (int i = 0; i < s2.length(); i++) {
+            if (s1Map.containsKey(s2.charAt(i))) return "YES";
+        }
+        // System.out.println(s1Map);
+        return "NO";
+
+
+    }
+}
