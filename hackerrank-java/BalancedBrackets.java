@@ -8,20 +8,19 @@ public class BalancedBrackets {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '{' || s.charAt(i) == '(' || s.charAt(i) == '[' ) {
                 stacky.push(s.charAt(i));
-            } else if (s.charAt(i) == '}' && !stacky.isEmpty()) {
-                if (stacky.pop() != '{') {
+            } else if (s.charAt(i) == '}') {
+                if (stacky.isEmpty() || stacky.pop() != '{') {
                     return "NO";
                 }
-            } else if (s.charAt(i) == ')' && !stacky.isEmpty()) {
-                if (stacky.pop() != '(') {
+            } else if (s.charAt(i) == ')') {
+                if (stacky.isEmpty() || stacky.pop() != '(') {
                     return "NO";
                 }
-            } else if (s.charAt(i) == ']' && !stacky.isEmpty()) {
-                if (stacky.pop() != '[') {
+            } else if (s.charAt(i) == ']') {
+                if (stacky.isEmpty() || stacky.pop() != '[') {
                     return "NO";
                 }
             }
         }
         return stacky.isEmpty() ? "YES" : "NO";
     }
-}
