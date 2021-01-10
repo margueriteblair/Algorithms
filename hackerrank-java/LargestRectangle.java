@@ -1,36 +1,28 @@
 import java.math.*;
+import java.util.*;
 
 public class LargestRectangle {
     public static void main(String[] args) {
         int[] testArr = {8979, 4570 ,6436 ,5083 ,7780 ,3269 ,5400, 7579, 2324, 2116};
-        Arrays.sort(testArr);
-        System.out.println();
+        // Arrays.sort(testArr);
+        System.out.println(largestRectangle(testArr));
     }
 
     static long largestRectangle(int[] h) {
         long maxArea = 0;
         for (int i = 0; i < h.length; i++) {
+            int curr = h[i];
             long compareArea = 0;
-            for (int j = 0; j < h.length; j++) {
-                if (h[j] >= h[i]) {
-                    compareArea += h[i];
-                }
+            int j = i;
+            while (j < h.length && h[j] >= curr) {
+                compareArea += h[i];
+                j++;
             }
-            if (compareArea > maxArea) {
-                maxArea = compareArea;
+            j = i-1;
+            while (j >= 0 && h[j] >= curr) {
+                compareArea += h[i];
+                j--;
             }
-            
-        }
-        return maxArea;
-    }
-
-    static long largestRectangle2(int[] h) {
-        // int maxArea = 0;
-        Arrays.sort(h);
-        long maxArea = 0;
-        for (int i = 0; i < h.length; i++) {
-            int compareArea = h[i]*(h.length-i);
-            System.out.println(h[i] + " " + (h.length-i));
             if (compareArea > maxArea) {
                 maxArea = compareArea;
             }
