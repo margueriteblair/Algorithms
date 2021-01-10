@@ -1,6 +1,10 @@
+import java.math.*;
+
 public class LargestRectangle {
     public static void main(String[] args) {
-        
+        int[] testArr = {8979, 4570 ,6436 ,5083 ,7780 ,3269 ,5400, 7579, 2324, 2116};
+        Arrays.sort(testArr);
+        System.out.println();
     }
 
     static long largestRectangle(int[] h) {
