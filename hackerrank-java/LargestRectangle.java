@@ -19,4 +19,18 @@ public class LargestRectangle {
         }
         return maxArea;
     }
+
+    static long largestRectangle2(int[] h) {
+        // int maxArea = 0;
+        Arrays.sort(h);
+        long maxArea = 0;
+        for (int i = 0; i < h.length; i++) {
+            int compareArea = h[i]*(h.length-i);
+            System.out.println(h[i] + " " + (h.length-i));
+            if (compareArea > maxArea) {
+                maxArea = compareArea;
+            }
+        }
+        return maxArea;
+    }
 }
