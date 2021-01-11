@@ -9,8 +9,11 @@ public class minTimeRequired {
         // Arrays.sort(machines);
         while (itemCount < goal) {
             for (int i = 0; i < machines.length; i++) {
-            if (day % machines[i] == 0) {
-                itemCount++;
+                if (machines[i] > day) {
+                    continue;
+                }
+                if (day % machines[i] == 0) {
+                    itemCount++;
             }
         }
         day++;
