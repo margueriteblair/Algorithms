@@ -21,7 +21,7 @@ public class minTimeRequired {
         return day-1;
     }
 
-    static long minTime(long[] machines, long goal) {
+    static long minTime2(long[] machines, long goal) {
         Arrays.sort(machines);
         long max = machines[machines.length - 1];
         long minDays = 0;
