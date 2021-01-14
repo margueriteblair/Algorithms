@@ -4,7 +4,7 @@ public class ArrayManipulation {
     }
 
     static long arrayManipulation(int n, int[][] queries) {
-        int[] resultingQueries = new int[n];
+        long[] resultingQueries = new long[n];
         long maxManipulation = 0;
         for (int i = 0; i < queries.length; i++) {
             for (int j = queries[i][0]; j <= queries[i][1]; j++) {
