@@ -1,6 +1,6 @@
 public class ArrayManipulation {
     public static void main(String[] args) {
-        
+        System.out.println(Long.MIN_VALUE);
     }
 
     static long arrayManipulation(int n, int[][] queries) {
@@ -27,7 +27,7 @@ public class ArrayManipulation {
             resultingQueries[a] += k;
             resultingQueries[b+1] -= k;
         }
-        long max = Long.MIN_VALUE;
+        long max = 0;
         for (int i = 0; i < resultingQueries.length; i++) {
                 maxManipulation += resultingQueries[i];
                 max = Math.max(max, maxManipulation);
