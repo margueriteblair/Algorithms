@@ -3,14 +3,14 @@ public class runtimecomplexity {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         while (N-- > 0) {
-            int testNum = scanner.nextInt();
-            for (int i = 2; i <= Math.sqrt(testNum); i++) {
-                if (testNum % i == 0) {
-                    System.out.println("Not prime");
-                    return;
-                }
+            int val = scanner.nextInt();
+
+            for(int i=2; i<=val/i; i++){
+                if(val%i==0) val=1;
             }
-            System.out.println("Prime");
+
+            if(val==1) System.out.println("Not prime");
+            else System.out.println("Prime");
         }
     }
 }
