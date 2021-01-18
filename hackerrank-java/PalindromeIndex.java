@@ -4,11 +4,12 @@ public class PalindromeIndex {
     }
 
     static int palindromeIndex(String s) {
-        int l = s.length();
-        int i,j,a,b;
-        for (i=0, j=l-1; i<l; i++,j--){
-            if (s.charAt(i)!=s.charAt(j))
-                break;
+        int i;
+        int j;
+        int a;
+        int b;
+        for (i=0, j=s.length()-1; i<s.length(); i++,j--){
+            if (s.charAt(i)!=s.charAt(j)) break;
         }
         if (i>j) return -1;
 
