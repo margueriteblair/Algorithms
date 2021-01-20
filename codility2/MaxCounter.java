@@ -1,11 +1,13 @@
 package codility2;
 
+import java.util.*;
+
 public class MaxCounter {
     public static void main(String[] args) {
-        
+        solution(5, new int[] {1, 2, 4,3, 6, 2, 1});
     }
 
-    public int[] solution(int N, int[] A) {
+    public static int[] solution(int N, int[] A) {
         int[] B = new int[N];
         int maxCounter = 0;
         for (int i = 0; i < A.length; i++) {
