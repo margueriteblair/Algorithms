@@ -1,5 +1,7 @@
 package codility2;
 
+import java.util.Stack;
+
 public class Brackets {
     public static void main(String[] args) {
         
@@ -18,6 +20,6 @@ public class Brackets {
                 if (stack.pop() != '(') return 0;
         }
     }
-    return 1;
+    return stack.isEmpty() ? 1 : 0;
 }
 }
