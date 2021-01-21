@@ -15,5 +15,16 @@ public class MaxSlice {
         return maxProfit;
     }
 
+    public static int solution2(int[] A) {
+        int globalMax = 0;
+        int localMax = 0;
+        for (int i = 1; i < A.length; i++) {
+            int d = A[i] - A[i-1];
+            localMax = Math.max(d, localMax+d);
+            globalMax = Math.max(localMax, globalMax);
+        }
+        return globalMax;
+    }
+
 
 }
