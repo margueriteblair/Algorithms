@@ -1,9 +1,9 @@
 public class Dominator {
     public static void main(String[] args) {
-        
+        solution(new int[] {2, 3, 1, 4, 4, 4, 4});
     }
 
-    public int solution(int[] A) {
+    public static int solution(int[] A) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < A.length; i++) {
             if (!map.containsKey(A[i])) {
