@@ -14,13 +14,9 @@ public class TimeConversion {
         } else {
             if (s.substring(0, 2).equals("12")) {
                 return s.substring(0, s.length()-2);
+            } else {
+                return String.valueOf(Integer.parseInt(s.substring(0, 2))+12) + s.substring(2, s.length()-2);
             }
-            String temp = s.substring(0, s.length()-2);
-            String[] arr = temp.split(":");
-            String s2 = "";
-            s2 += String.valueOf(Integer.parseInt(arr[0])+12);
-            s2 += temp.substring(2);
-            return s2;
         }
     }
 }
