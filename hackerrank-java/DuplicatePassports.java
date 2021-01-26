@@ -1,9 +1,5 @@
 public class DuplicatePassports {
     
-    public static void main(String[] args) {
-        
-    }
-
     static int[] findDuplicates(int[] arr1, int[] arr2) {
         Set<Integer> map = new HashSet<>();
         int dupCount = 0;
@@ -18,11 +14,15 @@ public class DuplicatePassports {
           }
         }
     
-        int[] result2 = new int[map.size()];
+        int[] result2 = new int[result.size()];
         int j = 0;
         for (Integer i : result) {
           result2[j++] = i;
         }
-        return dupCount == 0 ? new int[0] : result2;
+        return result2;
+      }
+    
+      public static void main(String[] args) {
+    
       }
 }
