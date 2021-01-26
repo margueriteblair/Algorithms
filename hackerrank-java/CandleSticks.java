@@ -4,17 +4,19 @@ public class CandleSticks {
     }
 
     public static int birthdayCakeCandles(List<Integer> candles) {
-        int global = 0;
-        int local = 0;
-        Collections.sort(candles);
-        for (int i = 0; i < candles.size()-1; i++) {
-            if (candles.get(i) == candles.get(i+1)) {
-                local++;
-                if (local > global) global = local;
-            } else {
-                local = 0;
+        int total = 0;
+        int max = 0;
+        for (int i = 0; i < candles.size(); i++) {
+            if (candles.get(i) > max) {
+                max = candles.get(i);
             }
         }
-        return global+1;
+
+        for (int i = 0; i < candles.size(); i++) {
+            if (candles.get(i) == max) {
+                total++;
+            }
+        }
+        return total;
     }
 }
