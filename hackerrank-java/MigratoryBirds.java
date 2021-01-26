@@ -5,11 +5,9 @@ public class MigratoryBirds {
 
     static int migratoryBirds(List<Integer> arr) {
         int[] ids = new int[5];
-        int highestCount = 0;
         for (int i = 0; i < arr.size(); i++) {
             ids[arr.get(i)-1]++;
         }
-        
         int leader = 0;
         int most = ids[0];
         for (int i = 1; i < ids.length; i++) {
