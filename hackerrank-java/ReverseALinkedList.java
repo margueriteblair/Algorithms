@@ -9,11 +9,12 @@ public class ReverseALinkedList {
             stack.push(head.val);
             head = head.next;
         }
-        ListNode reversedHead;
+        
+        ListNode reversedHead = null;
         if (!stack.isEmpty()) {
             reversedHead = new ListNode(stack.pop());
         } else {
-            reversedHead = new ListNode();
+            return reversedHead;
         }
         ListNode copy = reversedHead;
         while (!stack.isEmpty()) {
