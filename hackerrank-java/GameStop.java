@@ -9,10 +9,10 @@ public class GameStop {
             if (s - p > 0) {
                 games++;
                 s -= p;
-                if (p - 3 < m){
+                if (p - d < m){
                     p = m;
                 } else {
-                    p -= 3;
+                    p -= d;
                 }
             } else {
                 return games;
