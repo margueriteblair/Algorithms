@@ -1,7 +1,7 @@
 public class CavityMap {
     public static void main(String[] args) {
         String hello = "Hello world";
-        System.out.println(hello[0]);
+        
     }
 
     static String[] cavityMap(String[] grid) {
@@ -14,7 +14,9 @@ public class CavityMap {
                 int left = Character.getNumericValue(grid[i].charAt(j-1));
                 int right = Character.getNumericValue(grid[i].charAt(j+1));
                 if (test > above && test > below && test > left && test > right) {
-                    grid[i] = grid[i].replace(toReplace, 'X');
+                    char[] arr = grid[i].toCharArray();
+                    arr[j] = 'X';
+                    grid[i] = String.valueOf(arr);
                 }
             }
         }
