@@ -34,4 +34,22 @@ public class ArrayManipulation {
             }
         return max;
     }
+
+    static long arrayManipulation3(int n, int[][] queries) {
+        long[] arr = new long[n+2];
+        long largest = 0;
+        for (int i = 0; i < queries.length; i++) {
+            int a = queries[i][0];
+            int b = queries[i][1];
+            int k = queries[i][2];
+            arr[a] += k;
+            arr[b+1] -= k;
+        }
+        long temp = 0;
+        for (int i = 0; i < arr.length; i++) {
+            temp += arr[i];
+            largest = temp > largest ? temp : largest;
+        }
+        return largest;
+    }
 }
