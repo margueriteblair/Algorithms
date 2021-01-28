@@ -24,6 +24,7 @@ public class SherlockAnagram2 {
         }
         
         static boolean isMatching(String s1, String s2) {
+            if (s1.length() != s2.length()) return false;
             HashMap<Character, Integer> s1Map = new HashMap<>();
             HashMap<Character, Integer> s2Map = new HashMap<>();
             
