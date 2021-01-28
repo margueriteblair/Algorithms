@@ -1,10 +1,16 @@
+import java.util.*;
+
 public class SherlockAnagram2 {
     public static void main(String[] args) {
-        
+        String str = "abba";
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i+1; j <= str.length(); j++) {
+                System.out.println(str.substring(i, j));
+            }
+        }
     }
 
     static int sherlockAndAnagrams(String s) {
-        // char[] charArr = s.toCharArray();
         int pairsCount = 0;
         List<String> subStringList = new ArrayList<>();
         for (int i = 0; i < s.length(); i++) {
