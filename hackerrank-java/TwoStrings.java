@@ -20,4 +20,19 @@ public class TwoStrings {
 
 
     }
+
+    static String twoStrings2(String s1, String s2) {
+        Map<Character, Integer> s1Map = new HashMap<>();
+        for (int i = 0; i < s1.length(); i++) {
+            int count = s1Map.getOrDefault(s1.charAt(i), 0)+1;
+            s1Map.put(s1.charAt(i), count);
+        }
+        
+        for (int i = 0; i < s2.length(); i++) {
+            if (s1Map.containsKey(s2.charAt(i))) {
+                return "YES";
+            }
+        }
+        return "NO";
+    }
 }
