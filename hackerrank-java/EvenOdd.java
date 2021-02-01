@@ -25,7 +25,14 @@ public class EvenOdd {
             multiply2 = !multiply2;
         }
 
-        System.out.println(rEven + " " + rOdd);
+        System.out.println(rEven % 2 + " " + rOdd % 2);
+        if (rEven % 2 > rOdd % 2) {
+            System.out.println("EVEN");
+        } else if (rEven % 2 < rOdd % 2) {
+            System.out.println("ODD");
+        } else {
+            System.out.println("NEUTRAL");
+        }
 
     }
 }
