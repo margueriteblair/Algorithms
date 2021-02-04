@@ -7,7 +7,7 @@ public class GradingStudents {
         List<Integer> newGrades = new ArrayList<>();
         for (int i = 0; i < grades.size(); i++) {
             if (grades.get(i) >= 38 && grades.get(i) % 5 >= 3) {
-                newGrades.add(grades.get(i)+(grades.get(i)%5)-1);
+                newGrades.add(grades.get(i)+(5 - (grades.get(i) % 5)));
             } else {
                 newGrades.add(grades.get(i));
             }
