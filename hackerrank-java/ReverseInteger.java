@@ -5,9 +5,13 @@ public class ReverseInteger {
         for (int i = str.length()-1; i >= 0; i--) {
             intStr += str.charAt(i);
         }
-        if (intStr.charAt(intStr.length()-1) == '-') {
+        try {
+            if (intStr.charAt(intStr.length()-1) == '-') {
             return Integer.parseInt(intStr.substring(0, intStr.length()-1))*-1;
         }
-        return Integer.parseInt(intStr);
+            return Integer.parseInt(intStr);
+        } catch (NumberFormatException ex) {
+            return 0;
+        }
     }
 }
