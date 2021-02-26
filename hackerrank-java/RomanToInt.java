@@ -1,38 +1,42 @@
 public class RomanToInt {
     public int romanToInt(String s) {
         int num = 0;
-        if (s.charAt(0) == 'I' && s.charAt(1) == 'I') num++;
-        for (int i = 1; i < s.length(); i++){
-            if (s.charAt(i) == 'M' && s.charAt(i-1) != 'C') {
-                num += 1000;
-            } else if (s.charAt(i) == 'M' && s.charAt(i-1) == 'C') {
-                num += 900;
-            } else if (s.charAt(i) == 'D' && s.charAt(i-1) != 'C') {
-                num += 500;
-            } else if (s.charAt(i) == 'D' && s.charAt(i-1) == 'C') {
-                num += 400;
-            } else if (s.charAt(i) == 'L' && s.charAt(i-1) != 'X') {
-                num += 50;
-            } else if (s.charAt(i) == 'L' && s.charAt(i-1) == 'X') {
-                num += 40;
-            } else if (s.charAt(i) == 'C' && s.charAt(i-1) != 'X') {
-                num += 100;
-            } else if (s.charAt(i) == 'C' && s.charAt(i-1) == 'X') {
-                num += 90;
-            } else if (s.charAt(i) == 'V' && s.charAt(i-1) == 'I') {
-                num += 5;
-            } else if (s.charAt(i) == 'V' && s.charAt(i-1) != 'I') {
-                num += 4;
-            } else if (s.charAt(i) == 'X' && s.charAt(i-1) != 'I') {
-                num += 10;
-            } else if (s.charAt(i) == 'X' && s.charAt(i-1) == 'I') {
-                num += 9;
-            } else if (s.charAt(i) == 'I' && i+1 < s.length() && s.charAt(i+1) == 'I') {
-                num +=1;
-            } else if (s.charAt(i-1) == 'I' && s.charAt(i) == 'I') {
-                num +=1;
+        for (int i = 0; i < s.length(); i++) {
+            int s1 = value(s.charAt(i));
+            
+            if (i + 1 < s.length()) {
+                int s2 = value(s.charAt(i + 1));
+ 
+                if (s1 >= s2) {
+                    num = num + s1;
+                } else {
+                    num = num + s2 - s1;
+                    i++;
+                }
             }
+            else {
+                num = num + s1;
             }
+        }
+ 
         return num;
         }
+    
+    public int value(char r) {
+        if (r == 'I')
+            return 1;
+        if (r == 'V')
+            return 5;
+        if (r == 'X')
+            return 10;
+        if (r == 'L')
+            return 50;
+        if (r == 'C')
+            return 100;
+        if (r == 'D')
+            return 500;
+        if (r == 'M')
+            return 1000;
+        return -1;
+    }
 }
