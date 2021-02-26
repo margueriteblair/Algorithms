@@ -1,7 +1,7 @@
 public class RomanToInt {
     public int romanToInt(String s) {
         int num = 0;
-        if (s.charAt(0) == 'I') num++;
+        if (s.charAt(0) == 'I' && s.charAt(1) == 'I') num++;
         for (int i = 1; i < s.length(); i++){
             if (s.charAt(i) == 'M' && s.charAt(i-1) != 'C') {
                 num += 1000;
@@ -19,9 +19,9 @@ public class RomanToInt {
                 num += 100;
             } else if (s.charAt(i) == 'C' && s.charAt(i-1) == 'X') {
                 num += 90;
-            } else if (s.charAt(i) == 'V' && s.charAt(i-1) != 'I') {
-                num += 5;
             } else if (s.charAt(i) == 'V' && s.charAt(i-1) == 'I') {
+                num += 5;
+            } else if (s.charAt(i) == 'V' && s.charAt(i-1) != 'I') {
                 num += 4;
             } else if (s.charAt(i) == 'X' && s.charAt(i-1) != 'I') {
                 num += 10;
@@ -29,10 +29,8 @@ public class RomanToInt {
                 num += 9;
             } else if (s.charAt(i) == 'I' && i+1 < s.length() && s.charAt(i+1) == 'I') {
                 num +=1;
-            } else if (s.charAt(i-1) == 'I') {
+            } else if (s.charAt(i-1) == 'I' && s.charAt(i) == 'I') {
                 num +=1;
-            } else {
-                num++;
             }
             }
         return num;
