@@ -1,6 +1,7 @@
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
         String prefix = "";
+        if (strs.length == 0) return "";
         Arrays.sort(strs, new Comparator<String>() {
             
             @Override
