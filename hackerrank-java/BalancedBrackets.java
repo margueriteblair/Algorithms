@@ -24,3 +24,4 @@ public class BalancedBrackets {
         }
         return stacky.isEmpty() ? "YES" : "NO";
     }
+}
