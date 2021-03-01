@@ -4,6 +4,7 @@ public class RemoveDups {
     }
 
     public int removeDuplicates(int[] nums) {
+        //removing elements from an array in place
         int i=0, j=0;
         
         while(j<nums.length){
