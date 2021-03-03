@@ -18,4 +18,18 @@ public class RemoveDups {
         return i+1;
        
     }
+
+    public int removeDuplicates2(int[] nums) {
+        int length = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            if (i+1 < nums.length-1) {
+                if (nums[i] == nums[i+1]) {
+                    //it'll return the first length elements you DOOF
+                    nums[i+1] = nums[i+2];
+                    length--;
+                }
+            }
+        }
+        return length;
+    }
 }
