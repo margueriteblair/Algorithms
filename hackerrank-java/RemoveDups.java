@@ -24,9 +24,9 @@ public class RemoveDups {
         for (int i = 0; i < nums.length; i++) {
             if (i+1 < nums.length-1) {
                 if (nums[i] == nums[i+1]) {
-                    //it'll return the first length elements you DOOF
                     nums[i+1] = nums[i+2];
                     length--;
+                    i++;
                 }
             }
         }
