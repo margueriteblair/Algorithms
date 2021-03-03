@@ -40,17 +40,15 @@ public class RemoveDups {
     public int removeDuplicates3(int[] nums) {
         int i = 0;
         int j = 0;
-        int length = nums.length;
         while (j < nums.length) {
             if (nums[i] == nums[j]) {
                 j++;
-                length--;
             } else {
                 nums[i+1] = nums[j];
                 i++;
                 j++;
             }
         }
-        return length+1;
+        return i+1;
     }
 }
