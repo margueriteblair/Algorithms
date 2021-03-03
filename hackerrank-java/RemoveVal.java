@@ -13,18 +13,18 @@ public class RemoveVal {
         return len;
     }
 
-    public int removeElement2(int[] nums, int val) {
-            int i = 0;
-            int j = 0;
-            while (j < nums.length) {
-                if (nums[j] == val) {
-                    j++;
-                } else {
-                    nums[i] = nums[j];
-                    i++;
-                    j = i;
-                }
+    public int removeElement3(int[] nums, int val) {
+        int i = 0;
+        int j = 0;
+        while (j < nums.length) {
+            if (nums[j] == val) {
+                j++;
+            } else {
+                nums[i] = nums[j];
+                i++;
+                j++;
             }
-            return i-1;
-    }
+        }
+        return i-1;
+}
 }
