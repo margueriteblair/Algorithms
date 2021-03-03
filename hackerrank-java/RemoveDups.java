@@ -23,10 +23,14 @@ public class RemoveDups {
         int length = nums.length;
         for (int i = 0; i < nums.length; i++) {
             if (i+1 < nums.length-1) {
+                int j = i;
                 if (nums[i] == nums[i+1]) {
-                    nums[i+1] = nums[i+2];
+                    while (nums[j] == nums[i]) {
+                        j++;
+                    }
+                    nums[i+1] = nums[j];
                     length--;
-                    i++;
+                    i = j;
                 }
             }
         }
