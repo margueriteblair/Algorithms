@@ -17,4 +17,17 @@ public class MaxSubarray {
         return currSum;
         
     }
+
+    public int maxSubArray2(int[] nums) {
+        int global = nums[0];
+        int local = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            local += nums[i];
+            global = Math.max(local, global);
+            if (local < 0) {
+                local = 0;
+            }
+        }
+        return global;
+    }
 }
