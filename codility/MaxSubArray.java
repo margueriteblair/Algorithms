@@ -12,4 +12,15 @@ public class MaxSubArray {
         }
         return globalMax;
     }
+
+    public int maxSubArray2(int[] nums) {
+        // Kadanes algorithm
+        int maximum_sum = nums[0];
+        int current_sum = maximum_sum;
+        for(int i = 1; i < nums.length; i++){
+            current_sum = Math.max(nums[i] + current_sum, nums[i]);
+            maximum_sum = Math.max(maximum_sum, current_sum);
+        }
+        return maximum_sum;
+    }
 }
