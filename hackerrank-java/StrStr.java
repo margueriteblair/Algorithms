@@ -14,4 +14,21 @@ public class StrStr {
         }
         return -1;
     }
+
+    public int strStr2(String haystack, String needle) {
+        if (needle.equals("") || haystack.equals(needle)) return 0;
+        for (int i = 0; i < haystack.length(); i++) {
+            if (haystack.charAt(i) == needle.charAt(0)) {
+                try {
+                    if (haystack.substring(i, needle.length()+i).equals(needle)) {
+                    return i;
+                }
+                } catch (Exception ex) {
+                        return -1;
+                    }
+
+            }
+        }
+        return -1;
+    }
 }
