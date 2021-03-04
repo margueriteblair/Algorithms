@@ -10,7 +10,7 @@ public class SearchInsert {
                 return i+1;
             }
             if (target < nums[0]) return 0;
-            if (target > nums[nums.length -1]) return nums.length - 1;
+            if (target > nums[nums.length -1]) return nums.length;
         }
         return 1;
     }
