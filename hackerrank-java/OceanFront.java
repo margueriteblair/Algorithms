@@ -1,8 +1,9 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class OceanFront {
     public static void main(String[] args) {
-        oceanFronts(new int[] {4, 3, 2, 3, 1});
+        System.out.println(oceanFronts(new int[] {4, 3, 2, 3, 1}));
     }
 
     public static List<Integer> oceanFronts(int[] arr) {
