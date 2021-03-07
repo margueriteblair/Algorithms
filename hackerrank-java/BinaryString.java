@@ -4,10 +4,21 @@ public class BinaryString {
     }
 
     public String addBinary(String a, String b) {
-        int a2 = Integer.parseInt(a, 2);
-        int b2 = Integer.parseInt(b, 2);
-        int c = a2 + b2;
-        String str = Integer.toBinaryString(c);
-        return str;
+        StringBuffer ans = new StringBuffer();
+
+        int n = Math.max(a.length(), b.length()), carry = 0;
+        for (int i = 0; i < n; ++i) {
+            carry += i < a.length() ? (a.charAt(a.length() - 1 - i) - '0') : 0;
+            carry += i < b.length() ? (b.charAt(b.length() - 1 - i) - '0') : 0;
+            ans.append((char) (carry % 2 + '0'));
+            carry /= 2;
+        }
+
+        if (carry > 0) {
+            ans.append('1');
+        }
+        ans.reverse();
+
+        return ans.toString();
     }
 }
