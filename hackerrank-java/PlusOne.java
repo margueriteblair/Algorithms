@@ -4,8 +4,8 @@ public class PlusOne {
         for (int i = 0; i < digits.length; i++) {
             str += String.valueOf(digits[i]);
         }
-        Integer num = Integer.parseInt(str);
-        num++;
+        BigInteger num = new BigInteger(str);
+        num = num.add(BigInteger.ONE);
         String str2 = String.valueOf(num);
         String[] strDig = str2.split("");
         int[] digits2 = new int[strDig.length];
