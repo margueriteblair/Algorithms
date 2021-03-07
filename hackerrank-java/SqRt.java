@@ -14,4 +14,8 @@ public class SqRt {
         }
         return end;
     }
+
+    public int mySqrt2(int x) {
+        return (int)Math.floor(Math.sqrt(x));
+    }
 }
