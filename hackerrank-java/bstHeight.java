@@ -1,14 +1,21 @@
-public static int height(Node root) {
-    int leftHeight = 0;
-    int rightHeight = 0;
-
-    if (root.left != null) {
-        leftHeight = 1 + height(root.left);
+public class BSTHeight {
+    public static void main(String[] args) {
+        
     }
 
-    if (root.right != null) {
-        rightHeight = 1 + height(root.right);
+    public int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        int leftHeight = 1;
+        int rightHeight = 1;
+        
+        if (root.left != null) {
+            leftHeight = 1 + maxDepth(root.left);
+        }
+        
+        if (root.right != null) {
+            rightHeight = 1 + maxDepth(root.right);
+        }
+        
+        return leftHeight > rightHeight ? leftHeight : rightHeight;
     }
-
-    return leftHeight > rightHeight ? leftHeight : rightHeight;
-    }
+}
