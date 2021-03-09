@@ -16,8 +16,10 @@ public class RemoveDuplicatesFromLinkedList {
         }
         System.out.println(stack);
         ListNode node = new ListNode(stack.get(0));
+        ListNode copy = node;
         for (int i = 1; i < stack.size(); i++) {
-            node.next = new ListNode(stack.get(i));
+            copy.next = new ListNode(stack.get(i));
+            copy = copy.next;
         }
         return node;
     }
