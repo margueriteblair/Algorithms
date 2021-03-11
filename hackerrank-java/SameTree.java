@@ -4,21 +4,20 @@ public class SameTree {
     }
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        while (p != null & q != null) {
-            if (p.val != q.val) {
-                return false;
-            }
-            p = p.right;
-            q = q.right;
+        if (p == null && q == null) {
+            return true;
+        } else if (p == null && q != null) {
+            return false;
+        } else if (p != null && q == null) {
+            return false;
+        } else {
+            if (p.val == q.val) {
+                if (isSameTree(p.right, q.right) == true && isSameTree(p.left, q.left)) {
+                    return true;
+                }
+            } 
+            return false;
         }
         
-        while (p != null & q != null) {
-            if (p.val != q.val) {
-                return false;
-            }
-            p = p.left;
-            q = q.left;
-        }
-        return true;
     }
 }
