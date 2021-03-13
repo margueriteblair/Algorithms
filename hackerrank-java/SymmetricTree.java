@@ -4,25 +4,14 @@ public class SymmetricTree {
     }
 
     public boolean isSymmetric(TreeNode root) {
-        TreeNode root1 = root;
-        TreeNode root2 = root;
-        
-        if (root1 == null && root2 == null) {
-            return true;
-        }
-        
-        if (root1 == null && root2 != null) {
-            return false;
-        }
-        
-        if (root1 != null && root2 == null) {
-            return false;
-        }
-        
-        if (root1.val != root2.val) {
-            return false;
-        }
-        
-        return isSymmetric(root.right) && isSymmetric(root.left);
+        return isMirror(root, root);
+    }
+
+    private boolean isMirror(TreeNode leftTree, TreeNode rightTree) {
+        if(leftTree == null && rightTree == null) return true;
+        if(leftTree == null || rightTree == null) return false;
+        return (leftTree.val == rightTree.val &&
+                isMirror(leftTree.left, rightTree.right) &&
+                isMirror(leftTree.right, rightTree.left));
     }
 }
