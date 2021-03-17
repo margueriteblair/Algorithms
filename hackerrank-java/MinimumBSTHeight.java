@@ -1,16 +1,18 @@
 public class MinimumBSTHeight {
-    public int minDepth(TreeNode root) {
-
-        int heightL = 1;
-        int heightR = 1;
-  
-        if (root.left != null) {
-            heightL = 1 + minDepth(root.left);
-        }
-        if (root.right != null) {
-            heightR = 1 + minDepth(root.right);
-        }
-        return heightR < heightL ? heightR : heightL;
-      }
+    if(root==null)
+    {
+    return 0;
+    }
+    if(root.left==null && root.right==null){
+    return 1;
+    }
+    if(root.left==null && root.right!=null){
+    return 1+minDepth(root.right);
+    }
+    if(root.left!=null && root.right==null){
+    return 1+minDepth(root.left);
+    }
+    return 1+Math.min((minDepth(root.right)),minDepth(root.left));
+    }
     
 }
