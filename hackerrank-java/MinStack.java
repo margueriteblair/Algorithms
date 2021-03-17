@@ -15,10 +15,13 @@ class MinStack {
     }
     
     public void pop() {
-        if (list.size()-1 == min) {
-            list = 
-        }
         list.remove(list.size()-1);
+        min = Integer.MAX_VALUE;
+        for (Integer num : list) {
+            if (num != min && num < min) {
+                min = num;
+            }
+        }
         
     }
     
