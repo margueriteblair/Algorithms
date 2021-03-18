@@ -20,4 +20,18 @@ public class FactorialTrailingZeros {
         
         return zeroCount;
     }
+
+    public int trailingZeroes2(int n) {
+        if (n < 5 || n == 0) {
+            return 0;
+        }
+        
+        int zeroCount = 0;
+        while (n >= 5) {
+            zeroCount += (n / 5);
+            n = n / 5;
+        }
+        
+        return zeroCount;
+    }
 }
