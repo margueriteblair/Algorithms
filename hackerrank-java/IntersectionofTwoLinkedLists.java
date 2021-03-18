@@ -4,7 +4,7 @@ public class IntersectionofTwoLinkedLists {
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA.val == headB.val) {
+        if (headA == headB) {
             return headA;
         }
         
