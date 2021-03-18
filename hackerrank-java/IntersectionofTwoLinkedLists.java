@@ -4,26 +4,27 @@ public class IntersectionofTwoLinkedLists {
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA.val == headB.val) {
+            return headA;
+        }
+        
         ListNode a = headA;
         ListNode b = headB;
         
-        if (a.val == b.val) {
-            return a;
-        }
         
         while (a != null) {
             a = a.next;
-            if (a.val == b.val) {
+            if (a == b && b != null) {
                 return a;
             }
         }
+
         
         if (b.next != null) {
-            getIntersectionNode(headA, b.next);
+            return getIntersectionNode(headA, b.next);
         } else {
             return null;
         }
         
-        return null;
     }
 }
