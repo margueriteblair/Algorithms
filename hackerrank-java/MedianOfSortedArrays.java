@@ -31,5 +31,5 @@ public class MedianOfSortedArrays {
             System.out.println(a + " " + b);
             return (double) (a + b) / 2;
         }
-    }s
+    }
 }
