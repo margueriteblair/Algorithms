@@ -1,13 +1,12 @@
 public class ReverseBits {
-    public int reverseBits(Integer n) {
-        String norm = n.toString();
-        String reverse = "";
-        System.out.println(n);
-        for (int i = norm.length()-1; i >= 0; i--) {
-            reverse += norm.charAt(i);
-        }
-        System.out.println(reverse);
+    public int reverseBits(int n) {
+        String result = Integer.toBinaryString(n);
+        String resultWithPadding = String.format("%32s", result).replaceAll(" ", "0");
         
-        return 1;
+        String reverse = "";
+        for (int i = resultWithPadding.length()-1; i >= 0; i--) {
+            reverse += resultWithPadding.charAt(i);
+        }
+        return Integer.parseInt(reverse, 2);
     }
 }
