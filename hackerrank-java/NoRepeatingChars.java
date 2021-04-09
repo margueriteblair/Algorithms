@@ -42,7 +42,7 @@ public class NoRepeatingChars {
         while(j < s.length()){
             if(!set.contains(s.charAt(j))){
                 set.add(s.charAt(j));
-                max = Math.max(max, j-i+1);
+                max = Math.max(max, set.size());
                 j++;
             }
             else{
