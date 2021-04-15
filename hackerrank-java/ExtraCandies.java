@@ -5,17 +5,22 @@ public class ExtraCandies {
 
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> arrList = new ArrayList<>();
+        
         for (int i = 0; i < candies.length; i++) {
+            boolean temp = false;
             int curr = candies[i] + extraCandies;
             for (int j = 0; j < candies.length; j++) {
                 if (curr < candies[j]) {
                     arrList.add(false);
+                    temp = true;
                     break;
                 }
             }
-            arrList.add(true);
+            if (temp != true) {
+                arrList.add(true);
+            }
         }
-        arrList.remove(arrList.size()-1);
+
         return arrList;
     }
 }
