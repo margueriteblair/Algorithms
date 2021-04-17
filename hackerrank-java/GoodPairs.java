@@ -14,4 +14,16 @@ public class GoodPairs {
         }
         return count;
     }
+
+    public int numIdenticalPairs(int[] nums) {
+        int[] array=new int[101];
+        int pairs=0;
+        for(int val: nums){
+            if(array[val]!=0){
+                pairs+=array[val];
+            }            
+            array[val]++;
+        }
+        return pairs;
+    }
 }
