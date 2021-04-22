@@ -6,14 +6,14 @@ public class Reduce2Zero {
     public int numberOfSteps(int num) {
         int steps = 0;
         if (num == 0) {
-            return steps;
+            return 0;
         }
         if (num % 2 == 0) {
-            steps += numberOfSteps(num / 2);
+            steps += numberOfSteps(num / 2) + 1;
         } else {
-            steps += numberOfSteps(num - 1);
+            steps += numberOfSteps(num - 1) + 1;
         }
-        
         return steps;
+        
     }
 }
