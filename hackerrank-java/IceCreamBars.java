@@ -5,13 +5,14 @@ public class IceCreamBars {
 
     public int maxIceCream(int[] costs, int coins) {
         Arrays.sort(costs);
+        System.out.println(Arrays.toString(costs));
         int bars = 0;
-        int i = 0;
-        while (coins >= 0) {
-            bars++;
-            coins -= costs[i];
-            i++;
+        for (int i = 0; i < costs.length; i++) {
+            if (coins-costs[i] >= 0) {
+                coins -= costs[i];
+                bars++;
+            }
         }
-        return bars-1;
+        return bars;
     }
 }
