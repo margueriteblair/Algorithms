@@ -14,6 +14,10 @@ public class EqualStacks {
             for (int i : h3) {
                 t3 += i;
             }
+
+            if (h1.size() == 0 || h2.size() == 0 || h3.size() == 0) {
+                return 0;
+            }
             
             if (t1 == t2 && t2 == t3) {
                 return t1;
