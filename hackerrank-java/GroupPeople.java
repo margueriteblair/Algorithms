@@ -26,7 +26,24 @@ public class GroupPeople {
     }
 
     public List<List<Integer>> groupThePeople2(int[] groupSizes) {
-        Map<Integer, Integer> countMap = new HashMap<>();
-        List<List<Integer>> res = new ArrayList<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        List<List<Integer>> result = new ArrayList();
+        
+        for (int i = 0; i < groupSizes.length; i++) {
+             List<Integer> list = map.get(groupSizes[i]);
+            if (list == null) {
+                list = new ArrayList<Integer>();
+            } 
+            
+            list.add(i);
+            if (list.size() == groupSizes[i]) {
+                result.add(list);
+                map.remove(groupSizes[i]);
+            } else {
+                map.put(groupSizes[i], list);
+            }
+        }
+        
+        return result;
     }
 }
