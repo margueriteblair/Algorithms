@@ -5,10 +5,14 @@ public class BrokenCalc {
             return X-Y;
         } else {
             while (X < Y) {
-                X *= 2;
                 count++;
+                if (Y % 2 == 0) {
+                    Y = Y/2;
+                } else {
+                    Y++;
+                }
             }
-            return count + X-Y;
+            return count + X - Y;
         }
     }
 }
