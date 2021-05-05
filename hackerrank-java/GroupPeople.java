@@ -24,4 +24,9 @@ public class GroupPeople {
         }
         return result;
     }
+
+    public List<List<Integer>> groupThePeople2(int[] groupSizes) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        List<List<Integer>> res = new ArrayList<>();
+    }
 }
