@@ -15,8 +15,6 @@ public class SplitBalancedString {
             
             if (lCount == rCount) {
                 balancedCount++;
-                lCount = 0;
-                rCount = 0;
             }
         }
         
