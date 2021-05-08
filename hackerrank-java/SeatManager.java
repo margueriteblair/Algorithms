@@ -14,6 +14,14 @@ class SeatManager {
     }
     
     public void unreserve(int seatNumber) {
-        
+        seats.add(seatNumber);
+        Collections.sort(seats);
     }
 }
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * SeatManager obj = new SeatManager(n);
+ * int param_1 = obj.reserve();
+ * obj.unreserve(seatNumber);
+ */
