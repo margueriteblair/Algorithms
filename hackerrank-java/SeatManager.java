@@ -10,12 +10,21 @@ class SeatManager {
     }
     
     public int reserve() {
-        return seats.remove(0);
+        int lowest = seats.get(0);
+        int index = 0;
+        for (int i = 0; i < seats.size(); i++) {
+            if (seats.get(i) < lowest) {
+                lowest = seats.get(i);
+                index = i;
+            }
+        }
+        seats.remove(index);
+        return lowest;
     }
     
     public void unreserve(int seatNumber) {
         seats.add(seatNumber);
-        Collections.sort(seats);
+        
     }
 }
 
