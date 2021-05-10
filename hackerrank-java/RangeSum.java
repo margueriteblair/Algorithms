@@ -5,10 +5,10 @@ public class RangeSum {
             sum += root.val;
         }
         if (root.left != null) {
-            return rangeSumBST(root.left, low, high);
+            return rangeSumBST(root.left, low, high) + sum;
         }
         if (root.right != null) {
-            return rangeSumBST(root.right, low, high);
+            return rangeSumBST(root.right, low, high) + sum;
         }
         
         return sum;
