@@ -44,4 +44,26 @@ public class RangeSum {
             helper(root.right,low,high);
         }
     }
+
+    List<Integer> list = new ArrayList<>();
+    public int rangeSumBST2(TreeNode root, int low, int high) {
+        helper(root);
+        System.out.println(list);
+        int sum = 0;
+        for (int i : list) {
+            if (i >= low && i <= high) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    
+    public void helper(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        helper(root.left);
+        helper(root.right);
+    }
 }
