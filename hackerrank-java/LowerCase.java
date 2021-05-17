@@ -7,7 +7,7 @@ public class LowerCase {
         return str.toLowerCase();
     }
 
-    public String toLowerCase(String str) {
+    public String toLowerCase2(String str) {
         char[] c=str.toCharArray();
         for(int i=0;i<c.length;i++)
         {
