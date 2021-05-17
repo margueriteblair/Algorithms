@@ -4,7 +4,7 @@ public class ClonedTree {
     }
 
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
-        if (cloned.val == target.val) {
+        if (cloned.equals(target)) {
             return cloned;
         }
         if (cloned.left != null) {
@@ -15,7 +15,7 @@ public class ClonedTree {
             return getTargetCopy(original.right, cloned.right, target);
         }
         
-        return target;
+        return cloned;
         
     }
 }
