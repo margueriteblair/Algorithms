@@ -9,6 +9,10 @@ public class XORArray {
             nums[i] = start + (2*i);
         }
         System.out.println(Arrays.toString(nums));
-        return 1;
+        int xor = 0;
+        for (int i : nums) {
+            xor = xor ^ i;
+        }
+        return xor;
     }
 }
