@@ -6,7 +6,7 @@ public class GoodTriplets {
                 for (int k = j+1; k < arr.length; k++) {
                     if (Math.abs(arr[i] - arr[j]) <= a && Math.abs(arr[j]-arr[k]) <= b && Math.abs(arr[i]-arr[k]) <= c) {
                         System.out.println(i + " " + j + " " + k);
-                        countGood++;
+                        countGood++; //the count of good triplets
                     }
                 }
             }
