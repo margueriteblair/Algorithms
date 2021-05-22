@@ -7,10 +7,13 @@ public class SortSentence {
         String[] arr = s.split(" ");
         String[] sArr = new String[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            sArr[Integer.valueOf(arr[i][arr[i].length()-1])] = arr[i].substring(0, arr[i].length()-1);
+            sArr[Integer.valueOf(String.valueOf(arr[i].charAt(arr[i].length()-1)))-1] = arr[i].substring(0, arr[i].length()-1);
         }
         
-        System.out.println(Arrays.toString(sArr));
-        return "";
+        String res = "";
+        for (int i = 0; i < sArr.length; i++) {
+            res += sArr[i] + " ";
+        }
+        return res.substring(0, res.length()-1);
     }
 }
