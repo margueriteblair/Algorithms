@@ -10,7 +10,7 @@ public class MatchingArrays {
         }
         int numOps = 0;
         if (arr.length % 2 == 1) {
-            return arr[0] - arr[arr.length/2+1]
+            return arr[(arr.length/2)]-1;
         }
         return 1;
         
