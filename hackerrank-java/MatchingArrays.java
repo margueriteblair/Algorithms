@@ -8,7 +8,6 @@ public class MatchingArrays {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (2 * i) + 1;
         }
-        int numOps = 0;
         if (arr.length % 2 == 1) {
             return arr[(arr.length/2)]-1;
         } else {
