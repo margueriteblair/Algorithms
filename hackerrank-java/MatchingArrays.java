@@ -4,14 +4,6 @@ public class MatchingArrays {
     }
 
     public int minOperations(int n) {
-        int[] arr = new int[n];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (2 * i) + 1;
-        }
-        if (arr.length % 2 == 1) {
-            return arr[(arr.length/2)]-1;
-        } else {
-            return arr[(arr.length/2)];
-        }
+        return (n%2==0)?(int)Math.pow(n/2,2):(n/2)*((n/2)+1);
     }
 }
