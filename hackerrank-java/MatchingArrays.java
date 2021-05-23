@@ -11,8 +11,8 @@ public class MatchingArrays {
         int numOps = 0;
         if (arr.length % 2 == 1) {
             return arr[(arr.length/2)]-1;
+        } else {
+            return arr[(arr.length/2)];
         }
-        return 1;
-        
     }
 }
