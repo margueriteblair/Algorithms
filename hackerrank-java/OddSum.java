@@ -1,6 +1,6 @@
 public class OddSum {
     public static void main(String[] args) {
-        
+        sumOddLengthSubArrays(new int[] {1,2,3,4});
     }
     public int sumOddLengthSubarrays(int[] arr) {
         int sum = 0;
