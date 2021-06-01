@@ -1,5 +1,4 @@
-public class Candies2 {
-    import java.io.*;
+import java.io.*;
 import java.math.*;
 import java.security.*;
 import java.text.*;
@@ -38,14 +37,16 @@ class Result {
             }
         }
         int[] candiesR = new int[n];
-        for (int i = n-1; i >= 0; i--) {
-            if (arr.get(i) > arr.get(i-1)) {
+        candiesR[0] = 1;
+        
+        for (int i = n-2; i >= 0; i--) {
+            if (arr.get(i) > arr.get(i+1)) {
                 candiesR[i] = candiesR[i]++;
             } else {
-                if (candiesL[i-1] == 1) {
+                if (candiesL[i+1] == 1) {
                     candiesR[i] = 1;
                 } else {
-                    candiesR[i] = candiesR[i-1]--;
+                    candiesR[i] = candiesR[i+1]--;
                 }
             }
         }
@@ -89,6 +90,4 @@ public class Solution {
         bufferedReader.close();
         bufferedWriter.close();
     }
-}
-
 }
