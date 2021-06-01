@@ -21,4 +21,14 @@ public class BearGenes {
             return 1;
     
         }
+
+        public boolean isEven(Map<Character, Integer> charMap, int steady) {
+            for (int count : charMap.values()) {
+                if (count != steady) {
+                    return false;
+                }
+                
+                return true;
+            }
+        }
 }
