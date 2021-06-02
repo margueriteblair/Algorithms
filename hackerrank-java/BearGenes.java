@@ -10,25 +10,23 @@ public class BearGenes {
                 int count = map.getOrDefault(gene.charAt(i), 0) + 1;
                 map.put(gene.charAt(i), count);
             }
+            //go through hashmap and find all the chars over steady
+            //then find the shortest substring that has all of these
             
-            System.out.println(map);
+            
             int maxChar = 0;
             int steady = gene.length()/4;
-            for (int i : map.values()) {
-                if (i > maxChar) maxChar = i;
+            Map<Character, Integer> subMap = new HashMap<>();
+            for (Map.Entry<Character, Integer> set : map.entrySet()) {
+                if (set.getValue() > steady) {
+                    subMap.put(set.getKey(), set.getValue()-steady);
+                    maxChar += (set.getValue() - steady);
+                }
             }
+        
+        
+            System.out.println(subMap);
             System.out.println(maxChar + " " + steady);
             return 1;
-    
-        }
-
-        public boolean isEven(Map<Character, Integer> charMap, int steady) {
-            for (int count : charMap.values()) {
-                if (count != steady) {
-                    return false;
-                }
-                
-                return true;
-            }
         }
 }
