@@ -24,9 +24,33 @@ public class BearGenes {
                 }
             }
         
+            int lengthSmallest = gene.length();
+            for (int i = 0; i < gene.length()-maxChar; i++) {
+                for (int j = i+maxChar; j <= gene.length(); j++) {
+                    if (gene.substring(i, j).length() < lengthSmallest && matchesChars(gene.substring(i, j), subMap)) {
+                        lengthSmallest = gene.substring(i, j).length();
+                    }
+                }
+            }
         
             System.out.println(subMap);
             System.out.println(maxChar + " " + steady);
-            return 1;
+            return lengthSmallest;
+        }
+        
+        public static boolean matchesChars(String test, Map<Character, Integer> map) {
+            for (int i = 0; i < test.length(); i++) {
+                if (map.containsKey(test.charAt(i))) {
+                    map.put(test.charAt(i), map.get(test.charAt(i))-1);
+                    if (map.get(test.charAt(i))-1 == 0) {
+                    map.remove(test.charAt(i));
+                    }
+                }
+            }
+            
+            if (map.isEmpty()) {
+                return true;
+            }
+            return false;
         }
 }
