@@ -21,19 +21,41 @@ public class BearGenes {
                     maxChar += (set.getValue() - steady);
                 }
             }
-            System.out.println(subMap);
         
             int lengthSmallest = gene.length();
             for (int i = 0; i < gene.length()-maxChar; i++) {
-                Map<Character, Integer> subMapCopy = subMap;
                 for (int j = i+maxChar; j <= gene.length(); j++) {
+                    Map<Character, Integer> subMapCopy = subMap;
+                    System.out.println(subMap);
+                    System.out.println(subMapCopy);
                     if (gene.substring(i, j).length() < lengthSmallest && matchesChars(gene.substring(i, j), subMapCopy)) {
                         lengthSmallest = gene.substring(i, j).length();
                     }
                 }
             }
         
-            System.out.println(maxChar + " " + steady);
             return lengthSmallest;
+        }
+        
+        public static boolean matchesChars(String test, Map<Character, Integer> map) {
+            System.out.println(test);
+            Map<Character, Integer> mapCopy = new HashMap<>();
+            for (Map.Entry<Character, Integer> set : map.entrySet()) {
+                mapCopy.put(set.getKey(), set.getValue());
+            }
+            
+            for (int i = 0; i < test.length(); i++) {
+                if (mapCopy.containsKey(test.charAt(i))) {
+                    mapCopy.put(test.charAt(i), mapCopy.get(test.charAt(i))-1);
+                    if (mapCopy.get(test.charAt(i)) == 0) {
+                    mapCopy.remove(test.charAt(i));
+                    }
+                }
+            }
+            
+            if (mapCopy.isEmpty()) {
+                return true;
+            }
+            return false;
         }
 }
