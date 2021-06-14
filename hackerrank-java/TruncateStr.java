@@ -6,6 +6,6 @@ public class TruncateStr {
             res += arr[i] + " ";
         }
         
-        return res;
+        return res.substring(0, res.length()-1);
     }
 }
