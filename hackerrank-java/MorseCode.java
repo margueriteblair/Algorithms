@@ -12,8 +12,19 @@ public class MorseCode {
         }
         
         Set<String> set = new HashSet<>();
-        
+        for (int i = 0; i < words.length; i++) {
+            set.add(toMorseCode(words[i]));
+        }
         System.out.println(map);
-        return 1;
+        return set.size();
+    }
+    
+    public static String toMorseCode(String word, HashMap<Character, String> map) {
+        String res = "";
+        for (int i = 0; i < word.length(); i++) {
+            res += map.get(word.charAt(i));
+        }
+        
+        return res;
     }
 }
