@@ -29,6 +29,16 @@ public class BFSJava {
         while (queue.size() != 0) {
             n = queue.poll();
             System.out.println(n + " ");
+
+            for (int i = 0; i < adj[n].size(); i++) {
+                a = adj[n].get(i);
+                //here we're iterating through all the linked lists and push all neighbors into a queue
+
+                if (!nodes[a]) {
+                    nodes[a] = true; //here were making sure we're only pushing nodes into a queue that haven't already been explored
+                    queue.add(a);
+                }
+            }
         }
     }
 }
