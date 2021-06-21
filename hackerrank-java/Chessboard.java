@@ -8,17 +8,9 @@ public class Chessboard {
         int space = Integer.valueOf(String.valueOf(coordinates.charAt(1)));
         System.out.println(letter + " " + space);
         if (letter == 'a' || letter == 'c' || letter == 'e' || letter == 'g') {
-            if (space % 2 == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return (space % 2 == 0) ? true : false;
         } else {
-            if (space % 2 == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            return (space % 2 == 0) ? false : true;
         }
     }
 }
