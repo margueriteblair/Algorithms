@@ -6,6 +6,7 @@ public class Chessboard {
     public boolean squareIsWhite(String coordinates) {
         char letter = coordinates.charAt(0);
         int space = Integer.valueOf(String.valueOf(coordinates.charAt(1)));
+        System.out.println(letter + " " + space);
         if (letter == 'a' || letter == 'c' || letter == 'e' || letter == 'g') {
             if (space % 2 == 0) {
                 return true;
@@ -14,9 +15,9 @@ public class Chessboard {
             }
         } else {
             if (space % 2 == 0) {
-                return true;
-            } else {
                 return false;
+            } else {
+                return true;
             }
         }
     }
