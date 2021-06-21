@@ -27,7 +27,7 @@ public class BFSJava {
         queue.add(n); //adding the root node to the top of the queue
 
         while (queue.size() != 0) {
-            n = queue.poll();
+            n = queue.poll(); //remove top elem of the queue
             System.out.println(n + " ");
 
             for (int i = 0; i < adj[n].size(); i++) {
