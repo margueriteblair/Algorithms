@@ -15,4 +15,19 @@ public class TwoSum {
         }
         return twoSum;
     }
+
+    public static boolean twoSum2(int[] input, int targetVal) {
+        int pointer1 = 0, pointer2 = input.length-1;
+        while (pointer1 < pointer2) {
+            int sum = input[pointer1] + input[pointer2];
+            if (sum == targetVal) {
+                return true;
+            } else if (sum < targetVal) {
+                pointer1++;
+            } else {
+                pointer2--;
+            }
+        }
+        return false;
+    }
 }
