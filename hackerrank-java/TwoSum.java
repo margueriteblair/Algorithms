@@ -30,4 +30,18 @@ public class TwoSum {
         }
         return false;
     }
+
+    public int[] twoSum4(int[] nums, int target) {
+        int[] res = new int[2];
+        Map<Integer, Integer> map = new HashMap<>(); //hashmap for nums[i] and index
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target-nums[i])) {
+                res[0] = i;
+                res[1] = map.get(target-nums[i]);
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return res;
+    }
 }
