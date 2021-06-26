@@ -32,6 +32,7 @@ public class TwoSum {
     }
 
     public int[] twoSum4(int[] nums, int target) {
+        //hashmap
         int[] res = new int[2];
         Map<Integer, Integer> map = new HashMap<>(); //hashmap for nums[i] and index
         for (int i = 0; i < nums.length; i++) {
@@ -43,5 +44,5 @@ public class TwoSum {
             }
         }
         return res;
-    }
+    } 
 }
