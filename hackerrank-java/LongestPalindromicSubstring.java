@@ -1,6 +1,6 @@
 public class LongestPalindromicSubstring {
     public static void main(String[] args) {
-        //put example here
+        
     }
 
     public String longestString() {
