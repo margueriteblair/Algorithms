@@ -12,5 +12,18 @@ public class Main {
 
         //we make a bunch of loose nodes that arent connected initially
         //but now, we will use our add edge method to add edges to the nodes
+
+        n0.addEdge(n1);
+        n1.addEdge(n0);
+        n1.addEdge(n3);
+        n1.addEdge(n2);
+        n2.addEdge(n1);
+        n2.addEdge(n4);
+        n3.addEdge(n1);
+        n3.addEdge(n4);
+        n3.addEdge(n5);
+        n4.addEdge(n2);
+        n4.addEdge(n3);
+        n5.addEdge(n3);
     }
 }
