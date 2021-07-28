@@ -1,9 +1,9 @@
+package graphAlgos;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
-
-import graphAlgos.Node;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,12 +37,12 @@ public class Main {
         bfs(n0);
         System.out.println();
 
-        System.out.println("DFS Iterative:");
-        dfs(n0);
-        System.out.println();
+        // System.out.println("DFS Iterative:");
+        // dfs(n0);
+        // System.out.println();
 
-        System.out.println("DFS Recursive:");
-        dfsRecursive(n0, new HashSet<Integer>());
+        // System.out.println("DFS Recursive:");
+        // dfsRecursive(n0, new HashSet<Integer>());
     }
 
     public static void bfs(Node root) {
