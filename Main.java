@@ -1,3 +1,8 @@
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+
 import graphAlgos.Node;
 
 public class Main {
@@ -25,5 +30,38 @@ public class Main {
         n4.addEdge(n2);
         n4.addEdge(n3);
         n5.addEdge(n3);
+
+        //traversal methods below:
+
+        System.out.println("BFS Iterative:");
+        bfs(n0);
+        System.out.println();
+
+        System.out.println("DFS Iterative:");
+        dfs(n0);
+        System.out.println();
+
+        System.out.println("DFS Recursive:");
+        dfsRecursive(n0, new HashSet<Integer>());
+    }
+
+    public static void bfs(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
+
+        queue.add(root);
+        visited.add(root.value);
+
+        while (!queue.isEmpty()) {
+            Node currentNode = queue.remove();
+            System.out.println(currentNode.value);
+
+            for (Node n : currentNode.neighbors) {
+                if (!visited.contains(n.value)) {
+                    queue.add(n);
+                    visited.add(n.value);
+                }
+            }
+        }
     }
 }
