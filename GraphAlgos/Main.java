@@ -1,9 +1,6 @@
 package graphAlgos;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -60,6 +57,28 @@ public class Main {
                 if (!visited.contains(n.value)) {
                     queue.add(n);
                     visited.add(n.value);
+                }
+            }
+        }
+    }
+
+    public static void dfs(Node root) {
+        Stack<Node> stack = new Stack<>();
+        Set<Integer> visited = new HashSet<>();
+
+        stack.push(root);
+
+        while(!stack.isEmpty()) {
+            Node currentNode = stack.pop();
+
+            if (!visited.contains(currentNode.value)) {
+                System.out.println(currentNode.value);
+                visited.add(currentNode.value);
+            }
+
+            for (Node n : currentNode.neighbors) {
+                if (!visited.contains(n.value)) {
+                    stack.push(n);
                 }
             }
         }
