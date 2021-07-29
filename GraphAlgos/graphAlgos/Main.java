@@ -34,9 +34,9 @@ public class Main {
         bfs(n0);
         System.out.println();
 
-        // System.out.println("DFS Iterative:");
-        // dfs(n0);
-        // System.out.println();
+         System.out.println("DFS Iterative:");
+         dfs(n0);
+         System.out.println();
 
         // System.out.println("DFS Recursive:");
         // dfsRecursive(n0, new HashSet<Integer>());
@@ -80,6 +80,17 @@ public class Main {
                 if (!visited.contains(n.value)) {
                     stack.push(n);
                 }
+            }
+        }
+    }
+
+    public static void dfsRecursive(Node root, Set<Integer> visited) {
+        System.out.println(root.value);
+        visited.add(root.value);
+
+        for (Node n : root.neighbors) {
+            if (!visited.contains(n.value)) {
+                dfsRecursive(n, visited);
             }
         }
     }
