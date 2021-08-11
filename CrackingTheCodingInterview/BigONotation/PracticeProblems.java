@@ -45,5 +45,5 @@ public class PracticeProblems {
             array[other] = temp;
         }
     }
-    //this is still O(n) runtime because it only goes through half the array
+    //this is still O(n) runtime even though it only goes through half the array
 }
