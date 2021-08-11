@@ -35,4 +35,15 @@ public class PracticeProblems {
         }
     }
     //still O(nm) because the 10000 is constant
+
+    //the following code reverses an array, what is the runtime:
+    void reverse(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            int other = array.length - i -1;
+            int temp = array[i];
+            array[i] = array[other];
+            array[other] = temp;
+        }
+    }
+    //this is still O(n) runtime because it only goes through half the array
 }
