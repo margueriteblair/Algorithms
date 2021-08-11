@@ -47,4 +47,13 @@ public class PracticeProblems {
         }
     }
     //this is still O(n) runtime even though it only goes through half the array
+
+    int sum(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        return node.value + sum(node.left) + sum(node.right);
+        //just bc this is a bst doesn't mean theres a log - it touches every node, so the runtme will be O(n)
+    }
 }
