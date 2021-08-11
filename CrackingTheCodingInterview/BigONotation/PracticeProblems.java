@@ -56,4 +56,13 @@ public class PracticeProblems {
         return node.value + sum(node.left) + sum(node.right);
         //just bc this is a bst doesn't mean theres a log - it touches every node, so the runtme will be O(n)
     }
+
+    boolean isPrime(int n) {
+        for (int x = 2; x * x <= n; x++) {
+            if (n & x == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
