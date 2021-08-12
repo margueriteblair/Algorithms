@@ -1,11 +1,11 @@
 public class PracticeProblems {
     public static void main(String[] args) {
-        
+        System.out.println(powersOf2(50));
     }
 
-    public void printUnorderedPairs(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j < arr.length; j++) {
+    public void printUnorderedPairs(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i+1; j < array.length; j++) {
                 System.out.println(array[i] + " " + array[j]);
             }
         }
@@ -48,18 +48,18 @@ public class PracticeProblems {
     }
     //this is still O(n) runtime even though it only goes through half the array
 
-    int sum(Node node) {
-        if (node == null) {
-            return 0;
-        }
+    // int sum(Node node) {
+    //     if (node == null) {
+    //         return 0;
+    //     }
 
-        return node.value + sum(node.left) + sum(node.right);
-        //just bc this is a bst doesn't mean theres a log - it touches every node, so the runtme will be O(n)
-    }
+    //     return node.value + sum(node.left) + sum(node.right);
+    //     //just bc this is a bst doesn't mean theres a log - it touches every node, so the runtme will be O(n)
+    // }
 
     boolean isPrime(int n) {
         for (int x = 2; x * x <= n; x++) {
-            if (n & x == 0) {
+            if (n / x == 0) {
                 return false;
             }
         }
@@ -85,7 +85,7 @@ public class PracticeProblems {
         }
     }
 
-    void fib(int n, int[] memo) {
+    int fib(int n, int[] memo) {
         if (n <= 0) {
             return 0;
         } else if (n == 1) {
@@ -99,4 +99,14 @@ public class PracticeProblems {
 
     //this one above uses memoization to have an O(N) solution. Because we store the previous two terms in an array, we just sum them and that is constant
     //we do this constant summation N times for an O(N) solution
+
+    public static int powersOf2(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            int prev = powersOf2(n/2);
+            int curr = prev*2;
+            return curr;
+        }
+    }
 }
