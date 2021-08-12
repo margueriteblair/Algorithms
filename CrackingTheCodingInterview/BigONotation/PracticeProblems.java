@@ -78,8 +78,14 @@ public class PracticeProblems {
     //O(N) time bc itll need to hypothetically touch all points
 
 
+    void allFib2(int n) {
+        int[] memo = new int[n+1];
+        for (int i = 0; i < n; i++) {
+            System.out.println(i + ": " + fib(i, memo));
+        }
+    }
 
-    void allFib(int n, int[] memo) {
+    void fib(int n, int[] memo) {
         if (n <= 0) {
             return 0;
         } else if (n == 1) {
@@ -87,5 +93,10 @@ public class PracticeProblems {
         } else if (memo[n] >  0) {
             return memo[n];
         }
+        memo[n] = fib(n-1, memo) + fib(n-2, memo);
+        return memo[n];
     }
+
+    //this one above uses memoization to have an O(N) solution. Because we store the previous two terms in an array, we just sum them and that is constant
+    //we do this constant summation N times for an O(N) solution
 }
