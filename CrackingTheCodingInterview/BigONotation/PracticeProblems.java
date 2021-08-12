@@ -76,4 +76,16 @@ public class PracticeProblems {
         }
     }
     //O(N) time bc itll need to hypothetically touch all points
+
+
+
+    void allFib(int n, int[] memo) {
+        if (n <= 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else if (memo[n] >  0) {
+            return memo[n];
+        }
+    }
 }
