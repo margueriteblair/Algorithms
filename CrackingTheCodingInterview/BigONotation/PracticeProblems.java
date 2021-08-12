@@ -109,4 +109,5 @@ public class PracticeProblems {
             return curr;
         }
     }
+    //we divide in half every time so O(log N)
 }
