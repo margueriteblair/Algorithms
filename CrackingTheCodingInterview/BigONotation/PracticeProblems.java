@@ -110,4 +110,13 @@ public class PracticeProblems {
         }
     }
     //we divide in half every time so O(log N)
+
+    int mod(int a, int b) {
+        if (b <= 0) {
+            return -1;
+        }
+
+        int div = a / b;
+        return a - div * b;
+    }
 }
