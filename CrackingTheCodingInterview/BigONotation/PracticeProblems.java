@@ -141,4 +141,24 @@ public class PracticeProblems {
         return sum;
         //O(log N)
     }
+
+    int[] copyArray(int[] array) {
+        int[] copy = new int[0];
+        for (int value : array) {
+            copy = appendToNew(copy, value);
+        }
+        return copy;
+    }
+
+    int[] appendToNew(int[] array, int value) {
+        int[] bigger = new int[array.length+1];
+        for (int i = 0; i < array.length; i++) {
+            bigger[i] = array[i];
+        }
+
+        bigger[bigger.length-1] = value;
+        returb bigger;
+    }
+
+    //copyArray w/ appendToNew O(N^2) solution for making a copy an array
 }
