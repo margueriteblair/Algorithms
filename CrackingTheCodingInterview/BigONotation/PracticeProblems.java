@@ -162,13 +162,4 @@ public class PracticeProblems {
 
     //copyArray w/ appendToNew O(N^2) solution for making a copy an array
 
-    int sumDigits(int n) {
-        int sum = 0;
-        while (n > 0) {
-            sum += n % 10;
-            n /= 10;
-        }
-        return sum;
-        //big O runtime is O(log N)
-    }
 }
