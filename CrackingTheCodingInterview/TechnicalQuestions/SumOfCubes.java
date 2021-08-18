@@ -1,7 +1,12 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+
 class SubOfCubes {
 
     public static void main(String[] args) {
-        sumCubes();
+        sumCubes4();
     }
 
     static void sumCubes() {
@@ -51,11 +56,23 @@ class SubOfCubes {
 
     static void sumOfCubes4() {
         int limit = 1000;
-        Map<List<Integer>, Integer> = new HashMap<>();
+        Map<List<Integer>, Integer> map = new HashMap<>();
         for (int c = 1; c <= limit; c++) {
             for (int d = 1; d <= limit; d++) {
                 result = Math.pow(d, 3) + Math.pow(c, 3);
-
+                List<Integer> list = new ArrayList<>();
+                list.add(c);
+                list.add(d);
+                map.put(list, result);
+            }
+        }
+        for (int a = 1; a <= limit; a++) {
+            for (int b = 1; b <= limit; b++) {
+                int result = (int) Math.pow(a, 3) + Math.pow(b, 3);
+                List<Integer> list = map.get(result);
+                for (int i : list) {
+                    System.out.println(i);
+                }
             }
         }
     }
