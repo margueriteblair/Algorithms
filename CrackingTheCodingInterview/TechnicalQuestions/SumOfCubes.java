@@ -48,4 +48,15 @@ class SubOfCubes {
             }
         }
     }
+
+    static void sumOfCubes4() {
+        int limit = 1000;
+        Map<List<Integer>, Integer> = new HashMap<>();
+        for (int c = 1; c <= limit; c++) {
+            for (int d = 1; d <= limit; d++) {
+                result = Math.pow(d, 3) + Math.pow(c, 3);
+
+            }
+        }
+    }
 }
