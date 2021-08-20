@@ -21,7 +21,7 @@ public class Permutations {
             for (Map.Entry<Character, Integer> set : map.entrySet()) {
                 copy.put(set.getKey(), set.getValue());
             }
-            System.out.println(copy);
+            
             if (checkContents(sub, copy)) {
                 countPerms++;
             }
@@ -35,13 +35,13 @@ public class Permutations {
             if (!map.containsKey(str.charAt(i))) {
                 return false;
             } else {
-                int count = map.get(str.charAt(i));
+                int count = map.get(str.charAt(i))-1;
                 if (count == 0) {
                     map.remove(str.charAt(i));
                 } else {
-                    count--;
                     map.put(str.charAt(i), count);
                 }
+                System.out.println(map);
             }
         }
         
