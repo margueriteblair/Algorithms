@@ -17,7 +17,11 @@ public class Permutations {
         for (int i = 0; i < b.length()-s.length(); i++) {
             //check every s.length() chars and see if they meet the chars in the hashmap
             String sub = b.substring(i, i+s.length());
-            Map<Character, Integer> copy = map;
+            Map<Character, Integer> copy = new HashMap<Character, Integer>();
+            for (Map.Entry<Character, Integer> set : map.entrySet()) {
+                copy.put(set.getKey(), set.getValue());
+            }
+            System.out.println(copy);
             if (checkContents(sub, copy)) {
                 countPerms++;
             }
@@ -32,14 +36,12 @@ public class Permutations {
                 return false;
             } else {
                 int count = map.get(str.charAt(i));
-                System.out.println(count);
                 if (count == 0) {
                     map.remove(str.charAt(i));
                 } else {
                     count--;
                     map.put(str.charAt(i), count);
                 }
-                System.out.println(map);
             }
         }
         
