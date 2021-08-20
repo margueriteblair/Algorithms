@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Permutations {
     public static void main(String[] args) {
-        System.out.println(permutations("abbc", "cbabadcbbabbcbabaabccbabc"));
+        System.out.println(permutations("abbc", "cbabadcbbabbcbabaabccbabc")); //expected output is 7
     }
 
     static int permutations(String s, String b) {
@@ -32,13 +32,17 @@ public class Permutations {
                 return false;
             } else {
                 int count = map.get(str.charAt(i));
-                count--;
+                System.out.println(count);
                 if (count == 0) {
                     map.remove(str.charAt(i));
+                } else {
+                    count--;
+                    map.put(str.charAt(i), count);
                 }
-                map.put(str.charAt(i), count);
+                System.out.println(map);
             }
         }
+        
         return map.isEmpty() ? true : false;
     }
 }
