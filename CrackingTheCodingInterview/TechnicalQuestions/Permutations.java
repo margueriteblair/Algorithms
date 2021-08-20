@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Permutations {
     public static void main(String[] args) {
-        
+        System.out.println(permutations("abbc", "cbabadcbbabbcbabaabccbabc"));
     }
 
     static int permutations(String s, String b) {
@@ -14,10 +14,10 @@ public class Permutations {
             map.put(s.charAt(i), count+1);
         }
 
-        for (int i = 0; i < b.length(); i++) {
+        for (int i = 0; i < b.length()-s.length(); i++) {
             //check every s.length() chars and see if they meet the chars in the hashmap
             String sub = b.substring(i, i+s.length());
-            HashMap<Character, Integer> copy = map;
+            Map<Character, Integer> copy = map;
             if (checkContents(sub, copy)) {
                 countPerms++;
             }
@@ -26,7 +26,7 @@ public class Permutations {
         return countPerms;
     }
 
-    static boolean checkContents(String str, HashMap<Character, Integer> map) {
+    static boolean checkContents(String str, Map<Character, Integer> map) {
         for (int i = 0; i < str.length(); i++) {
             if (!map.containsKey(str.charAt(i))) {
                 return false;
