@@ -14,7 +14,7 @@ public class Permutations {
             map.put(s.charAt(i), count+1);
         }
 
-        for (int i = 0; i < b.length()-s.length(); i++) {
+        for (int i = 0; i < b.length()-s.length()+1; i++) {
             //check every s.length() chars and see if they meet the chars in the hashmap
             String sub = b.substring(i, i+s.length());
             Map<Character, Integer> copy = new HashMap<Character, Integer>();
@@ -41,10 +41,10 @@ public class Permutations {
                 } else {
                     map.put(str.charAt(i), count);
                 }
-                System.out.println(map);
+                
             }
         }
-        
+        System.out.println(str);
         return map.isEmpty() ? true : false;
     }
 }
