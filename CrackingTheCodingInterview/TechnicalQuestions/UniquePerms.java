@@ -1,6 +1,6 @@
 public class UniquePerms {
     public static void main(String[] args) {
-        
+        generatePermutations("ABC", 0, 3);
     }
 
     static String swapString(String a, int i, int j) {
