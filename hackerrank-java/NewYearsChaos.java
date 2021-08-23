@@ -7,7 +7,7 @@ public class NewYearsChaos {
         // Write your code here
             int bribes = 0;
             for (int i = 0; i < q.size(); i++) {
-                if (q.get(i) != (i+1)) {
+                if (q.get(i) != (i+1) && q.get(i) > q.get(i)-1) {
                     int j = i;
                     while (j != q.get(i)-1) {
                         j++;
@@ -16,9 +16,10 @@ public class NewYearsChaos {
                         System.out.println("Too Chaotic");
                         return;
                     } else {
-                        bribes += (j-i);
+                        bribes++;
                     }
                 }
             }
+            System.out.println(bribes);
         }
 }
