@@ -9,7 +9,7 @@ public class NewYearsChaos {
             for (int i = 0; i < q.size(); i++) {
                 if (q.get(i) != (i+1)) {
                     int j = i;
-                    while (q.get(j) != q.get(i)-1) {
+                    while (j != q.get(i)-1) {
                         j++;
                     }
                     if ((j - i) > 2) {
@@ -20,7 +20,5 @@ public class NewYearsChaos {
                     }
                 }
             }
-            System.out.println(bribes);
         }
-    }
 }
