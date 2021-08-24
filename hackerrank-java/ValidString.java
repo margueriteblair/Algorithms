@@ -17,7 +17,7 @@ public class ValidString {
             Collections.sort(arr);
             if (arr.get(0).equals(arr.get(arr.size()-1))) {
                 return "YES";
-            } else if (arr.get(0).equals(arr.get(arr.size()-2)) && (arr.get(1)).equals(arr.get(arr.size()-1))) {
+            } else if (arr.get(0).equals(arr.get(arr.size()-2)) && (arr.get(1)) == (arr.get(arr.size()-1))) {
                 return "YES";
             } else if (arr.get(0).equals(1) && arr.get(1).equals(arr.get(arr.size()-1))) {
                 return "YES";
