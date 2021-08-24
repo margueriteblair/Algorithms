@@ -3,6 +3,7 @@ public class NewYearsChaos {
         
     }
 
+
     public static void minimumBribes(List<Integer> q) {
         // Write your code here
             int bribes = 0;
@@ -16,7 +17,9 @@ public class NewYearsChaos {
                         System.out.println("Too Chaotic");
                         return;
                     } else {
-                        bribes++;
+                        if (j > i) {
+                            bribes += (j-i);
+                        }
                     }
                 }
             }
