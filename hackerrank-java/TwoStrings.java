@@ -35,4 +35,14 @@ public class TwoStrings {
         }
         return "NO";
     }
+
+    public static String twoStrings(String s1, String s2) {
+        // Write your code here
+        String flag = "NO";
+        for(char c : "abcdefghijklmnopqrstuvwxyz".toCharArray()) {
+            if(s1.indexOf(c) > -1 && s2.indexOf(c) > -1)
+            flag = "YES";
+        }
+        return flag;
+        }
 }
