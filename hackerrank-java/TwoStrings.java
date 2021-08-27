@@ -36,7 +36,7 @@ public class TwoStrings {
         return "NO";
     }
 
-    public static String twoStrings(String s1, String s2) {
+    public static String twoStrings3(String s1, String s2) {
         // Write your code here
         String flag = "NO";
         for(char c : "abcdefghijklmnopqrstuvwxyz".toCharArray()) {
