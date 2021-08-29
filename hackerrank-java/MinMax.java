@@ -7,7 +7,7 @@ public class MinMax {
         // Write your code here
             Collections.sort(arr);
             int minMax = arr.get(k-1) - arr.get(0);
-            for (int i = 0; i < arr.size()-k; i++) {
+            for (int i = 0; i <= arr.size()-k; i++) {
                 if (arr.get(i+k-1) - arr.get(i) < minMax) {
                     minMax = arr.get(k+i-1) - arr.get(i);
                 }
