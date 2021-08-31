@@ -15,4 +15,9 @@ public class IceCreamBars {
         }
         return bars;
     }
+
+    public static void whatFlavors(List<Integer> cost, int money) {
+        // Write your code here
+    
+        }
 }
