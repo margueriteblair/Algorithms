@@ -18,6 +18,18 @@ public class IceCreamBars {
 
     public static void whatFlavors(List<Integer> cost, int money) {
         // Write your code here
-    
+            Map<Integer, Integer> hm = new HashMap<>();
+            
+            for (int i = 0; i < cost.size(); i++) {
+                hm.put(cost.get(i), i+1);
+            }
+            
+            for (int i = 0; i < cost.size(); i++) {
+                if (hm.containsKey(money-cost.get(i))) {
+                    int ind1 = hm.get(money-cost.get(i));
+                    int ind2 = cost.get(i);
+                    System.out.println(Math.min(ind1, ind2) + " " + Math.max(ind1, ind2));
+                }
+            }
         }
 }
