@@ -23,12 +23,13 @@ public class IceCreamBars {
             for (int i = 0; i < cost.size(); i++) {
                 hm.put(cost.get(i), i+1);
             }
-            
+            // System.out.println(hm);
             for (int i = 0; i < cost.size(); i++) {
                 if (hm.containsKey(money-cost.get(i))) {
                     int ind1 = hm.get(money-cost.get(i));
-                    int ind2 = cost.get(i);
+                    int ind2 = i+1;
                     System.out.println(Math.min(ind1, ind2) + " " + Math.max(ind1, ind2));
+                    return;
                 }
             }
         }
