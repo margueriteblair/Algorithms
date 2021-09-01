@@ -28,8 +28,10 @@ public class IceCreamBars {
                 if (hm.containsKey(money-cost.get(i))) {
                     int ind1 = hm.get(money-cost.get(i));
                     int ind2 = i+1;
-                    System.out.println(Math.min(ind1, ind2) + " " + Math.max(ind1, ind2));
-                    return;
+                    if (cost.get(ind2-1) + cost.get(ind1-1) == money && ind1 != ind2) {
+                        System.out.println(Math.min(ind1, ind2) + " " + Math.max(ind1, ind2));
+                        return;
+                    }                
                 }
             }
         }
