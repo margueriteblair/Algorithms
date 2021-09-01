@@ -57,16 +57,14 @@ public class Solution {
 
         scanner.close();
     }
-
     public static int pairs(int k, List<Integer> arr) {
         // Write your code here
             int count = 0;
             for (int i = 0; i < arr.size(); i++) {
-                if (arr.indexOf(k-arr.get(i)) != -1) {
+                if (arr.indexOf(k+arr.get(i)) != -1) {
                     count++;
                 }
             }
             return count;
         }
-    
 }
