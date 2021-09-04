@@ -7,16 +7,18 @@ public class LinkedListCycle {
         if (head == null || head.next == null) {
             return false;
         }
-        Node tortise = head;
-        Node hare = head.next;
         
-        while (hare.next != null && hare != null) {
-            if (hare == tortise) {
+        Node first = head;
+        Node second = head.next;
+        
+        while (second.next != null && second != null) {
+            if (first == second) {
                 return true;
             }
-            tortise = tortise.next; //tortise moves one node at a time
-            hare = hare.next.next; //hare moves two nodes at a time
+            first = first.next;
+            second=second.next.next;
         }
+        
         return false;
     }
 }
