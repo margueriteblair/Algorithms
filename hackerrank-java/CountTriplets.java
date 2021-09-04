@@ -15,8 +15,21 @@ public class CountTriplets {
         
         System.out.println(map);
         for (int i = 0; i < arr.size(); i++) {
-            if (map.containsValue(map.get(i)*r) && map.containsValue(map.get(i)*Math.pow(r, 2))) {
-                count++;
+            if (map.containsValue(map.get(i)*r) && map.containsValue(map.get(i)*r*r)) {
+                int firstCount = 0;
+                int secondCount = 0;
+                for (long val : map.values()) {
+                    if (val == (map.get(i)*r)) {
+                        System.out.println(val);
+                        firstCount++;
+                    }
+                    if (val == (map.get(i)*r*r)) {
+                        System.out.println(val);
+                        secondCount++;
+                    }
+                    count += firstCount;
+                    count += secondCount;
+                }
             }
         }
         
