@@ -6,33 +6,28 @@ public class CountTriplets {
     }
 
     static long countTriplets(List<Long> arr, long r) {
-        long count = 0;
         Map<Integer, Long> map = new HashMap<>();
+        Map<Long, Long> countMap = new HashMap<>();
+        long count = 0;
         
         for (int i = 0; i < arr.size(); i++) {
             map.put(i, arr.get(i));
+            long c1 = countMap.getOrDefault(arr.get(i), 0L);
+            countMap.put(arr.get(i), c1+1);
         }
         
-        System.out.println(map);
-        for (int i = 0; i < arr.size(); i++) {
-            if (map.containsValue(map.get(i)*r) && map.containsValue(map.get(i)*r*r)) {
-                int firstCount = 0;
-                int secondCount = 0;
-                for (long val : map.values()) {
-                    if (val == (map.get(i)*r)) {
-                        System.out.println(val);
-                        firstCount++;
-                    }
-                    if (val == (map.get(i)*r*r)) {
-                        System.out.println(val);
-                        secondCount++;
-                    }
-                    count += firstCount;
-                    count += secondCount;
-                }
+        for (Map.Entry<Integer, Long> set : map.entrySet()) {
+            long val = set.getValue();
+            int i = set.getKey();
+            if (map.containsValue(val*r) && map.containsValue(val*r*r)) {
+                count += countMap.get(val);
+                count += countMap.get(val*r);
+                count += countMap.get(val*r*r);
             }
         }
         
+        // System.out.println(map);
+        // System.out.println(countMap);
         return count;
     }
 }
