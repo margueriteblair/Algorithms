@@ -20,14 +20,17 @@ public class CountTriplets {
             long val = set.getValue();
             int i = set.getKey();
             if (map.containsValue(val*r) && map.containsValue(val*r*r)) {
-                count += countMap.get(val);
-                count += countMap.get(val*r);
-                count += countMap.get(val*r*r);
+                long c1 = countMap.get(val);
+                long c2 = countMap.get(val*r);
+                long c3 =countMap.get(val*r*r);
+                long max = Math.max(c1, c2);
+                max = Math.max(c3, max);
+                count += max;
             }
         }
         
-        // System.out.println(map);
-        // System.out.println(countMap);
+        System.out.println(map);
+        System.out.println(countMap);
         return count;
     }
 }
