@@ -19,15 +19,14 @@ public class TwoSum {
         Map<Integer, Integer> map = new HashMap<>();
         int[] res = new int[2];
         for (int i = 0; i < arr.length; i++) {
-            map.put(arr[i], i);
-        }
-
-        for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(target-arr[i])) {
                 res[0] = i;
                 res[1] = map.get(target-arr[i]);
+            } else {
+                map.put(arr[i], i);
             }
         }
+
         if (res[0] == 0 && res[1] == 0) {
             return null;
         }
