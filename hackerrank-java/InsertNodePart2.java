@@ -14,7 +14,7 @@ public class InsertNodePart2 {
                 nodeToInsert.next = head; return nodeToInsert;
             }    
             int i = 0;
-            while (currPosition < position -1 && head.next != null){
+            while (i < position -1 && head.next != null){
                 head = head.next;        
                 i++;       
             }
