@@ -17,4 +17,9 @@ public class HurdleRace {
             return diff;
     
         }
+
+        public static int hurdleRace2(int k, List<Integer> height) {
+            // Write your code here
+                return Math.max(0, Collections.max(height)-k);
+            }
 }
