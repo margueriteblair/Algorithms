@@ -3,10 +3,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+
 public class TwoSum {
     public static void main(String[] args) {
         System.out.println(twoSum(new int[] {1, 3, 7, 9, 2}, 11));
         System.out.println(twoSum(new int[] {}, 11));
+        System.out.println(twoSum(new int[] {1, 3, 7, 9, 2}, 25));
     }
 
     public static String twoSum(int[] arr, int target) {
@@ -25,6 +27,9 @@ public class TwoSum {
                 res[0] = i;
                 res[1] = map.get(target-arr[i]);
             }
+        }
+        if (res[0] == 0 && res[1] == 0) {
+            return null;
         }
         return Arrays.toString(res);
     }
