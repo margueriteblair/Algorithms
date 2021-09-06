@@ -16,7 +16,7 @@ public class InsertNodeInLinkedList {
 
     static SinglyLinkedListNode insertNodeAtPosition2(SinglyLinkedListNode llist, int data, int position) {
         // Write your code here
-                SinglyLinkedListNode nodeToInsert = new SinglyLinkedListNode(data);
+            SinglyLinkedListNode nodeToInsert = new SinglyLinkedListNode(data);
             SinglyLinkedListNode head2 = llist;
             if (llist == null) {
                 llist = nodeToInsert;
