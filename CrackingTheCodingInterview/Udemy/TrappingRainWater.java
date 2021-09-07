@@ -14,6 +14,8 @@ public class TrappingRainWater {
                     temp += height[i]-height[j];
                 } else {
                     totalWater += temp;
+                    i = j;
+                    continue;
                 }
             }
         }
