@@ -13,9 +13,9 @@ public class WaterContainers {
             if (height[i+1] > height[j-1]) {
                 i++;
             } else {
-                j++;
+                j--;
             }
-            maxArea = Math.max(maxArea, Math.min(height[j], height[i])*(j-i));
+            maxArea = Math.max(maxArea, Math.max(height[j], height[i])*(j-i));
         }
         return maxArea;
     }
