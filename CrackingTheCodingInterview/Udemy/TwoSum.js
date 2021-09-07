@@ -24,4 +24,4 @@ const findTwoSum2 = function(nums, target) {
 }
 
 console.log(findTwoSum2([1, 3, 7, 9, 2], 11))
-console.log(findTwoSum2([1, 3, 7, 9, 2], 25))
+console.log(findTwoSum2([1, 3, 7, 9, 2], 4))
