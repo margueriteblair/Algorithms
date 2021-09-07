@@ -12,10 +12,12 @@ public class WaterContainers {
         while (i < j) {
             if (height[i+1] > height[j-1]) {
                 i++;
+                maxArea = Math.max(maxArea, height[i]*(j-i));
             } else {
                 j--;
+                maxArea = Math.max(maxArea, height[j]*(j-i));
             }
-            maxArea = Math.max(maxArea, Math.max(height[j], height[i])*(j-i));
+            
         }
         return maxArea;
     }
