@@ -6,7 +6,8 @@ public class WaterContainers {
     }
 
     public int maxArea(int[] height) {
-        int maxArea = Math.min(height[0], height[height.length-1])*height.length-1;
+        int maxArea = (Math.min(height[0], height[height.length-1]))*(height.length-1);
+        // System.out.println(height[height.length-1]);
         int i = 0;
         int j = height.length-1;
         while (i < j) {
@@ -18,7 +19,7 @@ public class WaterContainers {
             maxArea = Math.max(maxArea, Math.min(height[j], height[i])*(j-i));
             
         }
-        System.out.println(height[j] + " " + height[i]);
+
         return maxArea;
     }
 }
