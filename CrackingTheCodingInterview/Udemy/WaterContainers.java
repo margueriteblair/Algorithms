@@ -8,17 +8,17 @@ public class WaterContainers {
     public int maxArea(int[] height) {
         int maxArea = Math.min(height[0], height[height.length-1])*height.length-1;
         int i = 0;
-        int j = height[height.length-1];
+        int j = height.length-1;
         while (i < j) {
             if (height[i+1] > height[j-1]) {
                 i++;
-                maxArea = Math.max(maxArea, height[i]*(j-i));
             } else {
                 j--;
-                maxArea = Math.max(maxArea, height[j]*(j-i));
             }
+            maxArea = Math.max(maxArea, Math.min(height[j], height[i])*(j-i));
             
         }
+        System.out.println(height[j] + " " + height[i]);
         return maxArea;
     }
 }
