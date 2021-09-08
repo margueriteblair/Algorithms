@@ -29,14 +29,14 @@ const trap2 = function (height) {
 
     while (i < j) {
         if (height[i] < height[j]) {
-            if (height[i] <= maxLeft) {
+            if (height[i] >= maxLeft) {
                 maxLeft = height[i]
             } else {
                 totalWater += maxLeft - height[i];
             }
             i++
         } else {
-            if (height[j] <= maxRight) {
+            if (height[j] >= maxRight) {
                 maxRight = height[j]
             } else {
                 totalWater += maxRight - height[j];
