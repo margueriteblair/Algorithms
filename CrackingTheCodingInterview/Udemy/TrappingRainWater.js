@@ -17,4 +17,32 @@ const trap = function(height) {
 
         return tmpWater
     }
+
+}
+
+const trap2 = function (height) {
+    let i = 0;
+    let j = height.length-1;
+    let totalWater = 0;
+    let maxLeft = 0;
+    let maxRight = 0;
+
+    while (i < j) {
+        if (height[i] < height[j]) {
+            if (height[i] <= maxLeft) {
+                maxLeft = height[i]
+            } else {
+                totalWater += maxLeft - height[i];
+            }
+            i++
+        } else {
+            if (height[j] <= maxRight) {
+                maxRight = height[j]
+            } else {
+                totalWater += maxRight - height[j];
+            }
+            j--;
+        } 
+    }
+    return totalWater
 }
