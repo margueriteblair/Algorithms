@@ -10,7 +10,7 @@ const lengthOfLongestSubstring = function(s) {
 
     for (let r = 0; r < s.length; r++) {
         const currentChar = s[r];
-        const prevSeenChar = seenChars[currentChar]
+        let prevSeenChar = seenChars[currentChar]
         if (prevSeenChar >= l) {
             l = prevSeenChar++;
         }
@@ -20,3 +20,5 @@ const lengthOfLongestSubstring = function(s) {
     }
     return longest;
 }
+
+console.log(lengthOfLongestSubstring("hello"))
