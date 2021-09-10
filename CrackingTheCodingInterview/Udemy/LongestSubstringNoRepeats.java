@@ -22,6 +22,7 @@ public class LongestSubstringNoRepeats {
                 maxLen = Math.max(maxLen, set.size());
             } else {
                 set = new HashSet<>();
+                j--;
             }
         }
         return maxLen;
