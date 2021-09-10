@@ -45,7 +45,7 @@ var backspaceCompare2 = function(s, t) {
             }
             if (t[j] === '#') {
                 let backCount = 2;
-                while (backCount >= 0) {
+                while (backCount > 0) {
                     j--;
                     backCount--;
                     if (t[j] === '#') {
