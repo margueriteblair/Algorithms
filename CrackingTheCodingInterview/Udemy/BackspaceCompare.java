@@ -68,9 +68,13 @@ public class BackspaceCompare {
                 }
             } else {
                 if (s.charAt(i) != t.charAt(j)) {
-                    
+                    return false;
+                } else {
+                    i--;
+                    j--;
                 }
             }
         }
+        return true;
     }
 }
