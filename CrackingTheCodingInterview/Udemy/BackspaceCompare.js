@@ -24,4 +24,43 @@ var backspaceCompare = function(s, t) {
             }
         }
     }
+    return true
+}
+
+var backspaceCompare2 = function(s, t) {
+    let i = s.length-1;
+    let j = t.length-1;
+    
+    while (i >= 0 || j >= 0) {
+        if (s[i] === '#' || t[j] === '#') {
+            if (s[i] === '#') {
+                let backCount = 2;
+                while (backCount > 0) {
+                    i--;
+                    backCount--;
+                    if (s[i] === '#') {
+                        backCount+=2;
+                    }
+                }
+            }
+            if (t[j] === '#') {
+                let backCount = 2;
+                while (backCount >= 0) {
+                    j--;
+                    backCount--;
+                    if (t[j] === '#') {
+                        backCount+=2;
+                    }
+                }
+            }
+        } else {
+            if (s[i] != t[j]) {
+                return false;
+            } else {
+                i--;
+                j--;
+            }
+        }
+    }
     return true;
+};
