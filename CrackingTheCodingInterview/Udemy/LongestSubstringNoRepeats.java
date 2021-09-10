@@ -9,22 +9,22 @@ public class LongestSubstringNoRepeats {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() < 2) {
+        if(s.length() <2){
             return s.length();
         }
-        
-        int maxLen = 0;
-        int i = 0;
         Set<Character> set = new HashSet<>();
-        for (int j = 0; j < s.length(); j++) {
-            if (!set.contains(s.charAt(j))) {
+        int max =0, i=0, j=0;
+        while(j < s.length()){
+            if(!set.contains(s.charAt(j))){
                 set.add(s.charAt(j));
-                maxLen = Math.max(maxLen, set.size());
-            } else {
-                set = new HashSet<>();
-                j--;
+                max = Math.max(max, set.size());
+                j++;
+            }
+            else{
+                set.remove(s.charAt(i));
+                i++;
             }
         }
-        return maxLen;
-    }
+        return max;
+        }
 }
