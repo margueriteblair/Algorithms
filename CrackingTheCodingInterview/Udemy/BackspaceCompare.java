@@ -39,4 +39,38 @@ public class BackspaceCompare {
         }
         return true;
     }
+
+    public boolean backspaceCompare2(String s, String t) {
+        int i = s.length()-1;
+        int j = t.length()-1;
+
+        while (i >= 0 || j >= 0) {
+            if (s.charAt(i) == '#' || t.charAt(j) == '#') {
+                if (s.charAt(i) == '#') {
+                    int backCount = 2;
+                    while (backCount > 2) {
+                        i--;
+                        backCount--;
+                        if (s.charAt(i) == '#') {
+                            backCount+=2;
+                        }
+                    }
+                }
+                if (t.charAt(j) == '#') {
+                    int backCount = 2;
+                    while (backCount > 0) {
+                        j--;
+                        backCount--;
+                        if (t.charAt(j) == '#') {
+                            backCount+=2;
+                        }
+                    }
+                }
+            } else {
+                if (s.charAt(i) != t.charAt(j)) {
+                    
+                }
+            }
+        }
+    }
 }
