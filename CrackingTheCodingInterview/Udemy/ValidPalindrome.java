@@ -39,7 +39,7 @@ public class ValidPalindrome {
             if (i == index) {
                 i++;
             } else if (j == index) {
-                j++;
+                j--;
             }
             if (s.charAt(i) != s.charAt(j)) {
                 return false;
