@@ -2,19 +2,21 @@ package CrackingTheCodingInterview.Udemy;
 
 public class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
-        Stack<ListNode> stack = new Stack<>();
-        stack.push(head);
-        while (head.next != null) {
-            head = head.next;
-            stack.push(head);
+        Stack<Integer> stack = new Stack<>();
+        ListNode curr = head;
+        stack.push(curr.val);
+        while (curr.next != null) {
+            curr = curr.next;
+            stack.push(curr.val);
         }
+        System.out.println(stack);
         
-        ListNode newHead = stack.pop();
         
-        newHead.next = null;
+        ListNode newHead = new ListNode(stack.pop());
+        ListNode copy = newHead;
         while (!stack.isEmpty()) {
-            newHead.next = stack.pop();
-            newHead.next = newHead.next.next;
+            copy.next = new ListNode(stack.pop());
+            copy = copy.next;
         }
         return newHead;
     }
