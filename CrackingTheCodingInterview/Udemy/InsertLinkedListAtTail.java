@@ -12,11 +12,11 @@ public class InsertLinkedListAtTail {
         }
         
         Node current = head;
-        while (current != null) {
-            current = current.next;
+        while (head != null) {
+            head = head.next;
         }
         
-        current = new Node(data);
+        head = new Node(data);
         return head;
     }
 }
