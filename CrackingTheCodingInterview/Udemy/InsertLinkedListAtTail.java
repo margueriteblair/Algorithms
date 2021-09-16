@@ -20,7 +20,7 @@ public class InsertLinkedListAtTail {
         return head;
     }
 
-    public static  Node insert(Node head,int data) {
+    public static  Node insert2(Node head,int data) {
         if (head == null) {
             return new Node(data);
         }
