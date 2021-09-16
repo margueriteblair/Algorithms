@@ -29,9 +29,7 @@ public class ONotation {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < str.length(); i++) {
             for (int j = i+1; j < str.length(); j++) {
-                for (int k = 1; k < 4; k++) {
-
-                }
+                //O((n^2))
             }
         }
         return list;
