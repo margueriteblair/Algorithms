@@ -14,9 +14,20 @@ public class FlattenLinkedList {
             if (currentNode.child == null) {
                 currentNode = currentNode.next;
             } else {
-                
+                Node tail = currentNode.child;
+                while (tail.next != null) {
+                    tail= tail.next;
+                }
+                tail.next = currentNode.next;
+                if (tail.next != null) {
+                    tail.next.prev = tail;
+                }
+                currentNode.next = currentNode.child;
+                currentNode.next.prev = currentNode;
+                currentNode.child = null;
             }
             
         }
+        return head;
     }
 }
