@@ -32,6 +32,5 @@ public class ReverseLinkedList {
         }
         
         return prev;
-        //comment
     }
 }
