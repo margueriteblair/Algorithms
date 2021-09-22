@@ -21,6 +21,9 @@ public class LinkedListCycle {
     }
 
     public ListNode detectCycle2(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         ListNode tortoise = head;
         ListNode hare = head;
         while (true) {
