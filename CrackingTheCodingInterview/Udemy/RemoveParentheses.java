@@ -20,11 +20,11 @@ public class RemoveParentheses {
         leftCount += stack.size();
         
         while (leftCount > 0) {
-            s = s.replace("(", "");
+            s = s.replaceFirst("(", "");
             leftCount--;
         }
         while (rightCount > 0) {
-            s = s.replace(")", "");
+            s = s.replaceFirst("\\)", "");
             rightCount--;
         }
         return s;
