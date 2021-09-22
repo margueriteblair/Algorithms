@@ -21,23 +21,28 @@ public class LinkedListCycle {
     }
 
     public ListNode detectCycle2(ListNode head) {
-        ListNode currentNode = head;
         ListNode tortoise = head;
         ListNode hare = head.next;
-        while (hare != null) {
-            if (tortoise == hare) {
-                ListNode t2 = head;
-                ListNode h2 = tortoise;
-                while (t2 != h2) {
-                    t2 = t2.next;
-                    h2 = h2.next;
-                }
-                return h2;
-            }
-            hare = hare.next.next;
+        while (true) {
             tortoise = tortoise.next;
+            hare = hare.next;
+            if (hare == null || hare.next == null) {
+                return null;
+            } else {
+                hare = hare.next;
+            }
+            if (tortoise == hare) {
+                break;
+            }
         }
-        return null;
+        ListNode t2 = hare;
+        ListNode h2 = head;
+        while (h2 != t2) {
+            t2 = t2.next;
+            h2 = h2.next;
+        }
+        
+        return h2;
     }
 }
 
