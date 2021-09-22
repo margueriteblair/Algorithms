@@ -4,7 +4,6 @@ public class RemoveParentheses {
     public static void main(String[] args) {
         
     }
-
     public String minRemoveToMakeValid(String s) {
         Stack<Character> stack = new Stack<>();
         int leftCount = 0;
@@ -20,6 +19,14 @@ public class RemoveParentheses {
         }
         leftCount += stack.size();
         System.out.println(leftCount + " " + rightCount);
+        while (leftCount > 0) {
+            s.remove('(');
+            leftCount--;
+        }
+        while (rightCount > 0) {
+            s.remove(')');
+            rightCount--;
+        }
         return s;
     }
 }
