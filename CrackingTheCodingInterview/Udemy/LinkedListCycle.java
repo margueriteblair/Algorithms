@@ -22,7 +22,7 @@ public class LinkedListCycle {
 
     public ListNode detectCycle2(ListNode head) {
         ListNode tortoise = head;
-        ListNode hare = head.next;
+        ListNode hare = head;
         while (true) {
             tortoise = tortoise.next;
             hare = hare.next;
@@ -31,11 +31,11 @@ public class LinkedListCycle {
             } else {
                 hare = hare.next;
             }
-            if (tortoise == hare) {
+            if (tortoise.equals(hare)) {
                 break;
             }
         }
-        ListNode t2 = hare;
+        ListNode t2 = tortoise;
         ListNode h2 = head;
         while (h2 != t2) {
             t2 = t2.next;
