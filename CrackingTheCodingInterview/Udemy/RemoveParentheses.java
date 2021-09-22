@@ -18,13 +18,13 @@ public class RemoveParentheses {
             }
         }
         leftCount += stack.size();
-        System.out.println(leftCount + " " + rightCount);
+        
         while (leftCount > 0) {
-            s.remove('(');
+            s = s.replace("(", "");
             leftCount--;
         }
         while (rightCount > 0) {
-            s.remove(')');
+            s = s.replace(")", "");
             rightCount--;
         }
         return s;
