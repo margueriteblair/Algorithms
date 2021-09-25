@@ -50,16 +50,22 @@ class MyQueue2 {
     }
     
     public int pop() {
-        while (!s1.isEmpty()) {
-            s2.push(s1.pop());
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
         }
+
         return s2.pop();
     }
     
     public int peek() {
+    if (s2.isEmpty()) {
         while (!s1.isEmpty()) {
             s2.push(s1.pop());
         }
+    }
+
         return s2.peek();
     }
     
