@@ -25,4 +25,8 @@ class QueueWithStacks {
         }
         return this.out.peek();
     }
+
+    empty() {
+        return this.out.length === 0 && this.in.length === 0;
+    }
 }
