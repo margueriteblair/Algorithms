@@ -25,7 +25,7 @@ class MyQueue {
     }
     
     public boolean empty() {
-        if (reverse.isEmpty()) {
+        if (reverse.size() == 0 && ordered.size() == 0) {
             return true;
         }
         return false;
