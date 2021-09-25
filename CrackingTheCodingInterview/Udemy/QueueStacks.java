@@ -7,6 +7,9 @@ class MyQueue {
     
     public void push(int x) {
         backToFront.push(x);
+        while (!backToFront.isEmpty()) {
+            frontToBack.push(backToFront.pop());
+        }
     }
     
     public int pop() {
@@ -14,7 +17,7 @@ class MyQueue {
     }
     
     public int peek() {
-        return frontToBack.pop();
+        return frontToBack.peek();
     }
     
     public boolean empty() {
