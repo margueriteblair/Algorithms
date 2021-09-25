@@ -4,11 +4,11 @@ class QueueWithStacks {
         this.out = [];
     }
 
-    enqueue (val) {
+    enqueue (val) { // O(1)
         this.in.push(val);
     }
 
-    dequeue() {
+    dequeue() { // O(N)
         if (this.out.length === 0) {
             while (this.in.length) {
                 this.out.push(this.in.pop());
@@ -17,7 +17,7 @@ class QueueWithStacks {
         return this.out.pop();
     }
 
-    peek () {
+    peek () { //O(N)
         if (this.out.length === 0) {
             while (this.in.length) {
                 this.out.push(this.in.pop());
@@ -26,7 +26,7 @@ class QueueWithStacks {
         return this.out.peek();
     }
 
-    empty() {
+    empty() { //O(1)
         return this.out.length === 0 && this.in.length === 0;
     }
 }
