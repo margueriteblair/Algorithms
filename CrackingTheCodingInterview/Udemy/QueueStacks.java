@@ -1,27 +1,31 @@
 class MyQueue {
-    Stack<Integer> frontToBack = new Stack<>();
-    Stack<Integer> backToFront = new Stack<>();
+    Stack<Integer> ordered = new Stack<>();
+    Stack<Integer> reverse = new Stack<>();
     public MyQueue() {
         
     }
     
     public void push(int x) {
-        backToFront.push(x);
-        while (!backToFront.isEmpty()) {
-            frontToBack.push(backToFront.pop());
-        }
+        ordered.push(x);
+
     }
     
     public int pop() {
-        return frontToBack.pop();
+        while (!ordered.isEmpty()) {
+            reverse.push(ordered.pop());
+        }
+        return reverse.pop();
     }
     
     public int peek() {
-        return frontToBack.peek();
+        while (!ordered.isEmpty()) {
+            reverse.push(ordered.pop());
+        }
+        return reverse.peek();
     }
     
     public boolean empty() {
-        if (frontToBack.isEmpty() || backToFront.isEmpty()) {
+        if (reverse.isEmpty()) {
             return true;
         }
         return false;
