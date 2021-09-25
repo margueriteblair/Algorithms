@@ -40,7 +40,7 @@ class MyQueue2 {
 
     Stack<Integer> s1 = new Stack<>();
     Stack<Integer> s2 = new Stack<>();
-    public MyQueue() {
+    public MyQueue2() {
         
     }
     
