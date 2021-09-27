@@ -43,5 +43,10 @@ public class Sorting {
             }
             arr[j+1] = key;
         }
+        System.out.println(arr);
+    }
+
+    public static void mergeSort(int[] arr) {
+
     }
 }
