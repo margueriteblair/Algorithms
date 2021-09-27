@@ -15,3 +15,4 @@ function tailRecursion(x, totalSoFar = 1) {
     }
     //this has space O(1)
 }
+//some languages don't support tail recursion, js cannot actually implement tail recursion
