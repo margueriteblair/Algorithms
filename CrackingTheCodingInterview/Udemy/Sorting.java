@@ -46,7 +46,15 @@ public class Sorting {
         System.out.println(arr);
     }
 
-    public static void mergeSort(int[] arr) {
+    public static int[] mergeSort(int[] arr, int beg, int end) {
+        if (arr.length == 1) {
+            return arr;
+        }
 
+        int length = arr.length;
+        int middle = (beg+end)/2;
+        mergeSort(arr, beg, middle);
+        mergeSort(arr, middle+1, end);
+        merge(arr, beg, middle, end);
     }
 }
