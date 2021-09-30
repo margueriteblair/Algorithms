@@ -57,4 +57,7 @@ public class Sorting {
         mergeSort(arr, middle+1, end);
         merge(arr, beg, middle, end);
     }
+
+    private static void merge(int[] arr, int beg, int middle, int end) {
+    }
 }
