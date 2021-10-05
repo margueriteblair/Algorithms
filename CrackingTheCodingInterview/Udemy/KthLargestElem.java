@@ -9,4 +9,8 @@ public class KthLargestElem {
         Arrays.sort(nums);
         return nums[nums.length-k];
     }
+
+    public int findKthLargest2(int[] nums, int k) {
+        
+    }
 }
