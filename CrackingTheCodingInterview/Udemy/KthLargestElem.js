@@ -37,4 +37,4 @@ var findKthLargest = function (nums, k) {
   return nums[indexToFind]
 };
 
-console.log(findKthLargest(array, kToFind))
+console.log(findKthLargest([5,2,1,6,7,2,9,8], 2))
