@@ -18,6 +18,8 @@ const partition = function(array, left, right) {
     swap(array, partitionInd, right);
 }
 
-const swap = function() {
-    
+const swap = function(array, i, j) {
+    let temp = array[i];
+    array[i] = array[j]
+    array[j] = temp;
 }
