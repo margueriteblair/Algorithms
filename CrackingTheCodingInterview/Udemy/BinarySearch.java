@@ -11,11 +11,11 @@ public class BinarySearch {
         
         while (left != right) {
             int mid = (left+right)/2;
-            if (target < mid) {
+            if (target < arr[mid]) {
                 right = mid-1;
-            } else if (target > mid) {
+            } else if (target > arr[mid]) {
                 left = mid+1;
-            } else if (target == mid) {
+            } else if (target == arr[mid]) {
                 return mid;
             }
         }
