@@ -9,13 +9,16 @@ public class BinarySearch {
         int left = 0;
         int right = arr.length-1;
         int mid = (left+right)/2;
-        if (target < mid) {
-
-        } else if (target > mid) {
-
-        } else if (target == mid) {
-            return mid;
+        while (left != right) {
+            if (target < mid) {
+                right = mid-1;
+            } else if (target > mid) {
+                left = mid+1;
+            } else if (target == mid) {
+                return mid;
+            }
         }
-        -1;
+
+        return -1;
     }
 }
