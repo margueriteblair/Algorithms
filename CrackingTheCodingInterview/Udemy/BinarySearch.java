@@ -2,7 +2,7 @@ package CrackingTheCodingInterview.Udemy;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        System.out.println(binarySearch(new int[] {1,2,3,4,5}, 2));
+        System.out.println(binarySearch(new int[] {1,2,3,4,5}, 4));
     }
 
     public static int binarySearch(int[] arr, int target) {
