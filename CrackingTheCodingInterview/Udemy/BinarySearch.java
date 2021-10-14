@@ -5,16 +5,17 @@ public class BinarySearch {
         
     }
 
-    public static int binarySearch(int[] arr, int desired) {
+    public static int binarySearch(int[] arr, int target) {
         int left = 0;
         int right = arr.length-1;
         int mid = (left+right)/2;
-        if (desired < mid) {
+        if (target < mid) {
 
-        } else if (desired > mid) {
+        } else if (target > mid) {
 
-        } else if (desired == mid) {
+        } else if (target == mid) {
             return mid;
         }
+        -1;
     }
 }
