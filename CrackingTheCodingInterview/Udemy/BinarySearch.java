@@ -24,7 +24,7 @@ public class BinarySearch {
                 return mid;
             }
         }
-
+        //if the target isn't found, return -1
         return -1;
     }
 }
