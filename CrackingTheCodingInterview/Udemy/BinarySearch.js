@@ -12,4 +12,6 @@ const binarySearch = function(arr, target) {
     }
     return -1;
 }
-console.log(binarySearch([1,2,3,4,5,6,7]), 7)
+console.log(binarySearch([1,2,3,4,5,6,7,8]), 7)
+//Time: O(log N)
+//Space: O(1) we're only storing variables
