@@ -25,6 +25,10 @@ var searchRange = function(nums, target) {
             }
             res.push(left);
             res.push(right);
+        } else if (nums[mid] < target) {
+            left = mid+1;
+        } else if (nums[mid] > target) {
+            right = mid-1;
         }
         return res;
 
