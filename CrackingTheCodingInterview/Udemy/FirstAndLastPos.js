@@ -37,3 +37,5 @@ const searchRange = function(nums, target) {
     endPos = temp2;
     return [startPos, endPos]
 }
+//T: O(log N)
+//S: O(1)
