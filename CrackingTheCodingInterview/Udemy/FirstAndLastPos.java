@@ -24,6 +24,21 @@ public class FirstAndLastPos {
         }
         int startPos = firstPos;
         int endPos = firstPos;
-        int temp1, temp2;
+        int temp1 = 0;
+        int temp2 = 0;
+        while (startPos != -1) {
+            temp1 = startPos;
+            startPos = binarySearch(arr, 0, startPos-1, target);
+        }
+        startPos = temp1;
+
+        while (endPos != -1) {
+            temp2 = endPos;
+            endPos = binarySearch(arr, endPos+1, arr.length-1, target);
+        }
+        endPos = temp2;
+        res[0] = startPos;
+        res[1] = endPos;
+        return res;
     }
 }
