@@ -11,5 +11,6 @@ const BFS = function(root) {
         if (node.right) {
             q.push(node.right);
         }
+        return res;
     }
 }
