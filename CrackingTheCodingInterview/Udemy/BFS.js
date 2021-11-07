@@ -13,5 +13,4 @@ const BFS = function(root) {
         }
         return res;
     }
-    //hello
 }
