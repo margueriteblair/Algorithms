@@ -1,7 +1,3 @@
-public class LevelOrderTraversal {
-    
-}
-
 public class TreeNode {
     int val;
     TreeNode left;
