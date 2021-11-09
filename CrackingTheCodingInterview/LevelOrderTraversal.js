@@ -11,6 +11,13 @@ const levelOrder = function(root) {
         while (count < length) {
             const currentNode = queue.shift();
             currentLevelValues.push(currentNode.value);
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }
+            count++;
         }
     }
 }
