@@ -19,5 +19,7 @@ const levelOrder = function(root) {
             }
             count++;
         }
+        res.push(currentLevelValues);
     }
+    return res;
 }
