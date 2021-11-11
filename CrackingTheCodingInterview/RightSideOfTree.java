@@ -1,8 +1,10 @@
+import java.util.LinkedList;
+
 public class RightSideOfTree {
     public static void main(String[] args) {
-        
+        rightSideView(new LinkedList<>(1,2,3,null,5,null,4));
     }
-    public List<Integer> rightSideView(TreeNode root) {
+    public static List<Integer> rightSideView(TreeNode root) {
         if (root == null) {
             return new ArrayList<Integer>();
         }
