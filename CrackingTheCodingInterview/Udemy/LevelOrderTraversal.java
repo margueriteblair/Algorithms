@@ -12,6 +12,7 @@ public class LevelOrderTraversal {
         }
         List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         while (queue.size() != 0) {
             List<Integer> currentLevelValues = new ArrayList<>();
             int count = 0;
