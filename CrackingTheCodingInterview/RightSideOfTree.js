@@ -4,7 +4,7 @@ const rightSideView = function(root) {
     }
     let res = [];
     const queue = [root];
-    while (root.length) {
+    while (queue.length) {
         const currentLevelValues = [];
         let length = queue.length;
         let count = 0;
