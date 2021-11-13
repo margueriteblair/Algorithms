@@ -1,8 +1,3 @@
-/*
-NOTE: The beginning portion builds our test case binary tree. Scroll down to the section titled Our Solution for the code solution!
- */
-
-// ------- Code to generate our binary tree -------
 class TreeNode {
     constructor(value) {
       this.value = value;
@@ -32,9 +27,7 @@ class TreeNode {
   
   const tree = new TreeNode(1);
   tree.insert([2,3,4,5,null,6,null,7,null,null,null,null,8,null,null,null]);
-  // ------- Code to generate our binary tree -------
-  
-  // ------- Our Solution -------
+
   const dfs = (node, currentLevel, result) => {
     if(!node) return;
     if(currentLevel >= result.length) {
