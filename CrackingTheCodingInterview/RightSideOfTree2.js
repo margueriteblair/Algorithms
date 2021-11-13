@@ -1,7 +1,7 @@
 //This is the DFS solution of finding the right side viewpoint of our BST
 //In DFS, we explore as far down on one branch as we can before switching nodes
 //1. We prioritize the right side
-//2. We keep track of the level of the nodes
+//2. We keep track of the level of the nodes through DFS's recursive nature
 
 class TreeNode {
     constructor(value) {
@@ -29,6 +29,7 @@ class TreeNode {
       }
       return this;
     }
+    //hello dfs
   }
   
   const tree = new TreeNode(1);
