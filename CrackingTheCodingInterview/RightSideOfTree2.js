@@ -1,9 +1,13 @@
+//This is the DFS solution of finding the right side viewpoint of our BST
+//In DFS, we explore as far down on one branch as we can before switching nodes
+
 class TreeNode {
     constructor(value) {
       this.value = value;
       this.left = null;
       this.right = null;
     }
+
   
     insert(values) {
       const queue = [this];
