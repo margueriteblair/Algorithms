@@ -12,8 +12,14 @@ public class SherlockAnagrams {
             }
         }
         System.out.println(substringList);
-        return 0;
-
+        for (int i = 0; i < substringList.size(); i++) {
+            for (int j = i+1; j < substringList.size(); j++) {
+                if (isAnagram(substringList.get(i), substringList.get(j))) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
     public static boolean isAnagram(String s1, String s2) {
         Map<Character, Integer> s1Map = new HashMap<>();
@@ -25,8 +31,12 @@ public class SherlockAnagrams {
             if (!s1Map.containsKey(s2.charAt(i))) {
                 return false;
             } else if (s1Map.containsKey(s2.charAt(i))) {
-                
+                s1Map.put(s2.charAt(i), s1Map.get(s2.charAt(i))--);
+            }
+            if (s1Map.get(s2.charAt(i)).equals(0)) {
+                return false;
             }
         }
+        return true;
     }
 }
