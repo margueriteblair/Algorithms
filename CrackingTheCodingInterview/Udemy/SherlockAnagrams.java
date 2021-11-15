@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SherlockAnagrams {
     public static void main(String[] args) {
-        
+        sherlockAndAnagrams("mom"); //should return 3
     }
 
     static int sherlockAndAnagrams(String s) {
@@ -27,21 +27,25 @@ public class SherlockAnagrams {
         return count;
     }
     public static boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
         Map<Character, Integer> s1Map = new HashMap<>();
+        Map<Character, Integer> s2Map = new HashMap<>();
         for (int i = 0; i < s1.length(); i++) {
-            int count = s1Map.getOrDefault(s1.charAt(i), 0);
-            s1Map.put(s1.charAt(i), count++);
+            if (s1Map.containsKey(s1.charAt(i))) {
+                s1Map.put(s1.charAt(i), s1Map.get(s1.charAt(i))+1);
+            } else {
+                s1Map.put(s1.charAt(i), 1);
+            }
         }
         for (int i = 0; i < s2.length(); i++) {
-            if (!s1Map.containsKey(s2.charAt(i))) {
-                return false;
-            } else if (s1Map.containsKey(s2.charAt(i))) {
-                s1Map.put(s2.charAt(i), s1Map.get(s2.charAt(i))-1);
-            }
-            if (s1Map.get(s2.charAt(i)).equals(0)) {
-                return false;
+            if (s2Map.containsKey(s2.charAt(i))) {
+                    s2Map.put(s2.charAt(i), s2Map.get(s2.charAt(i))+1);
+            } else {
+                    s2Map.put(s2.charAt(i), 1);
             }
         }
-        return true;
+        return s1Map.equals(s2Map);
     }
 }
