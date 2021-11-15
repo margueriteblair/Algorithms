@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SherlockAnagrams {
     public static void main(String[] args) {
         
@@ -31,7 +36,7 @@ public class SherlockAnagrams {
             if (!s1Map.containsKey(s2.charAt(i))) {
                 return false;
             } else if (s1Map.containsKey(s2.charAt(i))) {
-                s1Map.put(s2.charAt(i), s1Map.get(s2.charAt(i))--);
+                s1Map.put(s2.charAt(i), s1Map.get(s2.charAt(i))-1);
             }
             if (s1Map.get(s2.charAt(i)).equals(0)) {
                 return false;
