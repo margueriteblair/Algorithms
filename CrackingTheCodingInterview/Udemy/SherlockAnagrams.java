@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SherlockAnagrams {
     public static void main(String[] args) {
-        sherlockAndAnagrams("mom"); //should return 3
+        System.out.println(sherlockAndAnagrams("mom")); //should return 3
     }
 
     static int sherlockAndAnagrams(String s) {
