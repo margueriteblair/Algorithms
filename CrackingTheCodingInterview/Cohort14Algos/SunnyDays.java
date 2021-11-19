@@ -1,6 +1,6 @@
 public class SunnyDays {
     public static void main(String[] args) {
-        
+        //https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem?isFullScreen=true
     }
 
     public static int beautifulDays(int i, int j, int k) {
