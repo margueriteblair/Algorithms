@@ -5,6 +5,7 @@ const quickSort = function(array, left, right) {
         quickSort(array, left, partitionIdx+1);
     }
 }
+//hello
 
 const partition = function(array, left, right) {
     const pivot = array[right];
