@@ -21,6 +21,7 @@ public class Transaction {
             else
                 prevTxHash = Arrays.copyOf(prevHash, prevHash.length);
             outputIndex = index;
+            //hello from cohort 17!
         }
 
         public void addSignature(byte[] sig) {
