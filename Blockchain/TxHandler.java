@@ -1,3 +1,4 @@
+import com.blockchain.Transaction.java;
 public class TxHandler {
 
     /** Creates a public ledger whose current UTXOPool
@@ -5,7 +6,10 @@ public class TxHandler {
      * This should  make a defensive copy of utxoPool by using
      * the UTXOPool (UTXOPool uPool) constructor.
      */
-    public TxHandler(UTXOPool utxoPool);
+    private UTXOPool utxoPool;
+    public TxHandler(UTXOPool utxoPool) {
+        this.utxoPool = utxoPool;
+    }
 
     /** Returns true if
      * (1) all outputs claimed by tx are in the current UTXO pool
@@ -15,7 +19,9 @@ public class TxHandler {
      * (5) the sum of tx’s input values is greater than or equal
      * to the sum of its output values; and false otherwise.
      */
-    public boolean isValidTx(Transaction tx);
+    public boolean isValidTx(Transaction tx) {
+        return false;
+    }
 
     /** Handles each epoch by receiving an unordered array of
      * proposed transactions, checking each transaction for
@@ -23,6 +29,9 @@ public class TxHandler {
      * transactions, and updating the current UTXO pool as
      * appropriate.
      */
-    public Transaction[] handleTxs(Transaction[] possibleTxs);
+    public Transaction[] handleTxs(Transaction[] possibleTxs) {
+        Transaction[] txArr = new Transaction[possibleTxs.length];
+        return txArr;
+    }
 
 }
