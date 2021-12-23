@@ -10,14 +10,13 @@ public class LongestSubstringNoRepeats2 {
         int longest = 0;
         Set<Character> set = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
-            set.add(s.charAt(i));
-            for (int j = i+1; j < s.length()-1; j++) {
+            for (int j = i; j < s.length(); j++) {
                 set.add(s.charAt(j));
-                if (longest < set.size()) {
-                    longest = set.size();
-                }
-                if (set.size() != (j-i+1)) {
-                    i = j;
+                if (s.substring(i, j+1).length() > set.size()) {
+                    if (set.size() > longest) {
+                        longest = set.size();
+                    }
+                    i = j-1;
                     set = new HashSet<Character>();
                 }
             }
