@@ -9,15 +9,16 @@ public class LongestSubstringNoRepeats2 {
         }
         int longest = 0;
         Set<Character> set = new HashSet<>();
-        for (i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             set.add(s.charAt(i));
             for (int j = i+1; j < s.length()-1; j++) {
                 set.add(s.charAt(j));
+                if (longest < set.size()) {
+                    longest = set.size();
+                }
                 if (set.size() != (j-i+1)) {
                     i = j;
                     set = new HashSet<Character>();
-                } else if (longest < set.size()) {
-                    longest = set.size();
                 }
             }
         }
