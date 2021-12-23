@@ -4,20 +4,16 @@ public class LongestSubstringNoRepeats2 {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() < 2) {
-            return s.length();
-        }
         int longest = 0;
-        Set<Character> set = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < s.length(); j++) {
-                set.add(s.charAt(j));
-                if (s.substring(i, j+1).length() > set.size()) {
-                    if (set.size() > longest) {
-                        longest = set.size();
+            for (int j = i+1; j < s.length()-1; j++) {
+                String sub = s.substring(i, j);
+                if (!sub.contains(String.valueOf(s.charAt(j)))) {
+                    if (sub.length()+1 > longest) {
+                        longest = sub.length()+1;
                     }
-                    i = j-1;
-                    set = new HashSet<Character>();
+                } else {
+                    break;
                 }
             }
         }
