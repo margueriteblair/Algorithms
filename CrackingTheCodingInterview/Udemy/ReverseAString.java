@@ -10,7 +10,7 @@ public class ReverseAString {
 			returnStr += String.valueOf(String.valueOf(nString.charAt(i)));
 		}
 		if (n < 0) {
-			return "-" + returnStr.substring(0, returnStr.length()-1);
+			return returnStr.substring(0, returnStr.length()-1);
 		}
 		return returnStr;
 	}
