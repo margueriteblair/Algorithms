@@ -24,4 +24,25 @@ public class LongestSubstringNoRepeats2 {
         }
         return longest;
     }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if (s.length() < 2) {
+            return s.length();
+        }
+        
+        int i = 0;
+        int j = 0;
+        int longest = 0;
+        Set<Character> set = new HashSet<>();
+        while (j < s.length()) {
+            if (!set.contains(s.charAt(j))) {
+                longest = Math.max(set.size(), longest);
+                j++;
+            } else {
+                s.remove(charAt(i));
+                i++;
+            }
+        }
+        return longest;
+    }
 }
