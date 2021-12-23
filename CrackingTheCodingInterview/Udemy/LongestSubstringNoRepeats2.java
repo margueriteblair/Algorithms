@@ -36,6 +36,7 @@ public class LongestSubstringNoRepeats2 {
         Set<Character> set = new HashSet<>();
         while (j < s.length()) {
             if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j));
                 longest = Math.max(set.size(), longest);
                 j++;
             } else {
