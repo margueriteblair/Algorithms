@@ -10,10 +10,7 @@ public class ValidSubPalindrome {
         int j = s.length()-1;
         
         while (i < j) {
-            if (s.charAt(i) == s.charAt(j)) {
-                j--;
-                i++;
-            } else {
+            if (s.charAt(i) != s.charAt(j)) {
                 //"ceac"
                 if (!isPalindrome(s.substring(0, i) + s.substring(i+1))) {
                     invalidCount++;
@@ -22,6 +19,8 @@ public class ValidSubPalindrome {
                     invalidCount++;
                 }
             }
+            i++;
+            j--;
         }
         if (invalidCount > 1) {
             return false;
