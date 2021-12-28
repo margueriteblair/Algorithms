@@ -12,18 +12,13 @@ public class ValidSubPalindrome {
         while (i < j) {
             if (s.charAt(i) != s.charAt(j)) {
                 //"ceac"
-                if (!isPalindrome(s.substring(0, i) + s.substring(i+1))) {
-                    invalidCount++;
+                if (!isPalindrome(s.substring(0, i) + s.substring(i+1)) && !isPalindrome(s.substring(0, j) + s.substring(j+1))) {
+                    return false;
                 }
-                if (!isPalindrome(s.substring(0, j) + s.substring(j+1))) {
-                    invalidCount++;
-                }
+                break;
             }
             i++;
             j--;
-        }
-        if (invalidCount > 1) {
-            return false;
         }
         return true;
     }
