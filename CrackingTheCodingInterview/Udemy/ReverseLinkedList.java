@@ -19,7 +19,7 @@ public class ReverseLinkedList {
             copy = copy.next;
         }
         return newHead;
-    }
+    } //O(N) time and O(N) space
 
     public ListNode reverseList2(ListNode head) {
         ListNode prev = null;
