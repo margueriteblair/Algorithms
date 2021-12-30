@@ -6,32 +6,33 @@ public class ReverseLinkedList2 {
     }
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        int currentPos = 1;
-        ListNode currentNode = head;
+        int currPos = 1;
+        ListNode currNode = head;
         ListNode start = head;
-        while (currentPos < left) {
-            start = currentNode;
-            currentNode = currentNode.next;
-            currentPos++;
+        while (currPos != left) {
+            start = currNode;
+            currNode = currNode.next;
+            currPos++;
         }
         
-        ListNode newList = null;
-        ListNode tail = currentNode;
+        ListNode prev = null;
+        ListNode tail = currNode;
         
-        while (currentPos >= left && currentPos <= right) {
-            ListNode next = currentNode.next;
-            currentNode.next = newList;
-            newList = currentNode;
-            currentNode = next;
-            currentPos++;
+        while (currPos >= left && currPos <= right) {
+            ListNode next = currNode.next;
+            currNode.next = prev;
+            prev = currNode;
+            currNode = next;
+            currPos++;
         }
         
-        start.next = newList;
-        tail.next = currentNode;
+        start.next = prev;
+        tail.next = currNode;
         
-        if (left == 1) {
-            return newList;
-        }
+        if (left == 1) return prev;
+        
         return head;
+        
+        
     }
 }

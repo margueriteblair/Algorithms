@@ -33,5 +33,6 @@ public class ReverseLinkedList {
         
         return prev;
     }
+    //O(N) time and O(1) space
   
 }
