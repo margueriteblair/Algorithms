@@ -12,8 +12,12 @@ public class TortoiseAndHare {
         SinglyLinkedListNode tortoise = head;
         
         while (hare != null) {
-            hare = hare.next.next;
-            tortoise = tortoise.next;
+            hare = hare.next;
+            
+            if (hare != null) {
+                hare = hare.next;
+                tortoise = tortoise.next;
+            }
             
             if (hare == tortoise) {
                 return true;
