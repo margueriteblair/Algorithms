@@ -3,15 +3,15 @@ public class RemoveParentheses2 {
         
     }
 
-    public static String minRemoveToMakeValid(String s) {
-        String res = s.split("");
+    public String minRemoveToMakeValid(String s) {
+        String[] res = s.split("");
         Stack<Integer> stack = new Stack<>();
-        for (int i = 0;i < res.length; i++) {
-            if (res[i] == "(") {
+        for (int i = 0; i < res.length; i++) {
+            if (res[i].equals("(")) {
                 stack.push(i);
-            } else if (res[i] == ")" && !stack.isEmpty()) {
+            } else if (res[i].equals(")") && !stack.isEmpty()) {
                 stack.pop();
-            } else if (stack[i] == ")") {
+            } else if (res[i].equals(")") && stack.isEmpty()) {
                 res[i] = "";
             }
         }
@@ -19,7 +19,7 @@ public class RemoveParentheses2 {
             int currIndex = stack.pop();
             res[currIndex] = "";
         }
-
+        System.out.println(Arrays.toString(res));
         return String.join("", res);
     }
 }
