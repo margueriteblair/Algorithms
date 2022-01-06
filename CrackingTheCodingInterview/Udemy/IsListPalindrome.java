@@ -10,9 +10,9 @@ public class IsListPalindrome {
             stack.push(l.value);
             l = l.next;
         }
-        
+    
         while (copy != null) {
-            if (copy.value != stack.pop()) {
+            if (!copy.value.equals(stack.pop())) {
                 return false;
             }
             copy = copy.next;
