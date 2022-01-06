@@ -22,6 +22,8 @@ public class MergeSort {
 
         mergeSort(leftHalf);
         mergeSort(rightHalf);
+        merge(arr, leftHalf, rightHalf);
+        System.out.println(arr);
 
         //merge here again
     }
