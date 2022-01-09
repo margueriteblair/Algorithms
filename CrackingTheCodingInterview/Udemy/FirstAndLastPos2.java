@@ -4,45 +4,39 @@ public class FirstAndLastPos2 {
     }
 
     public int[] searchRange(int[] nums, int target) {
-        int[] res = new int[] {-1, -1};
-        if (nums.length == 0) {
+        int[] res = new int[2];
+        int firstIndex = binarySearch(nums, 0, nums.length-1, target);
+        if (firstIndex == -1) {
+            res[0] = -1;
+            res[1] = -1;
             return res;
         }
+        int i = firstIndex;
+        int j = firstIndex;
+        while (nums[i] == target && i >= 0) {
+            res[0] = i;
+            i--;
+        }
         
-        int left = 0;
-        int right = nums.length-1;
+        while (nums[j] == target && j <= nums.length-1) {
+            res[1] = j;
+            j++;
+        }
         
-        int foundLeft = 0;
-        int foundRight = nums.length-1;
-        
-        while (left != right) {
+        return res;
+    }
+    
+    public int binarySearch(int[] arr, int left, int right, int target) {
+        while (left <= right) {
             int mid = (left+right)/2;
-
-            if (target > nums[mid]) {
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
                 left = mid+1;
-            } else if (target < nums[mid]) {
+            } else if (arr[mid] > target) {
                 right = mid-1;
-            } else if (target == nums[mid]) {
-                left = mid;
-                right = mid;
-            }
-            if (nums[left] == target) {
-                foundLeft = left;
-                while (left >= 0 && nums[left] == target) {
-                    foundLeft = left;
-                    left--;
-                }
-            }
-            if (nums[right] == target) {
-                foundRight = right;
-                while (right <= nums.length-1 && nums[right] == target) {
-                    right++;
-                    foundRight = right;
-                }
             }
         }
-        res[0] = foundLeft;
-        res[1] = foundRight;
-        return res;
+        return -1;
     }
 }
