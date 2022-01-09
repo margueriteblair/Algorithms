@@ -13,12 +13,12 @@ public class FirstAndLastPos2 {
         }
         int i = firstIndex;
         int j = firstIndex;
-        while (nums[i] == target && i >= 0) {
+        while (i >= 0 && nums[i] == target) {
             res[0] = i;
             i--;
         }
         
-        while (nums[j] == target && j <= nums.length-1) {
+        while (j <= nums.length-1 && nums[j] == target) {
             res[1] = j;
             j++;
         }
