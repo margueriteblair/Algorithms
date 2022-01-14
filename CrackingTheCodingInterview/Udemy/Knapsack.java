@@ -1,7 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Knapsack {
-    public static void main(String[] args) {
-        
-    }
     static int Knapsack (int numitems, int capacity, List<Integer> weight, List<Integer> value) {
 
         // No item can be put in the sack of capacity 0 so maximum value for sack of capcacity 0 is 0
