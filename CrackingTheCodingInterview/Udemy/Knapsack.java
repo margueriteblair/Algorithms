@@ -9,6 +9,7 @@ public class Knapsack {
            return 0;
 
         // If 0 items are put in the sack, then maximum value for sack is 0
+        //hi
         if (numitems == 0)
            return 0;
 
