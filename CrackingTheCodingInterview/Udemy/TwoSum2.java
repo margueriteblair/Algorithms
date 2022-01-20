@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSum2 {
     public static void main(String[] args) {
         
@@ -7,11 +10,11 @@ public class TwoSum2 {
         Map<Integer, Integer> map = new HashMap<>();
         int[] res = new int[2];
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsValue(target-nums[i])) {
+            if (map.containsKey(target-nums[i])) {
                 res[0] = i;
                 res[1] = map.get(target-nums[i]);
             } else {
-                map.put(i, nums[i]);
+                map.put(nums[i], i);
             }
         }
         return res;
