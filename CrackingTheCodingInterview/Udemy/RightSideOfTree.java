@@ -4,29 +4,29 @@ public class RightSideOfTree {
     public static void main(String[] args) {
         rightSideView(new LinkedList<>(1,2,3,null,5,null,4));
     }
-    public static List<Integer> rightSideView(TreeNode root) {
+    public List<Integer> rightSideView(TreeNode root) {
         if (root == null) {
             return new ArrayList<Integer>();
         }
+        
         List<Integer> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (queue.size() != 0) {
-            List<Integer> currentLevelValues = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (q.size() != 0) {
             int count = 0;
-            int length = queue.size();
-            while (count < length) {
-                TreeNode currentNode = queue.remove();
-                currentLevelValues.add(currentNode.val);
-                if (currentNode.left != null) {
-                    queue.add(currentNode.left);
+            int len = q.size();
+            TreeNode currNode = new TreeNode();
+            while (count < len) {
+                currNode = q.remove();
+                if (currNode.left != null) {
+                    q.add(currNode.left);
                 }
-                if (currentNode.right != null) {
-                    queue.add(currentNode.right);
+                if (currNode.right != null) {
+                    q.add(currNode.right);
                 }
                 count++;
             }
-            res.add(currentLevelValues.remove(currentLevelValues.size()-1));
+            res.add(currNode.val);
         }
         return res;
     }
