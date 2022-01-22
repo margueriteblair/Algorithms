@@ -14,7 +14,7 @@ public class UniqueSubstring {
                 longest = Math.max(set.size(), longest);
                 i++;
             } else {
-                set.remove(s.charAt(i));
+                set.remove(s.charAt(j));
                 j++;
             }
         }
