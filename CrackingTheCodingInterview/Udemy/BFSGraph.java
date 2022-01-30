@@ -5,11 +5,11 @@ public class BFSGraph {
     }
 
     public static List<Integer> traversalBFS(int[][] graph) {
-        Queue<Integer> q = new LinkedList<Integer>
+        Queue<Integer> q = new LinkedList<Integer>();
         List<Integer> vals = new ArrayList<>();
         Map<Integer, Boolean> map = new HashMap<>();
         while (q.size() != 0) {
-            int vertex = q.pop();
+            int vertex = q.remove();
             vals.add(vertex);
             map.put(vertex, true);
             int[] connections = graph[vertex];
