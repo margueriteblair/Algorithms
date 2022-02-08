@@ -11,28 +11,33 @@ public class ZeroOneTwo {
     public static int[] sortArray(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            int count = map.getOrDefault(arr[i], 0);
-            map.put(arr[i], count++);
+            if (!map.containsKey(arr[i])) {
+                map.put(arr[i], 1);
+            } else {
+                map.put(arr[i], map.get(arr[i])+1);
+            }
         }
         System.out.println(map);
-        for (int i = 0; i < arr.length; i++) {
+        int i = 0;
             while (map.get(0) != 0) {
                 arr[i] = 0;
                 int count = map.get(0);
-                map.put(0, count--);
+                map.put(0, count-1);
+                i++;
             }
             while (map.get(1) != 0) {
                 arr[i] = 1;
                 int count = map.get(1);
-                map.put(1, count--);
+                map.put(1, count-1);
+                i++;
             }
 
             while (map.get(2) != 0) {
                 arr[i] = 2;
                 int count = map.get(2);
-                map.put(2, count--);
+                map.put(2, count-1);
+                i++;
             }
-        }
         System.out.println(map);
         return arr;
     }
