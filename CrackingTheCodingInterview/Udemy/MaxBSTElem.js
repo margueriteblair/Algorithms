@@ -20,3 +20,23 @@ function findTreeMax(root) {
     }
     return max;
 }
+
+function findTreeMax2(root) {
+  if (root == null) {
+    return null;
+  }
+  let maxLeft = root.value;
+  let maxRight = root.value;
+  let max = root.value;
+  
+  if (root.left != null) {
+    maxLeft = findTreeMax2(root.left);
+    max = Math.max(maxLeft, max);
+  }
+
+  if (root.right != null) {
+    maxRight = findTreeMax2(root.right);
+    max = Math.max(maxRight, max);
+  }
+return max;
+}
