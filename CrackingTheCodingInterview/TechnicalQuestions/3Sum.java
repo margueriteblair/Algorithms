@@ -3,27 +3,28 @@ public class 3Sum {
         
     }
 
-    public List<List<Integer>> threeSum(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (map.containsKey(0 - nums[i] - nums[j]) && i != j && j != map.get(0-nums[i]-nums[j]) && i != map.get(0-nums[i]-nums[j])) {
-                    List<Integer> curr = new ArrayList<>();
-                    curr.add(nums[i]);
-                    curr.add(nums[j]);
-                    curr.add(0-nums[i]-nums[j]);
-                    Collections.sort(curr);
-                    if (!res.contains(curr)) {
-                        res.add(curr);
+    public static List<Integer[]> threeNumberSum(int[] array, int target) {
+        // Write your code here.
+            Arrays.sort(array); //sort the array first
+            List<Integer[]> res = new ArrayList<Integer[]>();
+            //the hashmap is the scaling data structure that leaves us with O(N)
+            for (int i = 0;i < array.length-2; i++) {
+                int left = i+1;
+                int right = array.length-1;
+                while (left < right) {
+                    int currSum = array[i] + array[left] + array[right];
+                    if (currSum == target) {
+                        Integer[] triplet = {array[i], array[left], array[right]};
+                        res.add(triplet);
+                        left++;
+                        right--;
+                    } else if (currSum < target) {
+                        left++;
+                    } else if (currSum > target) {
+                        right--;
                     }
-                } else {
-                    map.put(nums[j], j);
                 }
             }
-        }
-        
-        System.out.println(map);
         return res;
-    }
+      }
 }
