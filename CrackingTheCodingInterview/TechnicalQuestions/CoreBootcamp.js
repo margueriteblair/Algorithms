@@ -50,3 +50,14 @@ function insert(root, elem) {
     
 }
 
+class ListNode {
+    constructor()
+}
+
+function count(head) {
+    if (!head) {
+        return 0;
+    }
+    return 1 + count(head.next);
+}
+
