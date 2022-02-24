@@ -34,3 +34,12 @@ function rotateWordsByX(str, k) {
 
 console.log(rotateWordsByX("1 2 3 4 5", 1));
 console.log(rotateWordsByX("Gallia est omnis divisa en partes tres", 1));
+
+//rotate the array
+//in this variation you'll receive an array of ints, where number 0 represents a word break
+//reverse all the elements between the 0's
+//[1,2,3,0,4,5,6] => [3,2,1,0,6,5,4]
+
+function rotateArray(arr) {
+    
+}
