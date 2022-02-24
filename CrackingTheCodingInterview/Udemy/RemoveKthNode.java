@@ -31,4 +31,19 @@ public class RemoveKthNode {
             // System.out.println(copy2.value);
             // System.out.println(j);
       }
+
+      public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode prev = null;
+        ListNode copy = head;
+        int count = 0;
+        while (copy != null && count <= n){
+            count++;
+            prev = copy;
+            copy = copy.next;
+        }
+        prev.next = copy.next;
+        System.out.println(prev.val);
+        System.out.println(copy.val);
+        return head;
+    }
 }
