@@ -7,9 +7,7 @@ function reverseLettersInWord(str) {
         
         while (j < k) {
             //console.log(curr[j], curr[k]);
-            let tmp = curr[j];
-            curr[j] = curr[k];
-            curr[k] = tmp;
+            [curr[j], curr[k]] = [curr[k],curr[j]]
             j++;
             k--;
         }
@@ -39,7 +37,38 @@ console.log(rotateWordsByX("Gallia est omnis divisa en partes tres", 1));
 //in this variation you'll receive an array of ints, where number 0 represents a word break
 //reverse all the elements between the 0's
 //[1,2,3,0,4,5,6] => [3,2,1,0,6,5,4]
-
+//[1,2,3,4,5,6] => [6,5,4,3,2,1]
 function rotateArray(arr) {
-    
+    let chunk = arr.join("").split("0")
+    for (let i = 0; i < chunk.length; i++){
+        let curr = chunk[i].split("");
+        let j = 0, k = curr.length-1;
+        while (j < k) {
+            [curr[j], curr[k]] = [curr[k], curr[j]];
+            j++;
+            k--;
+        }
+        chunk[i] = curr.join("")
+    }
+    return chunk.join("0").split("").map(Number)
 }
+
+console.log(rotateArray([1,2,3,0,4,5,6]))
+console.log(rotateArray([1,2,3,4,5,6]))
+
+function reverseLettersInChunks(str, k) {
+    //assume that the string is divisble by k
+    //can we assume that theres no spaces, or if there is can we just count that as a letter we're reversing?
+    for (let i = 0; i < str.length; i+=k) {
+        let curr = str.slice(i, i+k);
+        console.log(curr);
+        let j = 0;
+        let k = curr.length-1;
+        while (j < k) {
+
+            j++;
+            k--;
+        }
+    }
+}
+reverseLettersInChunks("abcdef", 2);
