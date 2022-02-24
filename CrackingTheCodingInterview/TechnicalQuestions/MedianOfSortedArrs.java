@@ -4,9 +4,9 @@ public class MedianOfSortedArrs {
     }
 
     //array elements are sorted
-    public static double findMedian(int[] nums1, int[] nums2) {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {
-            return findMedian(nums2, nums1);
+            return findMedianSortedArrays(nums2, nums1);
         }
 
         int x = nums1.length;
@@ -22,11 +22,11 @@ public class MedianOfSortedArrs {
             int minRightX = (partitionX == x) ? Integer.MAX_VALUE : nums1[partitionX];
 
             int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : nums2[partitionY-1];
-            int minRightY = partitionY == y ? Integer.MIN_VALUE : nums2[partitionY];
+            int minRightY = partitionY == y ? Integer.MAX_VALUE : nums2[partitionY];
 
             if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
-                if (x+y % 2 == 0) {
-                    return ((double) Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY))/2;
+                if ((x + y) % 2 == 0) {
+                    return ((double)Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY))/2;
                 } else {
                     return (double) Math.max(maxLeftX, maxLeftY);
                 }
@@ -36,6 +36,6 @@ public class MedianOfSortedArrs {
                 left = partitionX+1;
             }
         }
-        return 1; //just to include return statement outside of while loop
+        return 1;
     }
 }
