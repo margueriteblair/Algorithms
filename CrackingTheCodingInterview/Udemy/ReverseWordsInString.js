@@ -57,18 +57,23 @@ console.log(rotateArray([1,2,3,0,4,5,6]))
 console.log(rotateArray([1,2,3,4,5,6]))
 
 function reverseLettersInChunks(str, k) {
+    let res = "";
     //assume that the string is divisble by k
     //can we assume that theres no spaces, or if there is can we just count that as a letter we're reversing?
     for (let i = 0; i < str.length; i+=k) {
-        let curr = str.slice(i, i+k);
-        console.log(curr);
+        let curr = str.substring(i, i+k).split("");
+        //console.log(curr);
         let j = 0;
-        let k = curr.length-1;
-        while (j < k) {
-
+        let l = curr.length-1;
+        while (j < l) {
+            [curr[j], curr[l]] = [curr[l], curr[j]];
             j++;
-            k--;
+            l--;
         }
+        res += curr.join("");
     }
+    return res;
 }
-reverseLettersInChunks("abcdef", 2);
+console.log(reverseLettersInChunks("abcdef", 2), "badcfe");
+console.log(reverseLettersInChunks("abcdef", 3), "cbafed")
+console.log(reverseLettersInChunks("abcdefgh", 4), "dcbahgfe");
