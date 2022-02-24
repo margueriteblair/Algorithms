@@ -36,5 +36,6 @@ public class MedianOfSortedArrs {
                 left = partitionX+1;
             }
         }
+        return 1; //just to include return statement outside of while loop
     }
 }
