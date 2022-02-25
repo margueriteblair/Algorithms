@@ -1,5 +1,5 @@
 function reverseLettersInWord(str) {
-    let arr = str.trim().replaceAll("\\s+", " ").split(" ");
+    let arr = str.trim().replaceAll("\\s+", " ").split(" "); //O(N)
     for (let i= 0; i < arr.length; i++) {
         let curr = arr[i].split("");
         let j = 0;
@@ -12,17 +12,27 @@ function reverseLettersInWord(str) {
             k--;
         }
         arr[i] = curr.join("");
-        //console.log(curr.join(""));
     }
     return arr.join(" ");
 }
 
+const reverseStr = s => s.split("").reverse().join("");
+
+function reverseLetters(str) {
+  return str.split(" ")
+    .map(reverseStr)
+    .join(' ');
+}
+
 console.log(reverseLettersInWord("Reverse the words in this string"), "expects: esreveR eht sdrow ni siht gnirts");
+
+
+
 //regex to replace all non alphanumeric chars: [^a-zA-Z0-9]
 function rotateWordsByX(str, k) {
     //rotate all words to the right by k positions
-    let arr = str.trim().replaceAll("\\s+", " ").split(" ");
-    let res = [];
+    let arr = str.trim().replaceAll("\\s+", " ").split(" "); //O(N)
+    let res = []; //space O(N) because scaling data structure
     for (let i = 0; i < arr.length; i++) {
         res[(i + k) % arr.length] = arr[i];
         
@@ -30,8 +40,10 @@ function rotateWordsByX(str, k) {
     return res.join(" ");
 }
 
-console.log(rotateWordsByX("1 2 3 4 5", 1));
+console.log(rotateWordsByX("1 2 3 4 5", 6));
 console.log(rotateWordsByX("Gallia est omnis divisa en partes tres", 1));
+
+
 
 //rotate the array
 //in this variation you'll receive an array of ints, where number 0 represents a word break
