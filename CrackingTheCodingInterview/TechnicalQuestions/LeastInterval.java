@@ -1,6 +1,10 @@
 import java.util.Arrays;
 
 public class LeastInterval {
+    public static void main(String[] args) {
+        
+    }
+
     public int leastInterval(char[] tasks, int n) {
         if (n == 0) return tasks.length;
         int[] charMap = new int[26];
