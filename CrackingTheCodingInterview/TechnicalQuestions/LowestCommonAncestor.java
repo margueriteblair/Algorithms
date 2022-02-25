@@ -19,3 +19,11 @@ public class LowestCommonAncestor {
         return left != null ? left : right;
     }
 }
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int val) {
+        this.val = val;
+    }
+}
