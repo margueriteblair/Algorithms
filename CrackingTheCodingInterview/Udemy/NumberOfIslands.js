@@ -1,14 +1,18 @@
 const directions = [[-1, 0],[0, 1], [1,0], [0, -1]];
 const numberOfIslands = function(matrix) {
+    //time O(2n) = o(n)
+    //space: O(N )
     if (matrix.length == 0) return 0;
     let islandCount = 0;
     for (let row = 0; row < matrix.length; row++){
         for (let col = 0; col < matrix[0].length; col++) {
+            //o(n) nested for loop
             if (matrix[row][col] === 1) {
                 islandCount++;
                 matrix[row][col] = 0;
                 let q = [[row, col]];
                 while (q.length) {
+                    //o(n) for bfs
                     let curr = q.shift();
                     if (curr[0] < 0 || curr[1] < 0 || curr[1] > matrix[0].length || curr[0] > matrix.length || matrix[curr[0]][curr[1]] == 0) {
                         return;
@@ -32,3 +36,9 @@ const numberOfIslands = function(matrix) {
     }
     return islandCount
 }
+
+//dfs:
+//sequential order
+//time O(NM)
+//space: takes more recursive space in the call stack
+    //o(NM) space, the bfs solution slightly more efficient
