@@ -22,3 +22,20 @@ const lengthOfLongestSubstring = function(s) {
 }
 
 console.log(lengthOfLongestSubstring("hello"))
+
+var lengthOfLongestSubstring2 = function(s) {
+    let i = 0, j = 0;
+    let longest = 0;
+    const set = new Set();
+    while (i < s.length && j < s.length) {
+        if (set.has(s[i])) {
+            set.delete(s[j]);
+            j++;
+        } else {
+            set.add(s[i]);
+            i++;
+            longest = Math.max(longest, set.size);
+        }
+    }
+    return longest;
+};
