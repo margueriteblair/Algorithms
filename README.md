@@ -1,1 +1,1 @@
-Java algorithms of varying difficulty from different sources.
+All of the algorithms. ALL OF THEM
