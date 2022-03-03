@@ -1,40 +1,41 @@
-const directions = [[-1, 0],[0, 1], [1,0], [0, -1]];
-const numberOfIslands = function(matrix) {
-    //time O(2n) = o(n)
-    //space: O(N )
-    if (matrix.length == 0) return 0;
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+    if (!grid.length) return 0;
     let islandCount = 0;
-    for (let row = 0; row < matrix.length; row++){
-        for (let col = 0; col < matrix[0].length; col++) {
-            //o(n) nested for loop
-            if (matrix[row][col] === 1) {
+    const directions = [[-1, 0], [0, 1], [1, 0], [0, -1]];
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid[0].length; col++) {
+            //our sequential search here is o(n)
+            if (grid[row][col] == 1) {
                 islandCount++;
-                matrix[row][col] = 0;
-                let q = [[row, col]];
-                while (q.length) {
-                    //o(n) for bfs
-                    let curr = q.shift();
-                    if (curr[0] < 0 || curr[1] < 0 || curr[1] > matrix[0].length || curr[0] > matrix.length || matrix[curr[0]][curr[1]] == 0) {
-                        return;
-                    }
+                grid[row][col] = '0';
+                let queue = [[parseInt(row), parseInt(col)]];
+                while (queue.length) {
+                    let currPos = queue.shift();
+                    let currRow = currPos[0];
+                    let currCol = currPos[1];
+  
                     for (let i = 0; i < directions.length; i++) {
-                        const currentDir = directions[i];
-                        const nextRow = currentDir[0] + curr[0];
-                        const nextColumn = currentDir[1] + curr[1]
-                        if (nextRow[0] < 0 || nextColumn < 0 || nextColumn > matrix[0].length || nextRow > matrix.length || matrix[nextRow][nextColumn] == 0) {
+                        let currentDir = directions[i];
+                        let nextRow = currRow + currentDir[0];
+                        let nextCol = currCol + currentDir[1];
+                        if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) {
                             continue;
                         }
-
-                        if (matrix[nextRow][nextColumn] == 1) {
-                            q.push([nextRow, nextColumn])
-                            matrix[nextRow][nextColumn] = 0;
+                        
+                        if (grid[nextRow][nextCol] == 1) {
+                            queue.push([nextRow, nextCol]);
+                            grid[nextRow][nextCol] = '0';
                         }
                     }
                 }
             }
         }
     }
-    return islandCount
+    return islandCount;
 }
 
 //dfs:
