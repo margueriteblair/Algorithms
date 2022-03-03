@@ -1,5 +1,8 @@
 package CrackingTheCodingInterview.TechnicalQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ValidBST {
     public static void main(String[] args) {
         
@@ -39,5 +42,24 @@ public class ValidBST {
             
         return isValid(root.left,min,root.val) && isValid(root.right,root.val,max);
             
+    }
+
+    public boolean isValidBST3(TreeNode root) {
+        List<Integer> arr = new ArrayList<>();
+        dfs(root, arr);
+        System.out.println(arr);
+        for (int i = 0; i < arr.size()-1; i++) {
+            if (arr.get(i+1) <= arr.get(i)) return false;
+        }
+        return true;
+    }
+    
+    public List<Integer> dfs(TreeNode node, List<Integer> arr) {
+        if (node != null) {
+            dfs(node.left, arr);
+            arr.add(node.val);
+            dfs(node.right, arr);
+        }
+        return arr;
     }
 }
