@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class LinkedListRandomPointer {
     public Node copyRandomList(Node head) {
         //base case
