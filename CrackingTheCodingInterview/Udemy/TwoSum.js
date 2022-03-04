@@ -23,13 +23,28 @@ const findTwoSum2 = function(nums, target) {
     return null;
 }
 
-function twoNumberSum2(array, targetSum) {
+function twoNumberSum3(array, targetSum) {
 
 	for (const num of array) {
 		let diff = targetSum-num;
 		if (array.includes(diff)&& num != diff) {
 			return [diff, num];
 		}
+	}
+	return [];
+}
+
+function twoNumberSum4(array, targetSum) {
+
+	let map = new Map();
+	for (const num of array) {
+		let diff = targetSum-num;
+		if (map.has(diff)) {
+			return [diff, num];
+		} else {
+			map.set(num, true);
+		}
+		
 	}
 	return [];
 }
