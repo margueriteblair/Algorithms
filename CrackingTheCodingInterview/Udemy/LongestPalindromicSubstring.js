@@ -46,5 +46,8 @@ function getLongestPalindromeFrom(string, left, right) {
         left--;
         right++;
     }
+    //when we break out of the loop, the left & right don't match
+    //the left is one index too far
+    //the right is too far, but the substring isn't inclusive of the right index
     return [left+1, right];
 }
