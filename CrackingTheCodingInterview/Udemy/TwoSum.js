@@ -23,5 +23,16 @@ const findTwoSum2 = function(nums, target) {
     return null;
 }
 
+function twoNumberSum2(array, targetSum) {
+
+	for (const num of array) {
+		let diff = targetSum-num;
+		if (array.includes(diff)&& num != diff) {
+			return [diff, num];
+		}
+	}
+	return [];
+}
+
 console.log(findTwoSum2([1, 3, 7, 9, 2], 11))
 console.log(findTwoSum2([1, 3, 7, 9, 2], 4))
