@@ -10,6 +10,11 @@
  *                     The BFS will only happen when we encounter a 1.
  *                     Every time you remove a value, you can only add one more value
  *                     Space: O(max(n, m)) either the row or column value is greater
+ * 
+ * DFS as a solution:
+ *      time: O(M x N)
+ *      space: either call stack or regular stack. worst case you could end up holding the entire grid, so O(m x n)
+ * 
  */
 var numIslands = function(grid) {
     if (!grid.length) return 0;
@@ -52,3 +57,43 @@ var numIslands = function(grid) {
 //time O(NM)
 //space: takes more recursive space in the call stack
     //o(NM) space, the bfs solution slightly more efficient
+
+/*
+Vinh's Python Code:
+def numberOfIslands(grid):
+    if len(grid) == 0:
+        return 0
+    
+    rows, cols = len(grid), len(grid[0])
+    num_islands = 0
+    
+    def bfs(r, c):
+        directions = [[-1, 0], [1, 0], [0,1], [0,-1]]
+        queue = []
+        queue.append((r,c))
+        
+        while queue:
+            curr = queue.pop(0)
+            currRow = curr[0]
+            currCol = curr[1]
+            
+            for dr, dc in directions:
+                nextR = currRow + dr
+                nextC = currCol + dc
+                
+                if (nextR in range(rows)) \
+                    and (nextC in range(cols)) \
+                    and (grid[nextR][nextC] == "1"):
+                    queue.append((nextR, nextC))
+                    grid[nextR][nextC] = "0"
+    
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == "1":
+                bfs(r, c)
+                num_islands += 1
+    
+    return num_islands
+
+
+*/
