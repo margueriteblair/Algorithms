@@ -10,3 +10,9 @@ var countNodes = function(root) {
     }
     return count;
 };
+
+var countNodes2 = function(root) {
+    if (!root) return 0;
+    
+    return (1 + countNodes(root.left) + countNodes(root.right));
+};
