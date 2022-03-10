@@ -53,12 +53,12 @@ var spiralOrderSquare = function(matrix) {
     //these two will always have to add up to the length & complement one another
     let length = matrix.length
     let res = [];
-    while (upperLeft <= length / 2) {
+    while (upperLeft <= Math.ceil(length / 2)) {
         for (let i = upperLeft; i < length; i++) {
             res.push(matrix[upperLeft][i])
         }
         length--;
-        if (upperLeft > length/2) break;
+        if (upperLeft > Math.ceil(length/2)) break;
         
         for (let i = upperLeft+1; i <= length; i++) {
             res.push(matrix[i][length]);
