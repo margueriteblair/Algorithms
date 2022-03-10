@@ -1,6 +1,6 @@
 function tournamentWinner(competitions, results) {
     // Write your code here.
-      let scores = new Map();
+      let scores = new Map(); //k space because k is the number of teams
       let winner = "";
       let max = 0;
       for (let i = 0; i < results.length; i++) {
