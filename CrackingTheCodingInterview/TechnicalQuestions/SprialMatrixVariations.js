@@ -41,3 +41,38 @@ var spiralOrder = function(matrix) {
     }
     return res;
 };
+
+
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ Here we are guaranteed to have a square matrix
+ */
+var spiralOrderSquare = function(matrix) {
+    let upperLeft = 0 //top & left will mimic
+    //these two will always have to add up to the length & complement one another
+    let length = matrix.length
+    let res = [];
+    while (upperLeft <= length / 2) {
+        for (let i = upperLeft; i < length; i++) {
+            res.push(matrix[upperLeft][i])
+        }
+        length--;
+        if (upperLeft > length/2) break;
+        
+        for (let i = upperLeft+1; i <= length; i++) {
+            res.push(matrix[i][length]);
+        }
+        
+        for (let i = length-1; i >= upperLeft; i--) {
+            res.push(matrix[length][i]);
+        }
+        
+        
+        for (let i = length-1; i > upperLeft; i--) {
+            res.push(matrix[i][upperLeft]);
+        }
+        upperLeft++;
+    }
+    return res;
+};
