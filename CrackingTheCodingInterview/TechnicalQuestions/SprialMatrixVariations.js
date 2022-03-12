@@ -76,3 +76,13 @@ var spiralOrderSquare = function(matrix) {
     }
     return res;
 };
+
+// function helper(incrementRow, start, stop, temp) {
+//     const delta = stop > start ? 1 : -1;
+    
+//     for (let cur = start; cur !== stop + delta; cur += delta) {
+//       incrementRow
+//         ? res.push(m[cur][temp])
+//         : res.push(m[temp][cur]);
+//     }
+//   }
