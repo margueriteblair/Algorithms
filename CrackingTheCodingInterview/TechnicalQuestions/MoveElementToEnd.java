@@ -1,5 +1,7 @@
 package CrackingTheCodingInterview.TechnicalQuestions;
 
+import java.util.*;
+
 public class MoveElementToEnd {
     public static void main(String[] args) {
         
