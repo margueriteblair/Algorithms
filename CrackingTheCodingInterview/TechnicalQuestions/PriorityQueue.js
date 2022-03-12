@@ -61,10 +61,32 @@ class PriorityQueue {
     }
 
     _siftDown() {
+        let nodeIdx = 0;
 
+        while (
+          (this._leftChild(nodeIdx) < this.size() &&
+            this._compare(this._leftChild(nodeIdx), nodeIdx)) ||
+          (this._rightChild(nodeIdx) < this.size() &&
+            this._compare(this._rightChild(nodeIdx), nodeIdx))
+        ) {
+          const greaterChildIdx =
+            this._rightChild(nodeIdx) < this.size() &&
+            this._compare(this._rightChild(nodeIdx), this._leftChild(nodeIdx))
+              ? this._rightChild(nodeIdx)
+              : this._leftChild(nodeIdx);
+    
+          this._swap(greaterChildIdx, nodeIdx);
+          nodeIdx = greaterChildIdx;
+        //we'll be working with left child and right child, indices that may or may not exist
     }
 
     pop() { //remove the node from the root. insertion and deletion methods
-        return this._heap.shift();
+        if (this.size() > 1) {
+            this._swap(0, this.size()-1); //swap the first and last only if heap is larger than 1
+        }
+        const poppedValue = this._heap.pop(); //then we pop off the last value b/c it's duplicate
+        _siftDown();
+        return poppedValue;
     }
+
 }
