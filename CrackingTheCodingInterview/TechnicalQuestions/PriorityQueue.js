@@ -51,13 +51,17 @@ class PriorityQueue {
         return this.size;
     }
 
-    _siftUp(){
+    _siftUp(){ //compares new value and its parent,swaps them if new value is larger
         let nodeIdx = this.size()-1;
 
         while (0 < nodeIdx && this._compare(nodeIdx, this._parent(nodeIdx))) {
             this._swap(nodeIdx, this._parent(nodeIdx));
+            nodeIdx = this._parent(nodeIdx); //we're moving our node upwards through our heap
         }
-        nodeIdx = this._parent(nodeIdx); //we're moving our node upwards through our heap
+    }
+
+    _siftDown() {
+
     }
 
     pop() { //remove the node from the root. insertion and deletion methods
