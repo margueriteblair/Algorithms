@@ -17,7 +17,22 @@ class PriorityQueue {
     peek() { //peek() should return the root value of the heap. In a max heap should give the biggest val, min heap = smallest
         return this._heap[0]
     }
+    // - parent: floor((index-1)/2)
+    // - left: (index x 2) + 1
+    // - right (index x 2) + 2
+    _parent(index) {
+        return (Math.floor((index-1)/2))
+    }
 
+    _leftChild(index) {
+        return (index * 2)+1; //this is to get the left child index of a given node
+    }
+
+    _rightChild(index) {
+        return (index*2)+2 //to get the right child of a node
+    }
+
+    //we need to define helper methods to achieve this
     push(val) { //this will push values into the heap while maintaining the strucutre, so then we have to sift up
         this._heap.push(val);
         //then siftUp
