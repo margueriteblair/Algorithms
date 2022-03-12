@@ -32,13 +32,35 @@ class PriorityQueue {
         return (index*2)+2 //to get the right child of a node
     }
 
+    _swap(i, j) {
+        let tmp = this._heap[i]
+        this._heap[i] = this._heap[j]
+        this._heap[j] = tmp;
+    }
+
+    //we also need to be able to compare two values inside of our heap
+    _compare(i, j) {
+        return this._comparator(this._heap[i], this._heap[j]); //our comparator method takes in two values to compare, here we're explicitly giving it two values in our heap to compare
+    }
+
     //we need to define helper methods to achieve this
     push(val) { //this will push values into the heap while maintaining the strucutre, so then we have to sift up
         this._heap.push(val);
         //then siftUp
+        this._siftUp();
+        return this.size;
     }
 
-    pop() { //remove the node from the root
+    _siftUp(){
+        let nodeIdx = this.size()-1;
+
+        while (0 < nodeIdx && this._compare(nodeIdx, this._parent(nodeIdx))) {
+            this._swap(nodeIdx, this._parent(nodeIdx));
+        }
+        nodeIdx = this._parent(nodeIdx); //we're moving our node upwards through our heap
+    }
+
+    pop() { //remove the node from the root. insertion and deletion methods
         return this._heap.shift();
     }
 }
