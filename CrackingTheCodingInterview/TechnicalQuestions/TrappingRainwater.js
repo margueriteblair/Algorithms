@@ -18,3 +18,25 @@ function waterArea(heights) {
       }
       return totalWater;
   }
+
+  function waterArea2(heights) {
+    // Write your code here.
+      let maxes = new Array(heights.length).fill(0);
+      let leftMax = 0;
+      let totalWater = 0;
+      for (let i = 0; i < heights.length; i++) {
+          maxes[i] = leftMax;
+          leftMax = Math.max(leftMax, heights[i]);
+      }
+      
+      let rightMax = 0;
+      for (let i = heights.length-1; i>= 0; i--) {
+          let minHeight = Math.min(rightMax, maxes[i]);
+          if (minHeight > heights[i]) {
+              totalWater += minHeight - heights[i];
+          }
+          rightMax = Math.max(rightMax, heights[i]);
+      }
+      
+      return totalWater;
+  }
