@@ -23,5 +23,9 @@ public class Heaps {
         - right (index x 2) + 2
     - The array is the literal code implementation of the data structure
     - Insert the new node into the end, then shift it backwards until it's in the appropriate location
+    - Heaps are level by level
+    - ROOTS HAVE THE GREATEST VALUE IN THE MAX HEAP
+    - Take the heap value to insert and compare it to the parent, if it's greater, swap them
+    - Max heap and min heap
     */
 }
