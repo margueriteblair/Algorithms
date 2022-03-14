@@ -14,3 +14,20 @@ var inorderTraversal = function(root) {
     }
     return res;
 };
+
+var inorderTraversal2 = function(root) {
+    let res = [];
+    if (!root) return res;
+    let stack = [];
+    while (stack.length || root) {
+        if (root) {
+            stack.push(root);
+            root = root.left;
+        } else {
+            let curr = stack.pop();
+            res.push(curr.val);
+            root = curr.right;
+        }
+    }
+    return res;
+};
