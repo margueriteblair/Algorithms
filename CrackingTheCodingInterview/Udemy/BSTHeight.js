@@ -26,3 +26,21 @@ var maxDepth = function(root) {
     
     return l > r ? l : r;
 };
+//max height using BFS
+var maxDepth = function(root) {
+    let depth = 0;
+    if (!root) return 0;
+    let queue = [root];
+    while (queue.length) {
+        let count = 0;
+        let length = queue.length;
+        while (count < length) {
+            let curr = queue.shift();
+            if (curr.left) queue.push(curr.left);
+            if (curr.right) queue.push(curr.right);
+            count++;
+        }
+        depth++;
+    }
+    return depth;
+};
