@@ -69,7 +69,6 @@ var maxSatisfied3 = function(customers, grumpy, minutes) {
     for (let we = 0; we < customers.length; we++) {
         if (grumpy[we] == 1) {
             satisfiedCustomers += customers[we];
-            //max = Math.max(satisfiedCustomers, max);
         }
         
         while (we - ws + 1 > minutes) {
