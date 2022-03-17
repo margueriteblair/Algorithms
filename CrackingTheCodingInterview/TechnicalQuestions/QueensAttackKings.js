@@ -61,7 +61,7 @@ var queensAttacktheKing = function(queens, king) {
     while (i < 8 && j < 8) {
         let found = false;
         for (let k = 0; k < queens.length; k++) {
-            if (queens[k][0] == j && queens[k][1] == j) {
+            if (queens[k][0] == i && queens[k][1] == j) {
                 queenCoords.push([i, j]);
                 found = !found;
                 break;
@@ -74,10 +74,10 @@ var queensAttacktheKing = function(queens, king) {
     
     i = king[0]
     j = king[1];
-    while (i < 8 && j < 8) {
+    while (i >= 0 && j < 8) {
         let found = false;
         for (let k = 0; k < queens.length; k++) {
-            if (queens[k][0] == j && queens[k][1] == j) {
+            if (queens[k][0] == i && queens[k][1] == j) {
                 queenCoords.push([i, j]);
                 found = !found;
                 break;
@@ -93,7 +93,7 @@ var queensAttacktheKing = function(queens, king) {
     while (i >= 0 && j >= 0) {
         let found = false;
         for (let k = 0; k < queens.length; k++) {
-            if (queens[k][0] == j && queens[k][1] == j) {
+            if (queens[k][0] == i && queens[k][1] == j) {
                 queenCoords.push([i, j]);
                 found = !found;
                 break;
@@ -106,10 +106,10 @@ var queensAttacktheKing = function(queens, king) {
     
     i = king[0]
     j = king[1];
-    while (i >= 0 && j >= 0) {
+    while (i < 8 && j >= 0) {
         let found = false;
         for (let k = 0; k < queens.length; k++) {
-            if (queens[k][0] == j && queens[k][1] == j) {
+            if (queens[k][0] == i && queens[k][1] == j) {
                 queenCoords.push([i, j]);
                 found = !found;
                 break;
