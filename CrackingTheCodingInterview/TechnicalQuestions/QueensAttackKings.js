@@ -9,7 +9,7 @@ var queensAttacktheKing = function(queens, king) {
     for (let i = king[1]; i >= 0; i--) { //traversing left
         let found = false;
         for (let j = 0; j < queens.length; j++) {
-            if (queens[0] == king[0] && queens[1] == i) {
+            if (queens[j][0] == king[0] && queens[j][1] == i) {
                 queenCoords.push([king[0], i]);
                 found = !found;
                 break;
@@ -45,9 +45,10 @@ var queensAttacktheKing = function(queens, king) {
     }
     
     for (let i = king[0]; i < 8; i++) {
+        //traversing downwards
         let found = false;
-        for (let i = 0; i < queens.length; i++) {
-            if (queens[i][0] == i && queens[i][1] == king[1]) {
+        for (let j = 0; j < queens.length; j++) {
+            if (queens[j][0] == i && queens[j][1] == king[1]) {
                 queenCoords.push([i, king[1]]);
                 found = !found;
                 break;
