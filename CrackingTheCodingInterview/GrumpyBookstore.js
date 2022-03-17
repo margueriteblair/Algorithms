@@ -55,3 +55,29 @@ var maxSatisfied2 = function(customers, grumpy, X) {
     
     return maxSum;
 };
+
+var maxSatisfied3 = function(customers, grumpy, minutes) {
+    let satisfiedCustomers = 0;
+    for (let i = 0; i < customers.length; i++) {
+        if (grumpy[i] == 0) { //O(N) operation
+            satisfiedCustomers += customers[i];
+        }
+    }
+    
+    let ws = 0;
+    let max = satisfiedCustomers;
+    for (let we = 0; we < customers.length; we++) {
+        if (grumpy[we] == 1) {
+            satisfiedCustomers += customers[we];
+            max = Math.max(satisfiedCustomers, max);
+        }
+        
+        while (we - ws + 1 > minutes) {
+            if (grumpy[ws] == 1) {
+                satisfiedCustomers -= customers[ws];
+            }
+            ws++;
+        }
+    }
+    return satisfiedCustomers;
+};
