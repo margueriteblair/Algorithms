@@ -123,3 +123,33 @@ var queensAttacktheKing = function(queens, king) {
     
     return queenCoords;
 };
+
+var queensAttacktheKing2 = function(queens, king) {
+    let res = [];
+    let seen = Array(8).fill(false).map(() => new Array(8).fill(false));
+   
+    for (const queen of queens) {
+        seen[queen[0]][queen[1]] = true;
+    }
+    
+    const directions = [-1, 0, 1];
+    
+    for (const dx of directions) {
+        for (const dy of directions) {
+            if (dx == 0 && dy == 0) continue;
+            
+            let x = king[0];
+            let y = king[1]
+            
+            while (x + dx >= 0 && x + dx < 8 && y + dy >= 0 && y + dy < 8) {
+                x += dx;
+                y += dy;
+                if (seen[x][y]) {
+                    res.push([x, y]);
+                    break;
+                }
+            }
+        }
+    }
+    return res;
+};

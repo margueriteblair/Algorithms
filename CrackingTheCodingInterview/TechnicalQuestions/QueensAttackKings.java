@@ -1,5 +1,7 @@
 package CrackingTheCodingInterview.TechnicalQuestions;
 
+import java.util.*;
+
 public class QueensAttackKings {
     public static void main(String[] args) {
         
