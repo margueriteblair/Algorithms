@@ -1,7 +1,7 @@
 function isSwappable(s, goal) {
     if (s.length != goal.length || s.length < 2 || goal.length < 2) return false;
     let charMap = new Map();
-    let maxCharCount = 1;
+    let existsDups = false;
     for (const c of s) {
       charMap.set(c, charMap.get(c)+1 || 1);
       //s = cat goal = tac
@@ -9,7 +9,7 @@ function isSwappable(s, goal) {
       //if (charMap.get(c) > 1) maxCharCount = 2;
     }
     if (charMap.size != goal) { //this is only if they're the same
-      maxCharCount = 2;
+      existsDups = true;
     }
     for (const goalChar of goal) {
       console.log(goalChar);
@@ -33,7 +33,7 @@ function isSwappable(s, goal) {
         counterMismatch++;
       }
     }
-    return counterMismatch <= 2 && maxCharCount <= 1;
+    return counterMismatch <= 2 && maxCharCount;
   }
   
   // console.log(isSwappable("banana", "baanna"), "expects true")
