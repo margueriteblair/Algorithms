@@ -9,3 +9,21 @@ var maxArea = function(height) {
     }
     return maxProd;
 };
+
+var maxArea = function(height) {
+    let i = 0;
+    let j = height.length-1;
+    let maxWater = 0;
+    
+    while (i < j) {
+        let width = j-i;
+        let currWater = width * Math.min(height[i], height[j]);
+        if (currWater > maxWater) maxWater = currWater;
+        if (height[i] > height[j]) {
+            j--;
+        } else {
+            i++;
+        }
+    }
+    return maxWater;
+};
