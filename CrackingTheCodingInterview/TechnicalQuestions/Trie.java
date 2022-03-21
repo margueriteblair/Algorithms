@@ -86,4 +86,36 @@ public class Trie {
         }
         return searchRecursive(node, word, index+1);
     }
+
+    public void delete(String word) {
+        //deleting an entire word from a trie
+        delete(root, word, 0);
+    }
+
+    private boolean delete(TrieNode curr, String word, int index) {
+        if (index == word.length()) {
+            //we will only delete if the current node is the end of the word
+            if (!curr.endOfWord) {
+                return false;
+            }
+
+            curr.endOfWord = false;
+
+            return curr.children.size() == 0; //this will return true or false;
+        }
+        char ch = word.charAt(index);
+        TrieNode node = curr.children.get(ch);
+        if (node == null) {
+            return false;
+        }
+
+        boolean shouldDeleteCurrNode = delete(node, word, index+1);
+        
+        if (shouldDeleteCurrNode) {
+            curr.children.remove(ch);
+            return curr.children.size() == 0;
+        }
+        return false;
+    }
+
 }
