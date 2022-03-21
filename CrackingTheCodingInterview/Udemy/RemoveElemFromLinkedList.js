@@ -16,3 +16,25 @@ var removeElements = function(head, val) {
     }
     return head;
 };
+
+var removeElements2 = function(head, val) {
+    while (head != null && head.val === val) {
+        head = head.next;
+    }
+    if (head === null) {
+        return head;
+    }
+    
+    let copy = head;
+    let prev = null;
+    while (copy) {
+        if (copy.val === val) {
+            prev.next = copy.next;
+            copy = copy.next
+        } else {
+            prev = copy;
+            copy = copy.next;
+        }
+    }
+    return head;
+};
