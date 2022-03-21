@@ -53,4 +53,20 @@ public class Trie {
 
         insertRecursive(node, word, index+1);
     }
+
+    public boolean search(String word){
+        //will return true or false if a string is in a word
+        TrieNode curr = root;
+        for (int i= 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            TrieNode node = curr.children.get(ch);
+            if (node == null) {
+                return false;
+            }
+            curr = node;
+        }
+        return curr.endOfWord; //will return true if we've reached the end of the word
+    }
+
+    //and now, for the recursive implementation
 }
