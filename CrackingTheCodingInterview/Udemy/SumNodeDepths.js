@@ -19,3 +19,14 @@ function nodeDepths(root) {
       }
       return sum;
   }
+
+
+  function nodeDepths2(root) {
+    // Write your code here.
+      return getDepth(root, 0);
+  }
+  
+  function getDepth(root, depth) {
+      if (!root) return 0;
+      return depth + getDepth(root.left, depth+1) + getDepth(root.right, depth+1);
+  }
