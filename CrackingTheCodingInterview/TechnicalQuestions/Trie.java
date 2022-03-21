@@ -69,4 +69,21 @@ public class Trie {
     }
 
     //and now, for the recursive implementation
+    public boolean searchRecursive(String word) {
+        return searchRecursive(root, word, 0)
+    }
+
+    private boolean searchRecursive(TrieNode curr, String word, int index) {
+        if (index == word.length()) {
+            //if our index is up to our length, we've reached the end of the word
+            return curr.endOfWord;
+        }
+
+        char ch = word.charAt(index);
+        TrieNode node = curr.children.get(ch);
+        if (node == null) {
+            return false;
+        }
+        return searchRecursive(node, word, index+1);
+    }
 }
