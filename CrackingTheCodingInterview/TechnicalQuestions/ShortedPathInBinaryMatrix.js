@@ -29,3 +29,46 @@ var shortestPathBinaryMatrix = function(grid) {
     }
     return -1;
 };
+
+const directions = [[-1,-1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1,1], [1,0], [1,-1], [0, -1]];
+var shortestPathBinaryMatrix = function(grid) {
+    //here we're thinking about using a set to track the visted nodes and to put the distances in the queue
+
+    if (grid.length == 0) return -1;
+    if (grid[0][0] !== 0 || grid[grid.length-1][grid[0].length-1] !== 0) return -1;
+
+
+    let q = [];
+    let visited = new Array(grid.length).fill(false).map(() => new Array(grid[0].length).fill(false))
+    
+    q.push([0,0,1]); // row, col, distance
+    visited[0][0] = true;
+    while (q.length) {
+        let curr = q.shift();
+        let row = curr[0]
+        let col = curr[1]
+        let distance = curr[2];
+        if (row === grid.length-1 && col === grid[0].length-1) {
+            return distance;
+        }
+        for (const neighbor of getNeighbors(row, col, grid)) {
+            if (visited[neighbor[0]][neighbor[1]]) continue;
+            visited[neighbor[0], neighbor[1]] = true;
+            q.push([...neighbor, distance+1]);
+        }
+    }
+    return -1;
+};
+
+var getNeighbors = function(row, col, grid) {
+    let neighbors = [];
+    for (let i = 0; i < directions.length; i++) {
+        let newRow = directions[i][0] + row
+        let newCol = directions[i][1] + col
+        if (newRow < 0 || newCol < 0 || newRow >= grid.length || newCol >= grid[0].length || grid[newRow][newCol] !== 0) {
+            continue;
+        }
+        neighbors.push([newRow, newCol]);
+    }
+    return neighbors;
+}
