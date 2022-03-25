@@ -70,7 +70,7 @@ public class Trie {
 
     //and now, for the recursive implementation
     public boolean searchRecursive(String word) {
-        return searchRecursive(root, word, 0)
+        return searchRecursive(root, word, 0);
     }
 
     private boolean searchRecursive(TrieNode curr, String word, int index) {
