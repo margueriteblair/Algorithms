@@ -13,3 +13,15 @@ var removeDuplicates = function(s) {
     }
     return s;
 };
+
+var removeDuplicates2 = function(s) {
+    let stack = [];
+    for (let c of s) {
+        if (stack.length !== 0 && stack[stack.length-1] === c) {
+            stack.pop();
+        } else {
+            stack.push(c);
+        }
+    }
+    return stack.join("");
+};
