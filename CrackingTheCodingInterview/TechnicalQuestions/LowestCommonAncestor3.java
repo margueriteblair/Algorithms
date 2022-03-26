@@ -22,3 +22,22 @@ public Node lowestCommonAncestor(Node p, Node q) {
     }
     return lca;
 }
+
+public Node lowestCommonAncestor2(Node p, Node q) {
+    Node p1 = p;
+    Node p2 = q;
+    while (p1 != p2) {
+        if (p1.parent != null) {
+            p1 = p1.parent;
+        } else {
+            p1 = q;
+        }
+        
+        if (p2.parent != null) {
+            p2 = p2.parent;
+        } else {
+            p2 = p;
+        }
+    }
+    return p1;
+}
