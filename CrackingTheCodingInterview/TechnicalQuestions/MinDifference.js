@@ -22,3 +22,31 @@ function findMinDiff(minutes) {
   
     return runningMin;
   }
+
+  var findMinDifference = function(timePoints) {
+    let buckets = new Array(1440).fill(false);
+    for (let i = 0; i < timePoints.length; i++) {
+        let arr = timePoints[i].split(":");
+        let mins = +arr[0]*60 + +arr[1]
+        if (buckets[mins]) return 0;
+        buckets[mins] = true;
+    }
+    
+    let min = Infinity;
+    let first = -1;
+    let prev = -1;
+    for (let i = 0; i < buckets.length; i++) {
+        if (buckets[i]) {
+            if (first == -1){
+                first = i;
+                prev = i;
+            } else{
+                min = Math.min(min, i - prev);
+                prev = i;
+            }
+        }
+    }
+    let outsideMin = 1440 - prev + first;
+    min = Math.min(min, outsideMin);
+    return min;
+};
