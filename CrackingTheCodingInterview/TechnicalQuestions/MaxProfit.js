@@ -21,3 +21,16 @@ var maxProfit = function(prices) {
     }
     return maxProfit;
 };
+
+var maxProfit = function(prices) {
+    let minPrior = Infinity;
+    let maxProfit = 0;
+    for (let i = 0; i < prices.length;i++) {
+        if (prices[i] < minPrior) {
+            minPrior = prices[i];
+        } else if (prices[i] - minPrior > maxProfit) {
+            maxProfit = prices[i] - minPrior;
+        }
+    }
+    return maxProfit;
+};
