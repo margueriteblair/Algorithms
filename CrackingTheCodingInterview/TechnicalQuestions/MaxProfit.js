@@ -23,13 +23,14 @@ var maxProfit = function(prices) {
 };
 
 var maxProfit = function(prices) {
-    let minPrior = Infinity;
     let maxProfit = 0;
-    for (let i = 0; i < prices.length;i++) {
-        if (prices[i] < minPrior) {
-            minPrior = prices[i];
-        } else if (prices[i] - minPrior > maxProfit) {
-            maxProfit = prices[i] - minPrior;
+    let minThusFar = Infinity;
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i] < minThusFar) {
+            minThusFar = prices[i];
+        }
+        if (prices[i] - minThusFar > maxProfit) {
+            maxProfit = prices[i] - minThusFar;
         }
     }
     return maxProfit;
