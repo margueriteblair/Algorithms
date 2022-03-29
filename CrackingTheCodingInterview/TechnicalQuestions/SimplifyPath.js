@@ -20,3 +20,23 @@ var simplifyPath = function(path) {
     return finalPath;
     
 };
+
+var simplifyPath = function(path) {
+    let elems = path.split("/"); //splitting on each slash to get important pieces
+    let arr = [];
+    for (let i = 0; i < elems.length; i++) {
+        if (elems[i] === "" || elems[i] === ".") {
+            continue;
+        } else if (elems[i] === "..") {
+            arr.pop();
+        } else {
+            arr.push(elems[i]);
+        }
+    }
+
+    let res = "/";
+    for (let i = 0; i < arr.length; i++) {
+        res = res + arr[i] + "/";
+    }
+    return arr.length >= 1 ? res.slice(0, -1) : res;
+};
