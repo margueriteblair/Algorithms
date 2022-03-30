@@ -3,7 +3,6 @@ var evalRPN = function(tokens) {
     let stack = [];
     for (let token of tokens) {
         if (+token) {
-            console.log(parseInt(token))
             stack.push(parseInt(token));
         } else {
             let curr = 0;
@@ -16,8 +15,10 @@ var evalRPN = function(tokens) {
             } else if (token == "*") {
                 curr = first * second;
             } else if (token == "/") {
-                curr = Math.floor(first / second);
+                curr = parseInt(first / second);
+                console.log(first, second, curr);
             }
+            
             stack.push(curr);
         }
     }
