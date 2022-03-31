@@ -19,7 +19,6 @@ var permute = function(nums) {
 
 var permute2 = function(nums) {
     let res = [];
-    let tmp = [];
     
     const backtrack = (nums, tmp, res) => {
         if (tmp.length === nums.length) {
