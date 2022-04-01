@@ -6,18 +6,17 @@ public class PowXN {
     }
 
     public double myPow(double x, int n) {
-        double expo = 1;
-        for (int i = 0; i < Math.abs(n); i++) {
-            if (n > 0) {
-               expo *= x; 
-            } else if (n < 0) {
-                expo = expo / x;
-            } else {
-                return 1;
-            }
-            
+        
+        double expo = 1.0;
+        if (n == 0) {
+            return 1.0;
         }
         
+        if (n % 2 == 0) {
+            expo = myPow(x, n/2) * myPow(x, n/2);
+        } else {
+            expo = myPow(x, n/2) * myPow(x, n/2) * x;
+        }
         return expo;
     }
 }
