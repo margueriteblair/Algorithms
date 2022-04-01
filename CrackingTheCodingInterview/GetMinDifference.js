@@ -23,3 +23,24 @@ var dfs = function(root, res) {
         dfs(root.right, res);
     }
 }
+
+
+var getMinimumDifference2 = function(node) {
+    let absMin = Infinity;
+
+  const _dfs = (node, min, max, parent) => {
+    if(!node) return;
+
+    const parentDiff = Math.abs(parent - node.val);
+    const diffWithMin = Math.abs(min - node.val);
+    const diffWithMax = Math.abs(max - node.val);
+    absMin = Math.min(absMin, parentDiff, diffWithMin, diffWithMax);
+
+    _dfs(node.left, min, node.val, node.val);
+    _dfs(node.right, node.val, max, node.val);
+  };
+
+  _dfs(node, -Infinity, Infinity, Infinity);
+
+  return absMin === Infinity ? 0: absMin;
+};
