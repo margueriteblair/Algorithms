@@ -20,4 +20,13 @@ function floodFill(image, sr, sc, newColor) {
         }
       }
     }
+    function _dfs2(row, col) {
+        if (image[row][col] === color) {
+          image[row][col] = newColor;
+          if (row > 0) _dfs2(row-1, col);
+          if (col > 0) _dfs2(row, col-1);
+          if (row < image.length-1) _dfs2(row+1, col);
+          if (col < image[0].length-1) _dfs2(row, col+1); 
+        }
+      }
   }
