@@ -16,7 +16,7 @@ function floodFill(image, sr, sc, newColor) {
       if(image[row]?.[col] === color) {
         image[row][col] = newColor
         for(let [dr, dc] of [[0,1], [1,0], [-1, 0], [0, -1]]) {
-          _dfs(row + dr, col + dc);
+          _dfs2(row + dr, col + dc);
         }
       }
     }
