@@ -23,3 +23,15 @@ var minCostClimbingStairs = function(cost) {
     
     return Math.min(memo.get(n-1), memo.get(n-2));
 };
+
+var minCostClimbingStairs = function(cost) {
+    const n = cost.length;
+    let memo = [cost[0], cost[1]];
+    for (let i = 2; i < n; i++) {
+        let tmp = memo[1];
+        memo[1] = cost[i] + Math.min(tmp, memo[0]);
+        memo[0] = tmp;
+    }
+    
+    return Math.min(memo[0], memo[1]);
+};
