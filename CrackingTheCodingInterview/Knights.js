@@ -36,3 +36,21 @@ var knightProbability = function(n, k, row, column) {
     //console.log(seen)
     return totalP/8;
 };
+
+let directions = [[-2, -1], [-2, 1], [2, 1], [2, -1], [-1, 2], [-1, -2], [1, 2], [1, -2]];
+var knightProbabilityRecursive = function(n, k, row, col) {
+        if (row < 0 || row >= n || col < 0 || col >= n) {
+            return 0;
+        }
+        if (k == 0) {
+            return 1;
+        }
+    
+        let res = 0;
+        for (const dir of directions) {
+            let x = dir[0]
+            let y = dir[1]
+            res += knightProbabilityRecursive(n, k-1, row+x, col+y) / 8;
+        }
+        return res;
+};
