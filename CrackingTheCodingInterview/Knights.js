@@ -25,11 +25,11 @@ var knightProbability = function(n, k, row, col) {
 };
 
 var recurse = function(n, k, r, c, dp){
-    if (k == 0) {
-        return 1;
-    }
     if (r < 0 || c < 0 || r >= n || c >= n) {
         return 0;
+    }
+    if (k == 0) {
+        return 1;
     }
     
     if (dp[k][r][c] !== undefined) {
