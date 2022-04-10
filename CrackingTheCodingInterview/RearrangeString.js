@@ -1,3 +1,4 @@
+*/
 var reorganizeString = function(s) {
     let charMap = new Map();
     let mostFrequency = 0;
