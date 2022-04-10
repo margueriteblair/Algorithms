@@ -9,23 +9,24 @@ var reorganizeString = function(s) {
             mostFrequency = charMap.get(char);
         }
     }
-    console.log(mostFrequency)
-    console.log(mostFrequentChar)
+
     if (mostFrequency > (s.length+1)/2) return "";
     let res = new Array(s.length).fill("");
     let i = 0;
-    while (mostFrequency >= 0 && i < s.length) {
+    while (mostFrequency > 0 && i < s.length) {
         res[i] = mostFrequentChar;
         mostFrequency--
         i+=2;
     }
-    i = 1;
-    for (let j = 0; j < s.length; j++) {
-        if (s[j] !== mostFrequentChar) {
-            res[i] = s[j];
-            i+=2;
+    
+    for (let c of charMap.keys()) {
+        while (charMap.get(c) > 0 && c != mostFrequentChar) {
+            if (i >= s.length) i = 1;
+            res[i] = c;
+            charMap.set(c, charMap.get(c)-1);
+            i +=2;
         }
-        
     }
+        
     return (res.join(""))
 };
