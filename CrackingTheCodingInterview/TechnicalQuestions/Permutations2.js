@@ -7,9 +7,7 @@ var permuteUnique = function(nums) {
     var _backtrack = function(curr) {
         
         if (curr.length === nums.length) {
-            console.log(curr)
-            res.push(curr);
-            console.log(res)
+            res.push([...curr]);
             return;
         }
         
