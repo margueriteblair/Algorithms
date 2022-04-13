@@ -18,3 +18,22 @@ var longestConsecutive = function(nums) {
     }
     return longest;
 };
+
+var longestConsecutive2 = function(nums) {
+    if (nums.length === 0) return 0;
+    nums.sort((a, b) => {
+        return a-b;
+    });
+    let globalLongest = 1;
+    let longest = 1;
+    for (let i = 1; i < nums.length; i++) {
+        console.log(nums[i])
+        if (nums[i-1]+1 == nums[i]) {
+            longest++;
+        } else if (nums[i-1]+1 < nums[i]) {
+            longest = 1;
+        }
+        globalLongest = Math.max(longest, globalLongest);
+    }
+    return globalLongest;
+};
