@@ -5,6 +5,7 @@ function ListNode(val, next = null, down = null) {
 }
 
 const flatten = (list) => {
+    //O(N) time, O(N) space
     if(!list) return list;
   
     const prehead = new ListNode(null);
@@ -22,4 +23,27 @@ const flatten = (list) => {
     _dfs(list);
   
     return prehead.next;
+  };
+
+  const flatten2 = (list) => {
+    if(!list) return list;
+  
+    let curr = list;
+  
+    while(curr) {
+      if(curr.down){
+        let downmost = curr.down;
+        while(downmost && downmost.next) {
+          downmost = downmost.next;
+        }
+      
+        downmost.next = curr.next;
+        curr.next = curr.down
+        curr.down = null;
+      }
+      
+      curr = curr.next;
+    }
+  
+    return list;
   };
