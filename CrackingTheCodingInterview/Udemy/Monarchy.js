@@ -26,7 +26,20 @@ class Monarchy {
     }
 
     getOrderOfSuccession = function() {
-        //traverse Tree here
+        //traverse Tree here performs our pre order DFS
+        const order = [];
+
+        this._dfs(this.king, order);
+        return order;
+    }
+
+    _dfs = function(currentPerson, order) {
+        if (currentPerson.isAlive) {
+            order.push(currentPerson.name);
+        }
+        for (let i = 0; i < currentPerson.children.length; i++) {
+            _dfs(currentPerson.children[i], order)
+        }
     }
 }
 
