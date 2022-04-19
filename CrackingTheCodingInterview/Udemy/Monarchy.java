@@ -17,3 +17,4 @@ public interface Monarchy {
 //order of succession can be changed by a death in the family
 //data structure to retain a tree
 //use any features in your language
+//N-ary tree, can use DFS & BFS
