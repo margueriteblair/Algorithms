@@ -13,3 +13,7 @@ public interface Monarchy {
 //birth('Tom', 'Jake')
 //birth('Celine', 'Jake') --> birth orders
 //birth('Mark', 'Catherine')
+//the order of succession is Jake -> Catherine -> Farah -> Mark
+//order of succession can be changed by a death in the family
+//data structure to retain a tree
+//use any features in your language
