@@ -12,12 +12,17 @@ class Monarchy {
 
     birth = function(child, parent) { //both child and parent are of people classes
         let childPerson = new Person(child);
-        this.personMap.set(parent, this.personMap.get(parent).push(childPerson))
-        this.personMap.set(child, this.child)
+        let parentPerson = this.personMap.get(parent);
+        this.personMap.set(parent, parentPerson.push(childPerson))
+        this.personMap.set(child, childPerson)
     }
 
     death = function(name) {
-
+        let deadPerson = this.personMap.get(name);
+        if (!deadPerson) {
+            return null;
+        }
+        deadPerson.isAlive = false;
     }
 
     getOrderOfSuccession = function() {
