@@ -23,4 +23,26 @@ class Trie {
             this.insert(word.substring(1), node.keys.get(word[0]));
         }
     }
+
+    search(word, node = this.root) {
+        if (word.length === 0 && node.endsWith === true) {
+            return true;
+        } else if (word.length === 0) {
+            return false;
+        } else if (!node.keys.has(word[0])) {
+            return false;
+        } else {
+            return this.search(word.substring(1), node.keys.get(word[0]))
+        }
+    }
+
+    startsWith(prefix, node = this.root) {
+        if (prefix.length === 0) {
+            return true;
+        } else if (!node.keys.has(word[0])) {
+            return false;
+        } else {
+            return this.startsWith(prefix.substring(1), node.keys.get(prefix[0]));
+        }
+    }
 }
