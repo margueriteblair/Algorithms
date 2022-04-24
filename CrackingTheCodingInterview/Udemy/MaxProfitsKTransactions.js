@@ -14,7 +14,7 @@ function maxProfitWithKTransactions(prices, k) {
           profits.push(new Array(prices.length).fill(0))
       }
       for (let t = 1; t < k + 1; t++) {
-          let maxThusFar = -Infinity;
+          let maxThusFar = -Infinity; //hi
           for (let d = 1; d < prices.length; d++) {
               //d is the day, t is the time
               maxThusFar = Math.max(maxThusFar, profits[t-1][d-1] - prices[d-1]);
