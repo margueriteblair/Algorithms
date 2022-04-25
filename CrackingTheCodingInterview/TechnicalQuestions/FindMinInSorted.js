@@ -32,3 +32,20 @@ var binarySearch = function(nums, left, right) {
     runningMin = Math.min(rightMin, leftMin);
     return runningMin;
 }
+
+var findMin = function(nums) {
+    return binarySearch(nums, 0, nums.length-1);
+};
+
+var binarySearch = function(nums, low, high) {
+    if (high === low) {
+        return nums[low]
+    }
+    let mid = Math.floor((low + high)/2);
+    if (nums[mid] < nums[high]) {
+        high = mid
+    } else {
+        low = mid+1;
+    }
+    return binarySearch(nums, low, high)
+}
