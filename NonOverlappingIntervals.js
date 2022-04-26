@@ -1,5 +1,5 @@
 var eraseOverlapIntervals = function(intervals) {
-    let numToDelete = 0;
+    //time: O(2^N) space: O(N)
     intervals.sort((a, b) => {return a[0] - b[0]});
     
     var _backtrack = function(prev, curr, intervals) {
