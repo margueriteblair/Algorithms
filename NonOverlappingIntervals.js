@@ -40,3 +40,18 @@ var eraseOverlapIntervals = function(intervals) {
     }
     return intervals.length - ans;
 };
+
+var eraseOverlapIntervals = function(intervals) {
+    intervals.sort((a, b) => {return a[0] - b[0]}); //sort by starting index
+    let res = 0;
+    let prevEnd= intervals[0][1];
+    for (let i = 1; i < intervals.length; i++) {
+        if (intervals[i][0] >= prevEnd) {
+            prevEnd = intervals[i][1];
+        } else {
+            res++;
+            prevEnd = Math.min(intervals[i][1], prevEnd);
+        }
+    }
+    return res;
+};
