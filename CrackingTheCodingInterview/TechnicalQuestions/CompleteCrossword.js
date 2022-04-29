@@ -13,7 +13,10 @@ function completeCrossword(words) {
   
       for (const word of words) {
         currBoard.push(word);
-        _backtrack(currBoard, currNum+1);
+        let val = _backtrack(currBoard, currNum+1);
+        if (val) {
+            return val;
+        }
         currBoard.pop();
       }
     }
