@@ -1,26 +1,23 @@
 var asteroidCollision = function(asteroids) {
     const stack = [];
-    
+    let blows = false;
     for (let i = 0; i < asteroids.length; i++) {
-        if (asteroids[i] > 0) {
-            stack.push(asteroids[i]);
-        } else {
-            if (stack.length === 0 || stack[stack.length-1] < 0) {
-                stack.push(asteroids[i]);
+        blows = false;
+        while (stack.length !== 0 && asteroids[i] < 0 && stack[stack.length-1] >0 && !blows ) {
+            if (-asteroids[i] < stack[stack.length-1]) {
+                blows = true;
             } else {
-                let prev = null;
-                while (Math.abs(asteroids[i]) > stack[stack.length-1] && stack[stack.length-1] > 0) {
-                    prev = stack.pop();
-                }
-                if (Math.abs(asteroids[i]) === stack[stack.length-1]) {
+                if (-asteroids[i] === stack[stack.length-1]) {
+                    blows = true;
                     stack.pop();
-                    continue;
+                } else {
+                    stack.pop();
                 }
-                
-                if (stack[stack.length-1] < 0) stack.push(asteroids[i])
             }
         }
-        console.log(stack)
+        if (!blows) {
+            stack.push(asteroids[i])
+        }
     }
     return stack;
 };
