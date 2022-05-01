@@ -8,9 +8,16 @@ var asteroidCollision = function(asteroids) {
             if (stack.length === 0 || stack[stack.length-1] < 0) {
                 stack.push(asteroids[i]);
             } else {
-                while (Math.abs(asteroids[i]) >= stack[stack.length-1] && stack[stack.length-1] > 0) {
-                    stack.pop();
+                let prev = null;
+                while (Math.abs(asteroids[i]) > stack[stack.length-1] && stack[stack.length-1] > 0) {
+                    prev = stack.pop();
                 }
+                if (Math.abs(asteroids[i]) === stack[stack.length-1]) {
+                    stack.pop();
+                    continue;
+                }
+                
+                if (stack[stack.length-1] < 0) stack.push(asteroids[i])
             }
         }
         console.log(stack)
