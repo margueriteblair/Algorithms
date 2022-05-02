@@ -4,9 +4,8 @@ var minWindow = function(s, t) {
     for (const c of t) {
         tMap.set(c, tMap.get(c) + 1 || 1);
     }
-    let windowStart = 0;
+    
     let required = tMap.size; //number of unique chars in t that need to be in the required window
-    let minSubstring = "";
     let l = 0, r = 0;
     let formed = 0;
     let windowCounts = new Map(); //hm that keeps count of all the unique chars in the current window
