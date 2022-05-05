@@ -17,3 +17,4 @@ var topKFrequent = function(nums, k) {
     }
     return res;
 };
+//heap implementation more optimal
