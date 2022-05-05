@@ -1,3 +1,8 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class LeastBricksInWall {
     public int leastBricks(List<List<Integer>> wall) {
         int untouched = 0;
         Map<Integer, Integer> map = new HashMap<>();
@@ -15,3 +20,4 @@
         //O(N)
         //O(N)
     }
+} 
