@@ -36,3 +36,24 @@ class DoublyLinkedList {
         this.tail.next = null;
     }
 }
+
+class DoublyLinkedListNode {
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+
+    removeBindings() {
+        if (this.prev !== null) {
+            this.prev.next = this.next;
+        }
+        if (this.next !== null) {
+            this.next.prev = this.prev;
+        }
+
+        this.prev = null;
+        this.next = null;
+    }
+}
