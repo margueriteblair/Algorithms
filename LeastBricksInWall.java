@@ -21,7 +21,7 @@ public class LeastBricksInWall {
         //O(N)
     }
 
-    public int leastBricks(List<List<Integer>> wall) {
+    public int leastBricks2(List<List<Integer>> wall) {
         int[] pos = new int[wall.size()];
         int c = 0, sum = 0, res = Integer.MAX_VALUE;
         for (int el : wall.get(0)) {
