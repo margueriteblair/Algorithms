@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParkingLot {
     private List<ParkingSpace> availableSpaces = new ArrayList<>();
-    private List<ParkingSpace> usedSpaces = new ArrayList<>();
+    private List<ParkingSpace> fullSpaces = new ArrayList<>();
 
 }
 
