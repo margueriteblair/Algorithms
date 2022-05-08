@@ -78,8 +78,8 @@ class DoublyLinkedList {
           if (this.tail === node) {
               this.removeTail(); //remove the tail from this doubly linked list
           }
-                      node.removeBindings();
-                    this.head.prev = node;
+          node.removeBindings();
+          this.head.prev = node;
           node.next = this.head;
           this.head = node;
       }
