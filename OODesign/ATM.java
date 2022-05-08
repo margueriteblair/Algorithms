@@ -3,7 +3,9 @@ package OODesign;
 import java.util.*;
 
 public class ATM {
-    private int totalBalance;
+    private int availableCash;
+    private User currentUser;
+    private State currentState;
     private Map<Integer, Integer> denominations; //will count the 1's, 5's, 10's 20's, 50's, 100's
 
 
@@ -37,5 +39,16 @@ class Card {
     public boolean authenticatePin(int userInputPIN) {
         return this.PIN == userInputPIN;
     } 
+}
+
+enum State {
+    READY,
+    ENTER_PIN,
+    SELECT_TX,
+    DEPOSIT,
+    WITHDRAW,
+    DISPLAY_BALANCE,
+    CASH_DISPENSED,
+    ERROR
 }
 
