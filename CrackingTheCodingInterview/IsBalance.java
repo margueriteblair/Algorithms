@@ -4,8 +4,7 @@ public class IsBalance {
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         
-        System.out.println(getMinHeight(root));
-        return getMaxHeight(root) - getMinHeight(root) > 1 ? false : true;
+        return (Math.abs(getMaxHeight(root.left) - getMaxHeight(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right));
     }
     
     public int getMaxHeight(TreeNode node) {
@@ -16,15 +15,5 @@ public class IsBalance {
         right = 1 + getMaxHeight(node.right);
         
         return Math.max(left, right);
-    }
-    
-    public int getMinHeight(TreeNode node) {
-        if (node == null) return 0;
-        int left = 1, right = 1;
-        
-        left = 1 + getMinHeight(node.left);
-        right = 1 + getMinHeight(node.right);
-        
-        return Math.min(left, right);
     }
 }
