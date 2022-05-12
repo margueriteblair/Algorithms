@@ -9,17 +9,18 @@ class BinaryTree {
   function branchSums(root) {
     // Write your code here.
       let res = [];
-      currSum = 0;
-      dfs(root, res, currSum)
+      dfs(root, res, 0)
       return res;
   }
   
   function dfs(node, res, currSum) {
-      if (node !== null) {
-          currSum += node.value;
-          dfs(node.left, res, currSum);
-          dfs(node.right, res, currSum);
-      } else {
-          res.push(currSum);
+      if (!node) return;
+      const newSum = currSum + node.value;
+      if (!node.left && !node.right) {
+          res.push(newSum);
+          return;
       }
+      
+      dfs(node.left, res, newSum)
+      dfs(node.right, res, newSum)
   }
