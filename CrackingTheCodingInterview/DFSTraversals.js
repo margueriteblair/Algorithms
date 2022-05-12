@@ -19,9 +19,9 @@ function inOrderTraverse(tree, array) {
   
   function postOrderTraverse(tree, array) {
     if (tree) {
-              preOrderTraverse(tree.left, array);
-              preOrderTraverse(tree.right, array);
-              array.push(tree.value);
+        postOrderTraverse(tree.left, array);
+        postOrderTraverse(tree.right, array);
+        array.push(tree.value);
       }
       return array;
   }
