@@ -20,11 +20,12 @@ function riverSizes(matrix) {
             for (const dir of directions) {
               let nextRow = dir[0] + currRow;
               let nextCol = dir[1] + currCol;
-              if (nextRow < 0 || nextRow >= matrix.length || nextCol < 0 || nextCol >= matrix[0].length) {
+              if (nextRow < 0 || nextRow >= matrix.length || nextCol < 0 || nextCol >= matrix[0].length || matrix[nextRow][nextCol] === 0) {
                 continue;
               }
   
               if (matrix[nextRow][nextCol] === 1) {
+                matrix[nextRow][nextCol] = 0;
                 q.push([nextRow, nextCol]);
               }
             }
